@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Minijam210Astral"
+run/main_scene="uid://dpfqty7vlkf04"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c7ef4st4krpli"
+
+[dotnet]
+
+project/assembly_name="Minijam210Astral"
 
 [physics]
 
