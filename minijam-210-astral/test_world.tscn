@@ -20,11 +20,9 @@ pieces = Array[NodePath]([NodePath("Element"), NodePath("Element2"), NodePath("E
 [node name="Element3" parent="Spacer" unique_id=197843286 instance=ExtResource("1_dxppu")]
 
 [node name="Element4" parent="Spacer" unique_id=261421355 instance=ExtResource("1_dxppu")]
-modulate = Color(1, 0, 1, 1)
 tipo = 1
 
 [node name="Element5" parent="Spacer" unique_id=1425808738 instance=ExtResource("1_dxppu")]
-modulate = Color(1, 0, 1, 1)
 tipo = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2004551152]

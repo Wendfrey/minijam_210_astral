@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cte0ymnxkobwq"]
 
-[ext_resource type="Texture2D" uid="uid://bn30fyv3vlimi" path="res://icon.svg" id="1_pmcjm"]
 [ext_resource type="Script" uid="uid://c67tpwgg1fdjg" path="res://element.gd" id="1_vnigt"]
+[ext_resource type="Texture2D" uid="uid://cki01o01cheno" path="res://assets/img/Ficha_A.png" id="2_vnigt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
 size = Vector2(128, 130)
@@ -11,7 +11,8 @@ input_pickable = true
 script = ExtResource("1_vnigt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100283629]
-texture = ExtResource("1_pmcjm")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vnigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066180176]
 shape = SubResource("RectangleShape2D_vnigt")

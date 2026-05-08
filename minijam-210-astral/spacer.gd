@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _piece_picked(node:Node2D):
 	if dropped_tween.get("node", null) == node:
-		dropped_tween["tween"].stop()
+		dropped_tween["tween"].kill()
 	node.moved.connect(_on_element_item_rect_changed)
 	nodePositionIndex = pieces.find(get_path_to(node))
 	pickedNode = node
@@ -54,7 +54,7 @@ func _on_element_item_rect_changed():
 		if node == pickedNode:
 			continue
 		if previousTweens.has(nPath):
-			previousTweens[nPath].stop()
+			previousTweens[nPath].kill()
 			previousTweens.erase(nPath)
 		var tween:Tween = create_tween()
 		tween.tween_property(node,"global_position", array_positions[i], calculate_time(array_positions[i], node.global_position))\

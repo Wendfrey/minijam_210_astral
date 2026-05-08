@@ -14,6 +14,23 @@ var offset:Vector2
 
 @export var tipo:Tipo = Tipo.A
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	match(tipo):
+		Tipo.A:
+			sprite_2d.texture = preload("uid://cki01o01cheno")
+		Tipo.B:
+			sprite_2d.texture = preload("uid://c0r0xyy7ehgk")
+		Tipo.C:
+			sprite_2d.texture = preload("uid://blmklmcnksp0q")
+		Tipo.D:
+			sprite_2d.texture = preload("uid://b32eqjyx8hpm7")
+		Tipo.E:
+			sprite_2d.texture = preload("uid://cottcd1yxvw7y")
+		Tipo.F:
+			sprite_2d.texture = preload("uid://doe08bn356iws")
+
 func _on_mouse_entered() -> void:
 	focused = true
 
