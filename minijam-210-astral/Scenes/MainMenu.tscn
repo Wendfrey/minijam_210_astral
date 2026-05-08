@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpfqty7vlkf04"]
+
+[node name="Node2D" type="Node2D" unique_id=672581027]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1532188806]
+offset_left = 4.0
+offset_top = 496.0
+offset_right = 386.0
+offset_bottom = 646.0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1711372382]
+layout_mode = 2
+text = "PLAY"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1514538714]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1815757495]
+layout_mode = 2
+text = "EXIT"
