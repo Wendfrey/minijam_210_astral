@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://csjyu5taxo1po"]
+
+[ext_resource type="PackedScene" uid="uid://cte0ymnxkobwq" path="res://element.tscn" id="1_dxppu"]
+[ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
+
+[node name="TestWorld" type="Node2D" unique_id=140087252]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
+
+[node name="Spacer" type="Node2D" parent="." unique_id=333636565]
+script = ExtResource("2_gy3sr")
+pieces = Array[NodePath]([NodePath("Element"), NodePath("Element2"), NodePath("Element3"), NodePath("Element4"), NodePath("Element5")])
+
+[node name="Element" parent="Spacer" unique_id=1745300402 instance=ExtResource("1_dxppu")]
+
+[node name="Element2" parent="Spacer" unique_id=1738437686 instance=ExtResource("1_dxppu")]
+
+[node name="Element3" parent="Spacer" unique_id=197843286 instance=ExtResource("1_dxppu")]
+
+[node name="Element4" parent="Spacer" unique_id=261421355 instance=ExtResource("1_dxppu")]
+
+[node name="Element5" parent="Spacer" unique_id=1425808738 instance=ExtResource("1_dxppu")]
