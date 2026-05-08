@@ -16,18 +16,23 @@ func _ready() -> void:
 		node.send_dropped.connect(_piece_dropped.bind(node))
 
 func _piece_picked(node:Node2D):
+	if dropped_tween.get("node", null) == node:
+		dropped_tween["tween"].stop()
 	node.moved.connect(_on_element_item_rect_changed)
 	nodePositionIndex = pieces.find(get_path_to(node))
 	pickedNode = node
 	
+var dropped_tween:Dictionary = {}
 func _piece_dropped(node:Node2D):
 	node.moved.disconnect(_on_element_item_rect_changed)
-	#node.global_position = array_positions[nodePositionIndex]
 	var tween:Tween = create_tween()
 	tween.tween_property(node, "global_position", array_positions[nodePositionIndex], calculate_time(node.global_position, array_positions[nodePositionIndex]))\
 	.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(node, "top_level", false, 0)
+	tween.finished.connect(func (): if dropped_tween["node"] == node: dropped_tween = {})
 	pickedNode = null
+	dropped_tween["tween"] = tween
+	dropped_tween["node"] = node
 	
 var previousTweens:Dictionary = {}
 func _on_element_item_rect_changed():
@@ -43,7 +48,6 @@ func _on_element_item_rect_changed():
 	var finish = nodePositionIndex if closest_index < nodePositionIndex else closest_index
 	pieces.remove_at(nodePositionIndex)
 	pieces.insert(closest_index, get_path_to(pickedNode))
-	print(start, " ", finish)
 	for i in range(start, finish+1):
 		var nPath = pieces[i]
 		var node = get_node(nPath)
