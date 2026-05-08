@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d2qcytqjqpvj7"]
+
+[ext_resource type="Script" uid="uid://bka7s4xolh1uo" path="res://Scenes/options_screen.gd" id="1_iyeq7"]
+[ext_resource type="Script" uid="uid://ciew7sn4ht2qj" path="res://Scenes/master_sound.gd" id="1_shmdw"]
+
+[node name="OptionsScreen" type="Control" unique_id=1146029527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iyeq7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1943432316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1410196266]
+layout_mode = 2
+
+[node name="LBL_Vol_Master" type="Label" parent="MarginContainer/VBoxContainer" unique_id=845637629]
+layout_mode = 2
+text = "MASTER VOLUME"
+
+[node name="SLD_Vol_Master" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=556517452]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_shmdw")
+bus_name = "Master"
+
+[node name="LBL_Vol_Music" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1235069583]
+layout_mode = 2
+text = "MUSIC VOLUME"
+
+[node name="SLD_Vol_Music" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1843517528]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_shmdw")
+bus_name = "Music"
+
+[node name="LBL_Vol_SFX" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1493556026]
+layout_mode = 2
+text = "SOUND VOLUME"
+
+[node name="SLD_Vol_SFX" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=2046251773]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_shmdw")
+bus_name = "SFX"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer" unique_id=136943242]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSeparator" unique_id=805649016]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BTN_MainMenu" type="Button" parent="MarginContainer/HSeparator/MarginContainer" unique_id=258726502]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/HSeparator/MarginContainer/BTN_MainMenu" to="." method="_on_btn_main_menu_pressed"]
