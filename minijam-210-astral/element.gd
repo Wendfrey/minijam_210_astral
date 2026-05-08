@@ -1,4 +1,8 @@
-extends CharacterBody2D
+class_name Ficha extends CharacterBody2D
+
+enum Tipo {
+	A, B, C, D, E, F
+}
 
 signal send_picked
 signal send_dropped
@@ -8,6 +12,7 @@ var focused = false
 var picked = false
 var offset:Vector2
 
+@export var tipo:Tipo = Tipo.A
 
 func _on_mouse_entered() -> void:
 	focused = true

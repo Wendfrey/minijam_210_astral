@@ -66,3 +66,12 @@ func _on_element_item_rect_changed():
 	
 func calculate_time(position1, position2) -> float:
 	return position1.distance_to(position2) / 384.0
+
+func getPiecesArray() -> Array[Ficha]:
+	#return pieces.map(func(element): return get_node(element))
+	return Array(
+		pieces.map(func(element): return get_node(element)),
+		TYPE_OBJECT,
+		"CharacterBody2D",
+		Ficha
+	)

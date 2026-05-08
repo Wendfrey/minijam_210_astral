@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://csjyu5taxo1po"]
 
+[ext_resource type="Script" uid="uid://xixaae3vikkj" path="res://CheckRules.gd" id="1_1lwx6"]
 [ext_resource type="PackedScene" uid="uid://cte0ymnxkobwq" path="res://element.tscn" id="1_dxppu"]
 [ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 
 [node name="TestWorld" type="Node2D" unique_id=140087252]
+script = ExtResource("1_1lwx6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
@@ -18,5 +20,32 @@ pieces = Array[NodePath]([NodePath("Element"), NodePath("Element2"), NodePath("E
 [node name="Element3" parent="Spacer" unique_id=197843286 instance=ExtResource("1_dxppu")]
 
 [node name="Element4" parent="Spacer" unique_id=261421355 instance=ExtResource("1_dxppu")]
+modulate = Color(1, 0, 1, 1)
+tipo = 1
 
 [node name="Element5" parent="Spacer" unique_id=1425808738 instance=ExtResource("1_dxppu")]
+modulate = Color(1, 0, 1, 1)
+tipo = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2004551152]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1636103918]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "CHECK"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=865479138]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
