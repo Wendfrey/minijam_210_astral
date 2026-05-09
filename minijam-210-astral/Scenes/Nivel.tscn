@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://bgirc837weahm"]
 
-[ext_resource type="Script" uid="uid://dp4el8r0ad4ik" path="res://Scenes/test.gd" id="1_cxw1l"]
+[ext_resource type="Script" uid="uid://dp4el8r0ad4ik" path="res://Scenes/interact.gd" id="1_cxw1l"]
 [ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="1_neig4"]
+[ext_resource type="PackedScene" uid="uid://cxqlpip4dl8pm" path="res://assets/models/level.fbx" id="3_pvqg1"]
+[ext_resource type="Script" uid="uid://d2jihk5atxub7" path="res://scripts/LevelCameraControls.gd" id="4_c7umo"]
+[ext_resource type="Texture2D" uid="uid://duhyj44dwll5s" path="res://assets/img/stars.png" id="5_mr7q5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_neig4"]
+size = Vector2(1.4, 0.89)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_neig4"]
-viewport_path = NodePath("Node3D/SubViewport")
+viewport_path = NodePath("level/Monitor/MonitorScreen/Screen/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxw1l"]
 resource_local_to_scene = true
@@ -14,34 +18,208 @@ shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_neig4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_neig4"]
-size = Vector3(1, 1, 0.02279663)
+size = Vector3(1.4, 0.9, 0.02)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pvqg1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvqg1"]
+bg_color = Color(1, 1, 1, 0.11764706)
+
+[sub_resource type="Animation" id="Animation_pvqg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.9988952, 0.6294259, 0.029661193)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.3711385e-08, -1.5707965, -3.552714e-15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mr7q5"]
+resource_name = "ToWindow"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(4.3711385e-08, -1.5707965, -3.552714e-15), Vector3(0, -2.0542526, 0), Vector3(4.3711392e-08, -1.6036177, -3.5527145e-15), Vector3(0, -1.813397, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.999, 0.62, 0.03), Vector3(-2.331, 0.62, -3.576), Vector3(1.4691622, 0.62, -1.3546876), Vector3(3.936, 0.605, -1.51)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+
+[sub_resource type="Animation" id="Animation_c7umo"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(-3.999, 0.62, 0.03), Vector3(-3.999, 0.65, 0.03), Vector3(-3.999, 0.62, 0.03)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(4.3711385e-08, -1.5707965, -3.552714e-15), Vector3(-0.0052359877, -1.5707964, 0), Vector3(4.3711385e-08, -1.5707965, -3.552714e-15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mr7q5"]
+_data = {
+&"RESET": SubResource("Animation_pvqg1"),
+&"ToWindow": SubResource("Animation_mr7q5"),
+&"idle": SubResource("Animation_c7umo")
+}
 
 [node name="Nivel" type="Node3D" unique_id=402974667]
 process_mode = 3
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1009633693]
+[node name="level" parent="." unique_id=1305496534 instance=ExtResource("3_pvqg1")]
+
+[node name="Light" parent="level" index="0" unique_id=1610710960]
+light_energy = 1.0
+
+[node name="Camera" parent="level" index="1" unique_id=1537428218]
+transform = Transform3D(-1.6292068e-07, -4.3711385e-08, -1, -3.552714e-15, 1, -4.3711385e-08, 1, -3.5687747e-15, -1.6292068e-07, -3.9988952, 0.6294259, 0.029661193)
+far = 4000.0
+
+[node name="Screen" type="Node3D" parent="level/Monitor/MonitorScreen" parent_id_path=PackedInt32Array(1305496534, 834958671) index="0" unique_id=1009633693]
+transform = Transform3D(0, -4.3711396e-10, -0.010000002, -0.010000002, -4.371139e-10, 0, -4.371139e-10, 0.010000001, -4.371139e-10, -0.004, 0, 0)
 script = ExtResource("1_cxw1l")
 
-[node name="SubViewport" type="SubViewport" parent="Node3D" unique_id=790904964]
+[node name="SubViewport" type="SubViewport" parent="level/Monitor/MonitorScreen/Screen" unique_id=790904964]
 physics_object_picking = true
 gui_embed_subwindows = true
+size = Vector2i(1280, 620)
 render_target_update_mode = 4
 
-[node name="TestWorld" parent="Node3D/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
+[node name="TestWorld" parent="level/Monitor/MonitorScreen/Screen/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
 mouse_filter = 1
 
-[node name="Quad" type="MeshInstance3D" parent="Node3D" unique_id=1153445317]
-transform = Transform3D(0.76304066, 0, -0.64635056, 0, 1, 0, 0.64635056, 0, 0.76304066, 0, 0, 0)
+[node name="Quad" type="MeshInstance3D" parent="level/Monitor/MonitorScreen/Screen" unique_id=1153445317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.045)
 mesh = SubResource("QuadMesh_neig4")
 surface_material_override/0 = SubResource("StandardMaterial3D_cxw1l")
 
-[node name="Area3D" type="Area3D" parent="Node3D/Quad" unique_id=33247490]
+[node name="Area3D" type="Area3D" parent="level/Monitor/MonitorScreen/Screen/Quad" unique_id=33247490]
 collision_layer = 2
 input_capture_on_drag = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Quad/Area3D" unique_id=460029618]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Monitor/MonitorScreen/Screen/Quad/Area3D" unique_id=460029618]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2101582732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50033414, 0, 1.046984)
+[node name="Light_001" parent="level" index="9" unique_id=1480958580]
+light_energy = 1.0
+
+[node name="Light_002" parent="level" index="11" unique_id=1846087645]
+light_energy = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
+script = ExtResource("4_c7umo")
+CameraAnimation = NodePath("../CameraAnimation")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=71538219]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 128.0
+offset_right = -711.0
+offset_bottom = -229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pvqg1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pvqg1")
+
+[node name="CameraAnimation" type="AnimationPlayer" parent="." unique_id=740294400]
+root_node = NodePath("../level/Camera")
+libraries/ = SubResource("AnimationLibrary_mr7q5")
+autoplay = &"idle"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=857243428]
+transform = Transform3D(-23.293716, 0, -86.93333, 0, -90, 0, 86.93333, 0, -23.293716, 2000, 0, 561.259)
+texture = ExtResource("5_mr7q5")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+
+[editable path="level"]
