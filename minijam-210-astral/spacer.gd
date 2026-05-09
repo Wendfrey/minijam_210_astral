@@ -68,6 +68,8 @@ func _on_element_item_rect_changed():
 		var nPath = get_path_to(node)
 		if node == pickedNode:
 			continue
+		else:
+			node.sound_move()
 		if previousTweens.has(nPath):
 			previousTweens[nPath].kill()
 			previousTweens.erase(nPath)

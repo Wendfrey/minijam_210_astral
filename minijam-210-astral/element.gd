@@ -25,6 +25,7 @@ var current_pos:Vector2
 @export var tipo:Tipo = Tipo.A
 var errores:Array[String]
 
+@onready var audioplayer = $ASP_sounds
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var v_box_container: VBoxContainer = $PanelContainer/VBoxContainer
 @onready var center_container: PanelContainer = $PanelContainer
@@ -54,16 +55,25 @@ func _on_mouse_exited() -> void:
 	focused = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	var audio
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and focused:
 			picked = true
 			offset = global_position - get_global_mouse_position()
 			top_level = true
 			get_viewport().set_input_as_handled()
+			audio = ResourceLoader.load("res://Sounds/stone_picked.wav")
+			audioplayer.stream = audio
+			if not audioplayer.playing:
+				audioplayer.play()
 			send_picked.emit()
 		elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed and picked:
 			picked = false
 			get_viewport().set_input_as_handled()
+			audio = ResourceLoader.load("res://Sounds/stone_drop.wav")
+			audioplayer.stream = audio
+			if not audioplayer.playing:
+				audioplayer.play()
 			send_dropped.emit()
 	if event is InputEventMouseMotion and picked:
 		global_position = get_global_mouse_position() + offset
@@ -102,9 +112,17 @@ func append_error(error):
 		newChild
 	)
 	$Sprite2D.modulate = Color.WHITE.lerp(Color.RED, 0.5)
+	
 
 func show_tooltip():
 	if not errores.is_empty():
 		center_container.position.x = -center_container.size.x / 2
 		center_container.position.y = -82 - center_container.size.y
 		center_container.show()
+		
+func sound_move():
+	var audio
+	audio = ResourceLoader.load("res://Sounds/stone_dragged.wav")
+	audioplayer.stream = audio
+	if !audioplayer.playing:
+		audioplayer.play()

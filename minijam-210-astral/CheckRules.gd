@@ -13,6 +13,8 @@ signal no_mistakes
 
 @export var spacerNP: NodePath
 @onready var spacer: Node2D = get_node(spacerNP)
+@onready var label: Label = $CanvasLayer/Label
+@onready var audio: AudioStreamPlayer = $ASP_sound_error
 var rules:Array[BaseRule] = [
 	RuleBAfterA.new(),
 	RuleCtoCapart.new(),
@@ -38,6 +40,7 @@ func checkRules():
 		var listPiecesError = rule.check_rules(pieces)
 		error_pieces.append_array(rule.check_rules(pieces))
 		if listPiecesError.size() > 0:
+			audio.play()
 			for error_piece in listPiecesError:
 				error_piece.vibrate()
 				error_piece.append_error(rule.rule_name)
