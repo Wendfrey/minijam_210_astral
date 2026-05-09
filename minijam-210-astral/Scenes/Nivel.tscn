@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bgirc837weahm"]
+[gd_scene format=3 uid="uid://dfsuahykme0dn"]
 
-[ext_resource type="Script" uid="uid://dp4el8r0ad4ik" path="res://Scenes/interact.gd" id="1_cxw1l"]
+[ext_resource type="Script" path="res://Scenes/interact.gd" id="1_cxw1l"]
 [ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="1_neig4"]
 [ext_resource type="PackedScene" uid="uid://cxqlpip4dl8pm" path="res://assets/models/level.fbx" id="3_pvqg1"]
 [ext_resource type="Script" uid="uid://d2jihk5atxub7" path="res://scripts/LevelCameraControls.gd" id="4_c7umo"]
@@ -152,19 +152,26 @@ _data = {
 &"idle": SubResource("Animation_c7umo")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_mr7q5"]
+viewport_path = NodePath("Screen/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk74"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_mr7q5")
+
 [node name="Nivel" type="Node3D" unique_id=402974667]
 process_mode = 3
 
 [node name="level" parent="." unique_id=1305496534 instance=ExtResource("3_pvqg1")]
 
-[node name="Light" parent="level" index="0" unique_id=1610710960]
+[node name="Light" parent="level" index="0" unique_id=97452105]
 light_energy = 1.0
 
-[node name="Camera" parent="level" index="1" unique_id=1537428218]
+[node name="Camera" parent="level" index="1" unique_id=1006251203]
 transform = Transform3D(-1.6292068e-07, -4.3711385e-08, -1, -3.552714e-15, 1, -4.3711385e-08, 1, -3.5687747e-15, -1.6292068e-07, -3.9988952, 0.6294259, 0.029661193)
 far = 4000.0
 
-[node name="Screen" type="Node3D" parent="level/Monitor/MonitorScreen" parent_id_path=PackedInt32Array(1305496534, 834958671) index="0" unique_id=1009633693]
+[node name="Screen" type="Node3D" parent="level/Monitor/MonitorScreen" parent_id_path=PackedInt32Array(1305496534, 38191811) index="0" unique_id=1009633693]
 transform = Transform3D(0, -4.3711396e-10, -0.010000002, -0.010000002, -4.371139e-10, 0, -4.371139e-10, 0.010000001, -4.371139e-10, -0.004, 0, 0)
 script = ExtResource("1_cxw1l")
 
@@ -190,10 +197,10 @@ input_capture_on_drag = true
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
 
-[node name="Light_001" parent="level" index="9" unique_id=1480958580]
+[node name="Light_001" parent="level" index="9" unique_id=313259915]
 light_energy = 1.0
 
-[node name="Light_002" parent="level" index="11" unique_id=1846087645]
+[node name="Light_002" parent="level" index="11" unique_id=987506577]
 light_energy = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
@@ -228,44 +235,61 @@ texture = ExtResource("5_mr7q5")
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 6.5, 0.6, -0.9)
 script = ExtResource("1_cxw1l")
 
-[node name="Control" type="Control" parent="Screen" unique_id=1148574723]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Screen/Control" unique_id=1041322602]
-
-[node name="ItemList" type="ItemList" parent="Screen/Control/CanvasLayer" unique_id=108426466]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 39.0
-offset_top = 57.0
-offset_right = -36.0
-offset_bottom = -120.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Screen/Control/CanvasLayer/ItemList" unique_id=2031018883]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 3.0
-offset_right = 1078.0
-offset_bottom = 56.0
-bbcode_enabled = true
-text = "[color=BLACK][img width=32]res://assets/img/TinyIconB.png[/img] must be following [img width=32]res://assets/img/TinyIconA.png[/img]"
-
 [node name="SubViewport" type="SubViewport" parent="Screen" unique_id=841216985]
+transparent_bg = true
 physics_object_picking = true
 gui_embed_subwindows = true
 size = Vector2i(1280, 620)
 render_target_update_mode = 4
 
+[node name="Control" type="Control" parent="Screen/SubViewport" unique_id=1148574723]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Screen/SubViewport/Control" unique_id=1041322602]
+
+[node name="Panel" type="Panel" parent="Screen/SubViewport/Control/CanvasLayer" unique_id=1936220604]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = 40.0
+offset_right = -21.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen/SubViewport/Control/CanvasLayer" unique_id=2031018883]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 4.0
+offset_right = -35.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][font_size=35]
+[img width=45]res://assets/img/TinyIconB.png[/img] must be following [img width=45]res://assets/img/TinyIconA.png[/img]
+[img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
+The symbol of 3rd position can't be next to itself
+The symbol of 9th position can't be the same as 1st position
+The symbol of 10th position must be the same as 1st position
+[img width=45]res://assets/img/TinyIconD.png[/img] can't be more than 3 spaces separated from [img width=45]res://assets/img/TinyIconC.png[/img]
+Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
+[img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
+The symbol of 13th position can't be the same as last position"
+
 [node name="Quad" type="MeshInstance3D" parent="Screen" unique_id=602470980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.045)
 mesh = SubResource("QuadMesh_neig4")
-surface_material_override/0 = SubResource("StandardMaterial3D_cxw1l")
+surface_material_override/0 = SubResource("StandardMaterial3D_hyk74")
 
 [node name="Area3D" type="Area3D" parent="Screen/Quad" unique_id=1903732416]
 collision_layer = 2
