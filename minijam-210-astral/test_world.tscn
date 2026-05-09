@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://dvii7opwqnaf7" path="res://level_manager.gd" id="2_1lwx6"]
 [ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 
-[node name="TestWorld" type="Node2D" unique_id=140087252]
+[node name="TestWorld" type="Control" unique_id=1608082381]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
