@@ -98,7 +98,7 @@ func add_pieces(tipoArray:Array[Ficha.Tipo], withAnimation=true):
 		pieces.append(nficha)
 		add_child(nficha)
 		
-	reset_values(true, tipoArray.size())
+	reset_values(withAnimation, tipoArray.size())
 
 func add_piece(tipo: Ficha.Tipo, withAnimation=true):
 	var nficha:Ficha = ELEMENT.instantiate()

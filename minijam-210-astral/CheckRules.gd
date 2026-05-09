@@ -1,22 +1,28 @@
-extends Node2D
+extends Node
 
 const RuleBAfterA = preload("uid://ckhhavxstsbhj")
 const RuleCtoCapart = preload("uid://dmxxr36bud62w")
-const RuleTripleA = preload("uid://bcpog0lfmbchy")
+const RuleNotTripleA = preload("uid://bcpog0lfmbchy")
 const RuleDfarfromC = preload("uid://bj67vpsl61ugc")
+const Rule3RdNoRepeat = preload("uid://cfcs6nfnknibk")
+const Rule9ThNoRepeat = preload("uid://bj0x7inmfx3pq")
+const Rule10ThRepeat = preload("uid://g8lm54v0j0m3")
+const RuleTripleE = preload("uid://ba736gjybk8da")
 
-@onready var spacer: Node2D = $Spacer
-@onready var label: Label = $CanvasLayer/Label
+signal no_mistakes
+
+@export var spacerNP: NodePath
+@onready var spacer: Node2D = get_node(spacerNP)
 var rules:Array[BaseRule] = [
 	RuleBAfterA.new(),
 	RuleCtoCapart.new(),
-	RuleTripleA.new(),
-	RuleDfarfromC.new()
+	RuleNotTripleA.new(),
+	RuleDfarfromC.new(),
+	Rule3RdNoRepeat.new(),
+	Rule9ThNoRepeat.new(),
+	Rule10ThRepeat.new(),
+	RuleTripleE.new()
 ]
-
-var text:String :
-	set(value):
-		label.text = value
 
 func _ready() -> void:
 	print(checkRules())
@@ -39,4 +45,5 @@ func checkRules():
 	return error_pieces.size() == 0
 
 func _on_button_pressed() -> void:
-	print(checkRules())
+	if checkRules():
+		no_mistakes.emit()

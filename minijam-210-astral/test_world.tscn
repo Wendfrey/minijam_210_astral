@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://csjyu5taxo1po"]
 
 [ext_resource type="Script" uid="uid://xixaae3vikkj" path="res://CheckRules.gd" id="1_1lwx6"]
-[ext_resource type="PackedScene" uid="uid://cte0ymnxkobwq" path="res://element.tscn" id="1_dxppu"]
+[ext_resource type="Script" uid="uid://dvii7opwqnaf7" path="res://level_manager.gd" id="2_1lwx6"]
 [ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 
 [node name="TestWorld" type="Node2D" unique_id=140087252]
-script = ExtResource("1_1lwx6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
@@ -13,16 +12,6 @@ script = ExtResource("1_1lwx6")
 script = ExtResource("2_gy3sr")
 swapMargin = Vector2(32, 86)
 cellWidth = 64
-
-[node name="Element" parent="Spacer" unique_id=1745300402 instance=ExtResource("1_dxppu")]
-
-[node name="Element2" parent="Spacer" unique_id=926899758 instance=ExtResource("1_dxppu")]
-
-[node name="Element3" parent="Spacer" unique_id=700944934 instance=ExtResource("1_dxppu")]
-
-[node name="Element4" parent="Spacer" unique_id=98370623 instance=ExtResource("1_dxppu")]
-
-[node name="Element5" parent="Spacer" unique_id=1892025552 instance=ExtResource("1_dxppu")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2030427233]
 
@@ -39,8 +28,13 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "CHECK"
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=865479138]
-offset_right = 1.0
-offset_bottom = 23.0
+[node name="RulesChecker" type="Node" parent="." unique_id=1412206623]
+script = ExtResource("1_1lwx6")
+spacerNP = NodePath("../Spacer")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="LevelManager" type="Node" parent="." unique_id=818504072]
+script = ExtResource("2_1lwx6")
+spacer = NodePath("../Spacer")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="RulesChecker" method="_on_button_pressed"]
+[connection signal="no_mistakes" from="RulesChecker" to="LevelManager" method="_on_rules_checker_no_mistakes"]
