@@ -63,10 +63,22 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Screen/Quad:surface_material_override/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_mr7q5"]
 resource_name = "ToWindow"
-length = 2.1
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,6 +114,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Screen/Quad:surface_material_override/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_c7umo"]
@@ -144,6 +168,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Screen/Quad:surface_material_override/0:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mr7q5"]
 _data = {
@@ -152,12 +188,27 @@ _data = {
 &"idle": SubResource("Animation_c7umo")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr7q5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyk74"]
+bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xpys"]
+bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2q11"]
+bg_color = Color(0.3137255, 0.3137255, 0.3529412, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_mr7q5"]
 viewport_path = NodePath("Screen/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk74"]
 resource_local_to_scene = true
+blend_mode = 1
+albedo_color = Color(0, 0, 0, 1)
 albedo_texture = SubResource("ViewportTexture_mr7q5")
+metallic_specular = 0.0
 
 [node name="Nivel" type="Node3D" unique_id=402974667]
 process_mode = 3
@@ -253,29 +304,44 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Screen/SubViewport/Control" unique_id=1041322602]
 
-[node name="Panel" type="Panel" parent="Screen/SubViewport/Control/CanvasLayer" unique_id=1936220604]
+[node name="blackBg" type="Panel" parent="Screen/SubViewport/Control/CanvasLayer" unique_id=2101064657]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = 40.0
-offset_right = -21.0
-offset_bottom = -131.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mr7q5")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Screen/SubViewport/Control/CanvasLayer" unique_id=2031018883]
+[node name="Panel" type="Panel" parent="Screen/SubViewport/Control/CanvasLayer/blackBg" unique_id=1936220604]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 4.0
-offset_right = -35.0
-offset_bottom = -134.0
+offset_left = 44.0
+offset_top = 38.0
+offset_right = -20.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyk74")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen/SubViewport/Control/CanvasLayer/blackBg" unique_id=2031018883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 2.0
+offset_right = -20.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center][font_size=35]
+text = "[center][font_size=33]
 [img width=45]res://assets/img/TinyIconB.png[/img] must be following [img width=45]res://assets/img/TinyIconA.png[/img]
 [img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
 The symbol of 3rd position can't be next to itself
@@ -286,8 +352,22 @@ Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
 [img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
 The symbol of 13th position can't be the same as last position"
 
+[node name="BackButton" type="Button" parent="Screen/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 438.0
+offset_top = 556.0
+offset_right = -449.0
+offset_bottom = -43.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xpys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i2q11")
+text = "Go Back"
+
 [node name="Quad" type="MeshInstance3D" parent="Screen" unique_id=602470980]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.045)
+transform = Transform3D(1.0000008, 0, 0, 0, 1, 0, 0, 0, 1.0000008, 0, 0, 0)
 mesh = SubResource("QuadMesh_neig4")
 surface_material_override/0 = SubResource("StandardMaterial3D_hyk74")
 
@@ -300,5 +380,6 @@ transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2
 shape = SubResource("BoxShape3D_neig4")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="Screen/SubViewport/Control/CanvasLayer/blackBg/BackButton" to="CanvasLayer" method="_on_back_button_pressed"]
 
 [editable path="level"]
