@@ -1,7 +1,7 @@
 class_name Ficha extends CharacterBody2D
 
 enum Tipo {
-	A, B, C, D, E, F
+	A, B, C, D, E, F, G
 }
 
 signal send_picked
@@ -44,6 +44,8 @@ func _ready() -> void:
 			sprite_2d.texture = preload("uid://cottcd1yxvw7y")
 		Tipo.F:
 			sprite_2d.texture = preload("uid://doe08bn356iws")
+		Tipo.G:
+			sprite_2d.texture = preload("uid://bmdm4l8lcbfl4")
 
 func _on_mouse_entered() -> void:
 	if showTooltip:

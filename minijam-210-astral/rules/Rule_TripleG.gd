@@ -1,12 +1,12 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconE.png[/img] must come in triplets"
+	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconG.png[/img] must come in triplets"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []
 
-	var eArray = get_index_of_type(Ficha.Tipo.E)
+	var eArray = get_index_of_type(Ficha.Tipo.G)
 	if eArray.size() == 0:
 		return []
 		

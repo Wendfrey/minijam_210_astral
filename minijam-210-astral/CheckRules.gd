@@ -4,10 +4,12 @@ const RuleBAfterA = preload("uid://ckhhavxstsbhj")
 const RuleCtoCapart = preload("uid://dmxxr36bud62w")
 const RuleNotTripleA = preload("uid://bcpog0lfmbchy")
 const RuleDfarfromC = preload("uid://bj67vpsl61ugc")
+const RuleFclosetoC = preload("uid://b2uas6ltoq37c")
 const Rule3RdNoRepeat = preload("uid://cfcs6nfnknibk")
 const Rule9ThNoRepeat = preload("uid://bj0x7inmfx3pq")
 const Rule10ThRepeat = preload("uid://g8lm54v0j0m3")
-const RuleTripleE = preload("uid://ba736gjybk8da")
+const RuleEmultiple3 = preload("uid://bwrj0iw4ifeci")
+const RuleTripleG = preload("uid://ba736gjybk8da")
 const Rule13ThRepeat = preload("uid://dpn0msbk8a3h")
 
 signal no_mistakes
@@ -22,10 +24,12 @@ var rules:Array[BaseRule] = [
 	RuleCtoCapart.new(),
 	RuleNotTripleA.new(),
 	RuleDfarfromC.new(),
+	RuleFclosetoC.new(),
 	Rule3RdNoRepeat.new(),
 	Rule9ThNoRepeat.new(),
 	Rule10ThRepeat.new(),
-	RuleTripleE.new(),
+	RuleEmultiple3.new(),
+	RuleTripleG.new(),
 	Rule13ThRepeat.new()
 ]
 

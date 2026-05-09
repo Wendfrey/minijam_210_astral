@@ -21,9 +21,9 @@ func next_level():
 		4:
 			nodeSpacer.add_pieces(arrayFichaTipo([Ficha.Tipo.C]))
 		5:
-			nodeSpacer.add_pieces(arrayFichaTipo([Ficha.Tipo.D]))
+			nodeSpacer.add_pieces(arrayFichaTipo([Ficha.Tipo.D,Ficha.Tipo.B]))
 		6:
-			nodeSpacer.add_pieces(arrayFichaTipo([Ficha.Tipo.D, Ficha.Tipo.D, Ficha.Tipo.D]))
+			nodeSpacer.add_pieces(arrayFichaTipo([Ficha.Tipo.F, Ficha.Tipo.F, Ficha.Tipo.F]))
 
 func arrayFichaTipo(array:Array):
 	return Array(
