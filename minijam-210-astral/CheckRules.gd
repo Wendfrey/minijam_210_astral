@@ -17,14 +17,19 @@ func _ready() -> void:
 
 func checkRules():
 	var pieces:Array[Ficha] = spacer.getPiecesArray()
+	var error_pieces:Array[Ficha]
+	
+	for piece in pieces:
+		piece.errores.clear()
 	
 	for rule in rules:
-		if not rule.check_rules(pieces):
-			text = "No OK"
-			return false
-		
-	text = "Todo OK"
-	return true
+		error_pieces.append_array(rule.check_rules(pieces))
+		if error_pieces.size() > 0:
+			for error_piece in error_pieces:
+				error_piece.vibrate()
+				error_piece.errores.append(rule.rule_name)
+
+	return error_pieces.size() == 0
 
 func _on_button_pressed() -> void:
 	print(checkRules())

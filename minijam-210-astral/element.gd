@@ -11,8 +11,11 @@ signal moved
 var focused = false
 var picked = false
 var offset:Vector2
+var current_anim:Tween = null
+var current_pos:Vector2
 
 @export var tipo:Tipo = Tipo.A
+var errores:Array[String]
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -33,6 +36,8 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	focused = true
+	for error in errores:
+		print(error)
 
 func _on_mouse_exited() -> void:
 	focused = false
@@ -53,3 +58,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		global_position = get_global_mouse_position() + offset
 		get_viewport().set_input_as_handled()
 		moved.emit()
+		
+func vibrate():
+	if current_anim:
+		current_anim.stop()
+	current_pos = position
+	current_anim = get_tree().create_tween()
+	current_anim.bind_node(self)
+	current_anim.tween_property(self, "position", Vector2(3, 0), 0.05).as_relative()
+	current_anim.tween_property(self, "position", Vector2(-3, 0), 0.05).as_relative()
+	current_anim.tween_property(self, "position", current_pos, 0.05)

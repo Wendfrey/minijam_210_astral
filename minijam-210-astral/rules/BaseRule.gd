@@ -2,8 +2,10 @@ class_name BaseRules extends RefCounted
 
 var arrayPieces:Array[Ficha] = []
 var indexPieces:Array[int] = []
+var rule_name = "Default Name"
+var rule_description = "Default Description"
 
-func check_rules(pArrayPieces:Array[Ficha]) -> bool:
+func check_rules(pArrayPieces:Array[Ficha]) -> Array[Ficha]:
 	arrayPieces = pArrayPieces
 	indexPieces = Array(
 		range(arrayPieces.size()),
@@ -11,7 +13,7 @@ func check_rules(pArrayPieces:Array[Ficha]) -> bool:
 		"",
 		null
 	)
-	return false
+	return pArrayPieces
 	
 	
 func get_index_of_type(filtro: Ficha.Tipo) -> Array[int]:
