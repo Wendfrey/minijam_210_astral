@@ -23,7 +23,7 @@ func _check_rules_internal() -> Array[Ficha]:
 			count = 1
 		index_ficha += 1
 		
-	if count % 3 == 0:
+	if count % 3 != 0:
 		for i in range(count):
 			error_fichas.append(get_piece(eArray[eArray.size()-1-i]))
 
