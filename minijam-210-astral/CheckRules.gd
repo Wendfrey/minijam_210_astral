@@ -22,7 +22,7 @@ func checkRules():
 	var error_pieces:Array[Ficha]
 	
 	for piece in pieces:
-		piece.errores.clear()
+		piece.clear_errors()
 	
 	for rule in rules:
 		var listPiecesError = rule.check_rules(pieces)
@@ -30,7 +30,7 @@ func checkRules():
 		if listPiecesError.size() > 0:
 			for error_piece in listPiecesError:
 				error_piece.vibrate()
-				error_piece.errores.append(rule.rule_name)
+				error_piece.append_error(rule.rule_name)
 
 	return error_pieces.size() == 0
 

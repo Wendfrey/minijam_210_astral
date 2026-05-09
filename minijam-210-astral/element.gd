@@ -10,6 +10,14 @@ signal moved
 
 var focused = false
 var picked = false
+var showTooltip = true:
+	set(value):
+		showTooltip = value
+		if showTooltip:
+			if focused:
+				show_tooltip()
+		else:
+			center_container.hide()
 var offset:Vector2
 var current_anim:Tween = null
 var current_pos:Vector2
@@ -18,6 +26,8 @@ var current_pos:Vector2
 var errores:Array[String]
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var v_box_container: VBoxContainer = $PanelContainer/VBoxContainer
+@onready var center_container: PanelContainer = $PanelContainer
 
 func _ready() -> void:
 	match(tipo):
@@ -35,11 +45,12 @@ func _ready() -> void:
 			sprite_2d.texture = preload("uid://doe08bn356iws")
 
 func _on_mouse_entered() -> void:
+	if showTooltip:
+		show_tooltip()
 	focused = true
-	for error in errores:
-		print(error)
-
+		
 func _on_mouse_exited() -> void:
+	center_container.hide()
 	focused = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -58,13 +69,42 @@ func _unhandled_input(event: InputEvent) -> void:
 		global_position = get_global_mouse_position() + offset
 		get_viewport().set_input_as_handled()
 		moved.emit()
-		
+
 func vibrate():
 	if current_anim:
 		current_anim.stop()
 	current_pos = position
 	current_anim = get_tree().create_tween()
 	current_anim.bind_node(self)
-	current_anim.tween_property(self, "position", Vector2(3, 0), 0.05).as_relative()
-	current_anim.tween_property(self, "position", Vector2(-3, 0), 0.05).as_relative()
+	current_anim.tween_property(self, "position", Vector2(2, 0), 0.05).as_relative()
+	current_anim.tween_property(self, "position", Vector2(-4, 2), 0.05).as_relative()
+	current_anim.tween_property(self, "position", Vector2(2, -4), 0.05).as_relative()
+	current_anim.tween_property(self, "position", Vector2(-2, 2), 0.05).as_relative()
 	current_anim.tween_property(self, "position", current_pos, 0.05)
+
+func clear_errors():
+	errores.clear()
+	$Sprite2D.modulate = Color.WHITE
+	for i in v_box_container.get_children():
+		v_box_container.remove_child(i)
+	
+func append_error(error):
+	errores.append(error)
+	var newChild = RichTextLabel.new()
+	newChild.bbcode_enabled = true
+	newChild.text = error + "\nTEST\nTEST\nTEST"
+	newChild.size_flags_horizontal = Control.SIZE_FILL
+	newChild.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	newChild.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	newChild.autowrap_mode = TextServer.AUTOWRAP_OFF
+	newChild.fit_content = true
+	v_box_container.add_child(
+		newChild
+	)
+	$Sprite2D.modulate = Color.WHITE.lerp(Color.RED, 0.5)
+
+func show_tooltip():
+	if not errores.is_empty():
+		center_container.position.x = -center_container.size.x / 2
+		center_container.position.y = -82 - center_container.size.y
+		center_container.show()

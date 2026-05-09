@@ -16,7 +16,7 @@ func _ready() -> void:
 		"CharacterBody2D",
 		Ficha
 	)
-	var center = (pieces.size() - 1) * cellWidth / 2
+	var center = (pieces.size() - 1) * cellWidth / 2.0
 	for i in range(pieces.size()):
 		array_positions.append(Vector2((i * cellWidth - center), 0))
 		var node = pieces[i]
@@ -25,6 +25,8 @@ func _ready() -> void:
 		node.send_dropped.connect(_piece_dropped.bind(node))
 
 func _piece_picked(node:Node2D):
+	for i in get_children():
+		i.showTooltip = false
 	if dropped_tween.get("node", null) == node:
 		dropped_tween["tween"].kill()
 	node.moved.connect(_on_element_item_rect_changed)
@@ -33,6 +35,8 @@ func _piece_picked(node:Node2D):
 	
 var dropped_tween:Dictionary = {}
 func _piece_dropped(node:Node2D):
+	for i in get_children():
+		i.showTooltip = true
 	node.moved.disconnect(_on_element_item_rect_changed)
 	var tween:Tween = create_tween()
 	tween.tween_property(node, "global_position", array_positions[nodePositionIndex], calculate_time(node.global_position, array_positions[nodePositionIndex]))\

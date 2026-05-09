@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "C must be exactly 2 apart from C"
+	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconC.png[/img] must be exactly 2 apart from [img width=32]res://assets/img/TinyIconC.png[/img]"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var result:Array[Ficha] = []
