@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "B must be after A"
+	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconB.png[/img] must be following [img width=32]res://assets/img/TinyIconA.png[/img]"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha]

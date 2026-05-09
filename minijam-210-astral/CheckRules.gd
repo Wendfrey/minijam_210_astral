@@ -2,12 +2,16 @@ extends Control
 
 const RuleBAfterA = preload("uid://ckhhavxstsbhj")
 const RuleCtoCapart = preload("uid://dmxxr36bud62w")
+const RuleTripleA = preload("uid://bcpog0lfmbchy")
+const RuleDfarfromC = preload("uid://bj67vpsl61ugc")
 
 @onready var spacer: Node2D = $Spacer
 @onready var label: Label = $CanvasLayer/Label
 var rules:Array[BaseRule] = [
 	RuleBAfterA.new(),
-	RuleCtoCapart.new()
+	RuleCtoCapart.new(),
+	RuleTripleA.new(),
+	RuleDfarfromC.new()
 ]
 
 var text:String :
@@ -22,7 +26,7 @@ func checkRules():
 	var error_pieces:Array[Ficha]
 	
 	for piece in pieces:
-		piece.errores.clear()
+		piece.clear_errors()
 	
 	for rule in rules:
 		var listPiecesError = rule.check_rules(pieces)
@@ -30,7 +34,7 @@ func checkRules():
 		if listPiecesError.size() > 0:
 			for error_piece in listPiecesError:
 				error_piece.vibrate()
-				error_piece.errores.append(rule.rule_name)
+				error_piece.append_error(rule.rule_name)
 
 	return error_pieces.size() == 0
 

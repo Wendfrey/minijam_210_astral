@@ -3,16 +3,50 @@
 [ext_resource type="Script" uid="uid://c67tpwgg1fdjg" path="res://element.gd" id="1_vnigt"]
 [ext_resource type="Texture2D" uid="uid://cki01o01cheno" path="res://assets/img/Ficha_A.png" id="2_vnigt"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnigt"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.75819176, 0.7581918, 0.75819165, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.97320026, 0.55973494, 0.50225455, 1)
+border_blend = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
-size = Vector2(112, 234)
+size = Vector2(60, 120)
 
 [node name="Element" type="CharacterBody2D" unique_id=1745300402]
 input_pickable = true
 motion_mode = 1
 script = ExtResource("1_vnigt")
 
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1847564945]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -162.0
+offset_right = 3.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_vnigt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1965652375]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100283629]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_vnigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066180176]

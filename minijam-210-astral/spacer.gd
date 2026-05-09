@@ -1,5 +1,7 @@
 extends Node2D
 
+const ELEMENT = preload("uid://cte0ymnxkobwq")
+
 var pieces:Array[Ficha]
 
 var array_positions:Array[Vector2]
@@ -11,12 +13,12 @@ var nodePositionIndex:int
 
 func _ready() -> void:
 	pieces = Array(
-		get_children(),
+		get_children().duplicate(),
 		TYPE_OBJECT,
 		"CharacterBody2D",
 		Ficha
 	)
-	var center = (pieces.size() - 1) * cellWidth / 2
+	var center = (pieces.size() - 1) * cellWidth / 2.0
 	for i in range(pieces.size()):
 		array_positions.append(Vector2((i * cellWidth - center), 0))
 		var node = pieces[i]
@@ -25,6 +27,8 @@ func _ready() -> void:
 		node.send_dropped.connect(_piece_dropped.bind(node))
 
 func _piece_picked(node:Node2D):
+	for i in get_children():
+		i.showTooltip = false
 	if dropped_tween.get("node", null) == node:
 		dropped_tween["tween"].kill()
 	node.moved.connect(_on_element_item_rect_changed)
@@ -33,6 +37,8 @@ func _piece_picked(node:Node2D):
 	
 var dropped_tween:Dictionary = {}
 func _piece_dropped(node:Node2D):
+	for i in get_children():
+		i.showTooltip = true
 	node.moved.disconnect(_on_element_item_rect_changed)
 	var tween:Tween = create_tween()
 	tween.tween_property(node, "global_position", array_positions[nodePositionIndex], calculate_time(node.global_position, array_positions[nodePositionIndex]))\
@@ -79,3 +85,73 @@ func calculate_time(position1, position2) -> float:
 func getPiecesArray() -> Array[Ficha]:
 	#return pieces.map(func(element): return get_node(element))
 	return pieces.duplicate()
+
+func add_pieces(tipoArray:Array[Ficha.Tipo], withAnimation=true):
+	for i in range(tipoArray.size()):
+		var tipo = tipoArray[i]
+		var nficha:Ficha = ELEMENT.instantiate()
+		nficha.global_position = Vector2(600 + cellWidth * i, 0)
+		nficha.send_picked.connect(_piece_picked.bind(nficha))
+		nficha.send_dropped.connect(_piece_dropped.bind(nficha))
+		nficha.tipo = tipo
+		
+		pieces.append(nficha)
+		add_child(nficha)
+		
+	reset_values(true, tipoArray.size())
+
+func add_piece(tipo: Ficha.Tipo, withAnimation=true):
+	var nficha:Ficha = ELEMENT.instantiate()
+	nficha.global_position = Vector2(600, 0)
+	nficha.send_picked.connect(_piece_picked.bind(nficha))
+	nficha.send_dropped.connect(_piece_dropped.bind(nficha))
+	nficha.tipo = tipo
+	
+	pieces.append(nficha)
+	add_child(nficha)
+	
+	reset_values.call_deferred(withAnimation)
+		
+func reset_values(withAnimation=true, inserted = 1):
+	var center = (pieces.size() - 1) * cellWidth / 2.0
+	array_positions.clear()
+	for i in range(pieces.size()):
+		array_positions.append(Vector2((i * cellWidth - center), 0))
+		var node = pieces[i]
+		if not withAnimation:
+			node.global_position = array_positions[i]
+	
+	if withAnimation:
+		createInsertAnimation(inserted)
+	
+func createInsertAnimation(inserted):
+	for child_i in range(pieces.size()):
+		var child = pieces[child_i]
+		var nPosition = array_positions[child_i]
+		var tween = child.create_tween()
+		var time = calculate_time(child.position, nPosition)
+		if child_i >= pieces.size()-inserted:
+			time /= 4
+		tween.tween_property(child, "global_position", nPosition, time)\
+		.set_trans(Tween.TRANS_CUBIC)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_P and event.is_released():
+			remove_pieces([Ficha.Tipo.A,Ficha.Tipo.A])
+
+
+func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
+	var nodesToRemove:Array[Ficha] = []
+	for tipo in arrayTipo:
+		var result = pieces.find_custom(func (piece:Ficha): return piece.tipo == tipo)
+		if result > -1:
+			nodesToRemove.append(pieces.pop_at(result))
+	
+	var tweenBig = create_tween()
+	for node in nodesToRemove:
+		var tween = create_tween()
+		tween.tween_property(node, "global_position", Vector2(0, -500), 0.6).as_relative().set_trans(Tween.TRANS_CUBIC)
+		tween.finished.connect(node.queue_free)
+		tweenBig.parallel().tween_subtween(tween)
+	tweenBig.parallel().tween_callback(reset_values.bind(true, 0)).set_delay(0.2)
