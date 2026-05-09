@@ -1,11 +1,13 @@
 extends Node2D
 
 const RuleBAfterA = preload("uid://ckhhavxstsbhj")
+const RuleCtoCapart = preload("uid://dmxxr36bud62w")
 
 @onready var spacer: Node2D = $Spacer
 @onready var label: Label = $CanvasLayer/Label
-var rules:Array[BaseRules] = [
-	RuleBAfterA.new()
+var rules:Array[BaseRule] = [
+	RuleBAfterA.new(),
+	RuleCtoCapart.new()
 ]
 
 var text:String :
@@ -23,9 +25,10 @@ func checkRules():
 		piece.errores.clear()
 	
 	for rule in rules:
+		var listPiecesError = rule.check_rules(pieces)
 		error_pieces.append_array(rule.check_rules(pieces))
-		if error_pieces.size() > 0:
-			for error_piece in error_pieces:
+		if listPiecesError.size() > 0:
+			for error_piece in listPiecesError:
 				error_piece.vibrate()
 				error_piece.errores.append(rule.rule_name)
 
