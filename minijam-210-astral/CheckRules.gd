@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const RuleBAfterA = preload("uid://ckhhavxstsbhj")
 const RuleCtoCapart = preload("uid://dmxxr36bud62w")

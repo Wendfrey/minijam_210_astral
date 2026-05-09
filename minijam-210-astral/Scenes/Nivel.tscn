@@ -1,20 +1,47 @@
 [gd_scene format=3 uid="uid://bgirc837weahm"]
 
+[ext_resource type="Script" uid="uid://dp4el8r0ad4ik" path="res://Scenes/test.gd" id="1_cxw1l"]
 [ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="1_neig4"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_neig4"]
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_neig4"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Node3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxw1l"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_neig4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_neig4"]
+size = Vector3(1, 1, 0.02279663)
 
 [node name="Nivel" type="Node3D" unique_id=402974667]
+process_mode = 3
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=790904964]
+[node name="Node3D" type="Node3D" parent="." unique_id=1009633693]
+script = ExtResource("1_cxw1l")
+
+[node name="SubViewport" type="SubViewport" parent="Node3D" unique_id=790904964]
+physics_object_picking = true
+gui_embed_subwindows = true
 render_target_update_mode = 4
 
-[node name="TestWorld" parent="SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
+[node name="TestWorld" parent="Node3D/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
+mouse_filter = 1
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=978628835]
-transform = Transform3D(0.8452525, 0, -0.5343671, 0, 1, 0, 0.5343671, 0, 0.8452525, 0, 0, 0)
-texture = SubResource("ViewportTexture_neig4")
+[node name="Quad" type="MeshInstance3D" parent="Node3D" unique_id=1153445317]
+transform = Transform3D(0.76304066, 0, -0.64635056, 0, 1, 0, 0.64635056, 0, 0.76304066, 0, 0, 0)
+mesh = SubResource("QuadMesh_neig4")
+surface_material_override/0 = SubResource("StandardMaterial3D_cxw1l")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Quad" unique_id=33247490]
+collision_layer = 2
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Quad/Area3D" unique_id=460029618]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
+shape = SubResource("BoxShape3D_neig4")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2101582732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8252759, 0, 5.5748425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50033414, 0, 1.046984)
