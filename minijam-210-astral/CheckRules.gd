@@ -8,6 +8,7 @@ const Rule3RdNoRepeat = preload("uid://cfcs6nfnknibk")
 const Rule9ThNoRepeat = preload("uid://bj0x7inmfx3pq")
 const Rule10ThRepeat = preload("uid://g8lm54v0j0m3")
 const RuleTripleE = preload("uid://ba736gjybk8da")
+const Rule13ThRepeat = preload("uid://dpn0msbk8a3h")
 
 signal no_mistakes
 
@@ -21,7 +22,8 @@ var rules:Array[BaseRule] = [
 	Rule3RdNoRepeat.new(),
 	Rule9ThNoRepeat.new(),
 	Rule10ThRepeat.new(),
-	RuleTripleE.new()
+	RuleTripleE.new(),
+	Rule13ThRepeat.new()
 ]
 
 func _ready() -> void:
