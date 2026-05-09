@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csjyu5taxo1po"]
 
 [ext_resource type="Script" uid="uid://xixaae3vikkj" path="res://CheckRules.gd" id="1_1lwx6"]
-[ext_resource type="Script" path="res://level_manager.gd" id="2_1lwx6"]
+[ext_resource type="Script" uid="uid://dvii7opwqnaf7" path="res://level_manager.gd" id="2_1lwx6"]
 [ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 [ext_resource type="AudioStream" uid="uid://dnhaox7rn2hjp" path="res://Sounds/maracas_double.wav" id="4_dsnr4"]
 
@@ -45,3 +45,4 @@ bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="RulesChecker" method="_on_button_pressed"]
+[connection signal="no_mistakes" from="RulesChecker" to="LevelManager" method="_on_rules_checker_no_mistakes"]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://x27sloc0k6ay"]
+
+[ext_resource type="Script" uid="uid://mmd7jkm53xxv" path="res://demo_world.gd" id="1_1r4us"]
+[ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="2_yt4es"]
+[ext_resource type="Texture2D" uid="uid://cgo67mg527prq" path="res://assets/img/TinyIconA.png" id="3_pny7a"]
+[ext_resource type="Texture2D" uid="uid://cnbbjadgrostx" path="res://assets/img/TinyIconB.png" id="4_vgbly"]
+[ext_resource type="Texture2D" uid="uid://bjadukoxehpnt" path="res://assets/img/TinyIconC.png" id="5_r0kmg"]
+[ext_resource type="Texture2D" uid="uid://bodae2yp18i0a" path="res://assets/img/TinyIconD.png" id="6_nrp8e"]
+[ext_resource type="Texture2D" uid="uid://oeqa68e1eld2" path="res://assets/img/TinyIconE.png" id="7_sysdr"]
+[ext_resource type="Texture2D" uid="uid://c7wpu8nxuyac5" path="res://assets/img/TinyIconF.png" id="8_jlp7h"]
+
+[node name="DemoWorld" type="Control" unique_id=669845208]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1r4us")
+
+[node name="TestWorld" parent="." unique_id=1608082381 instance=ExtResource("2_yt4es")]
+layout_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1317297347]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=182785994]
+offset_right = 452.0
+offset_bottom = 72.0
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1412287770]
+layout_mode = 2
+icon = ExtResource("3_pny7a")
+
+[node name="Button6" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=653154879]
+layout_mode = 2
+icon = ExtResource("4_vgbly")
+
+[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1489767456]
+layout_mode = 2
+icon = ExtResource("5_r0kmg")
+
+[node name="Button3" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=842802862]
+layout_mode = 2
+icon = ExtResource("6_nrp8e")
+
+[node name="Button4" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=2142149464]
+layout_mode = 2
+icon = ExtResource("7_sysdr")
+
+[node name="Button5" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=863299261]
+layout_mode = 2
+icon = ExtResource("8_jlp7h")
+
+[node name="BorrarButton" type="CheckButton" parent="CanvasLayer/HBoxContainer" unique_id=919386839]
+layout_mode = 2
+text = "Borrar"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button" to="." method="_create_item" binds= [0]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button6" to="." method="_create_item" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2" to="." method="_create_item" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button3" to="." method="_create_item" binds= [3]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button4" to="." method="_create_item" binds= [4]]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button5" to="." method="_create_item" binds= [5]]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/BorrarButton" to="." method="_on_borrar_button_toggled"]

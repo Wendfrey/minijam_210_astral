@@ -14,8 +14,9 @@ signal no_mistakes
 
 @export var spacerNP: NodePath
 @onready var spacer: Node2D = get_node(spacerNP)
-@onready var label: Label = $CanvasLayer/Label
-@onready var audio: AudioStreamPlayer = $ASP_sound_error
+
+@onready var audio: AudioStreamPlayer = $"../ASP_sound_error"
+
 var rules:Array[BaseRule] = [
 	RuleBAfterA.new(),
 	RuleCtoCapart.new(),
