@@ -8,6 +8,7 @@ size = Vector2(112, 234)
 
 [node name="Element" type="CharacterBody2D" unique_id=1745300402]
 input_pickable = true
+motion_mode = 1
 script = ExtResource("1_vnigt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100283629]

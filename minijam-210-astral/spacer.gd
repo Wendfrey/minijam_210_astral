@@ -6,6 +6,9 @@ var array_positions:Array[Vector2]
 var pickedNode: Node2D
 var nodePositionIndex:int
 
+@export var swapMargin:Vector2 = Vector2(64,172)
+@export var cellWidth: int = 128
+
 func _ready() -> void:
 	pieces = Array(
 		get_children(),
@@ -13,9 +16,9 @@ func _ready() -> void:
 		"CharacterBody2D",
 		Ficha
 	)
-	var half = roundi(pieces.size() / 2)
+	var center = (pieces.size() - 1) * cellWidth / 2
 	for i in range(pieces.size()):
-		array_positions.append(Vector2((i - half)*128, 0))
+		array_positions.append(Vector2((i * cellWidth - center), 0))
 		var node = pieces[i]
 		node.global_position = array_positions[i]
 		node.send_picked.connect(_piece_picked.bind(node))
@@ -44,7 +47,7 @@ var previousTweens:Dictionary = {}
 func _on_element_item_rect_changed():
 	var closest_index = -1
 	for i in range(array_positions.size()):
-		if abs(array_positions[i].x - pickedNode.global_position.x) < 64 and abs(array_positions[i].y - pickedNode.global_position.y) < 172:
+		if abs(array_positions[i].x - pickedNode.global_position.x) < swapMargin.x and abs(array_positions[i].y - pickedNode.global_position.y) < swapMargin.y:
 			closest_index = i
 			break
 	
