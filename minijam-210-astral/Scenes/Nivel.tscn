@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bgirc837weahm"]
+
+[ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="1_neig4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_neig4"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Nivel" type="Node3D" unique_id=402974667]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=790904964]
+render_target_update_mode = 4
+
+[node name="TestWorld" parent="SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=978628835]
+transform = Transform3D(0.8452525, 0, -0.5343671, 0, 1, 0, 0.5343671, 0, 0.8452525, 0, 0, 0)
+texture = SubResource("ViewportTexture_neig4")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2101582732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8252759, 0, 5.5748425)
