@@ -365,6 +365,106 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Chiptalk01:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment/Calendar:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.095, 1.829, -0.793)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorldEnvironment/Calendar:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.6267204, -2.2305307, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_56ieo"]
+resource_name = "out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/SkipButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1.5, 1),
+"update": 0,
+"values": [0.6, 1.3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment/Calendar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.095, 1.829, -0.793), Vector3(0, 2.4, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment/Calendar:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.6267204, -2.2305307, 0), Vector3(-2.6267204, -1.4835298, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Chiptalk01:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_qmc7a"]
 resource_name = "start"
@@ -392,10 +492,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Chiptalk01:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vdwc7"]
 _data = {
 &"RESET": SubResource("Animation_yjwgk"),
+&"out": SubResource("Animation_56ieo"),
 &"start": SubResource("Animation_qmc7a")
 }
 
@@ -448,7 +561,7 @@ autoplay = &"ticking"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=351219287]
 
-[node name="Chiptalk01" type="Label" parent="CanvasLayer" unique_id=1988507488 node_paths=PackedStringArray("chiptalkAnim")]
+[node name="Chiptalk01" type="Label" parent="CanvasLayer" unique_id=1988507488 node_paths=PackedStringArray("chiptalkAnim", "sceneTransition")]
 modulate = Color(1, 1, 1, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -460,10 +573,10 @@ vertical_alignment = 1
 script = ExtResource("2_gi0rg")
 textLines = Array[String](["Ojo cuidao que el calendario Maya es chungo", "Pasan cosas malas y wa wa wa uyuyuy", "2012 es demasiado pronto, 5 minutitos mas", "Si sigues aquí es que no has skipeado aún", "Bueno tu sigue mirando y yo seguiré hablando", "Bla bla bla, toma otra linea", "Pero porqué sigues aún aqui!?", "Pos mira se acabó ya no hablo mas", "No enserio vete ya"])
 chiptalkAnim = NodePath("chiptalkAnim")
+sceneTransition = NodePath("../../SceneTransition")
 
 [node name="chiptalkAnim" type="AnimationPlayer" parent="CanvasLayer/Chiptalk01" unique_id=2131786473]
 libraries/ = SubResource("AnimationLibrary_ania7")
-autoplay = &"chiptalkFade"
 
 [node name="SkipButton" type="Button" parent="CanvasLayer" unique_id=1022899060]
 offset_left = 899.0
@@ -480,3 +593,4 @@ autoplay = &"start"
 
 [connection signal="animation_finished" from="CanvasLayer/Chiptalk01/chiptalkAnim" to="CanvasLayer/Chiptalk01" method="_on_chiptalk_anim_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/SkipButton" to="CanvasLayer/Chiptalk01" method="_on_skip_button_pressed"]
+[connection signal="animation_finished" from="SceneTransition" to="CanvasLayer/Chiptalk01" method="_on_scene_transition_animation_finished"]
