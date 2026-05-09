@@ -20,8 +20,146 @@ albedo_texture = ExtResource("3_ghw46")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghw46"]
 albedo_texture = ExtResource("3_ghw46")
 
+[sub_resource type="Animation" id="Animation_df05h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Piece_03:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8um5k"]
+resource_name = "ticking"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Piece_03:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16),
+"transitions": PackedFloat32Array(7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.3926991), Vector3(0, 0, -0.7853982), Vector3(0, 0, -1.1780972), Vector3(0, 0, -1.5707964), Vector3(0, 0, -1.9634954), Vector3(0, 0, -2.3561945), Vector3(0, 0, -2.7488935), Vector3(0, 0, -3.1415927), Vector3(0, 0, -3.5342917), Vector3(0, 0, -3.9269907), Vector3(0, 0, -4.3196898), Vector3(0, 0, -4.712389), Vector3(0, 0, -5.105088), Vector3(0, 0, -5.497787), Vector3(0, 0, -5.8904862), Vector3(0, 0, -6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xim88"]
+_data = {
+&"RESET": SubResource("Animation_df05h"),
+&"ticking": SubResource("Animation_8um5k")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8um5k"]
 albedo_texture = ExtResource("3_ghw46")
+
+[sub_resource type="Animation" id="Animation_xim88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Piece_01:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_loo7a"]
+resource_name = "ticking"
+length = 80.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Piece_01:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 79.833336),
+"transitions": PackedFloat32Array(15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.3926991), Vector3(0, 0, -0.7853982), Vector3(0, 0, -1.1780972), Vector3(0, 0, -1.5707964), Vector3(0, 0, -1.9634954), Vector3(0, 0, -2.3561945), Vector3(0, 0, -2.7488935), Vector3(0, 0, -3.1415927), Vector3(0, 0, -3.5342917), Vector3(0, 0, -3.9269907), Vector3(0, 0, -4.3196898), Vector3(0, 0, -4.712389), Vector3(0, 0, -5.105088), Vector3(0, 0, -5.497787), Vector3(0, 0, -5.8904862), Vector3(0, 0, -6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_if7li"]
+_data = {
+&"RESET": SubResource("Animation_xim88"),
+&"ticking": SubResource("Animation_loo7a")
+}
+
+[sub_resource type="Animation" id="Animation_koqhg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Piece_04:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Piece_02:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cmrfp"]
+resource_name = "ticking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Piece_04:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 1.95, 2),
+"transitions": PackedFloat32Array(-1.5, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.43633232), Vector3(0, 0, -0.08726646), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Piece_02:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(8, 8, 8, 8, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.7417649), Vector3(0, 0, 0.3926991), Vector3(0, 0, 0.20071286), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_loo7a"]
+_data = {
+&"RESET": SubResource("Animation_koqhg"),
+&"ticking": SubResource("Animation_cmrfp")
+}
 
 [sub_resource type="Animation" id="Animation_8saeu"]
 length = 0.001
@@ -145,14 +283,13 @@ script = ExtResource("1_tt5f1")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2102872340]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.003
-anchor_top = 0.76500005
-anchor_right = 0.335
-anchor_bottom = 1.0
-offset_left = 0.5439999
-offset_top = 0.27996826
-offset_right = 0.07998657
-offset_bottom = -2.0
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 10.0
+offset_right = -6.0
+offset_bottom = -12.0
 
 [node name="BTN_Play" type="Button" parent="VBoxContainer" unique_id=863594332]
 layout_mode = 2
@@ -201,8 +338,21 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8saeu")
 [node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="2" unique_id=847261203]
 surface_material_override/0 = SubResource("StandardMaterial3D_ghw46")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_03" index="0" unique_id=435945517]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_xim88")
+autoplay = &"ticking"
+
 [node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="3" unique_id=917689655]
 surface_material_override/0 = SubResource("StandardMaterial3D_8um5k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_04" index="0" unique_id=607876093]
+libraries/ = SubResource("AnimationLibrary_if7li")
+autoplay = &"ticking"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="4" unique_id=402332250]
+libraries/ = SubResource("AnimationLibrary_loo7a")
+autoplay = &"ticking"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar" unique_id=58869382]
 libraries/ = SubResource("AnimationLibrary_df05h")
