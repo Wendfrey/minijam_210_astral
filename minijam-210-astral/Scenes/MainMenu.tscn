@@ -272,6 +272,139 @@ _data = {
 &"menu_iddle": SubResource("Animation_ghw46")
 }
 
+[sub_resource type="Animation" id="Animation_if7li"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:fog_light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.588272, 0.08393412, 0.14242005, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.144]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment/calendar/Light:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorldEnvironment/calendar/Camera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.4803379, 3.3209963, -0.1957016)]
+}
+
+[sub_resource type="Animation" id="Animation_rrcx7"]
+resource_name = "out"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:fog_light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.588272, 0.08393412, 0.14242005, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.144, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment/calendar/Light:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorldEnvironment/calendar/Camera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector3(1.4803379, 3.3209963, -0.1957016), Vector3(3.5134292, 3.3209963, -2.973793)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fh7cp"]
+_data = {
+&"RESET": SubResource("Animation_if7li"),
+&"out": SubResource("Animation_rrcx7")
+}
+
 [node name="MainMenu" type="Control" unique_id=1083052408]
 layout_mode = 3
 anchors_preset = 15
@@ -363,9 +496,13 @@ autoplay = &"ticking"
 libraries/ = SubResource("AnimationLibrary_df05h")
 autoplay = &"menu_iddle"
 
+[node name="SceneTransition" type="AnimationPlayer" parent="." unique_id=681605068]
+libraries/ = SubResource("AnimationLibrary_fh7cp")
+
 [connection signal="close" from="OptionsScreen" to="." method="_on_options_screen_close"]
 [connection signal="pressed" from="VBoxContainer/BTN_Play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="animation_finished" from="SceneTransition" to="." method="_on_scene_transition_animation_finished"]
 
 [editable path="WorldEnvironment/calendar"]

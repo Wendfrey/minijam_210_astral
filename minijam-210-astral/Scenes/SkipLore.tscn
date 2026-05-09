@@ -339,6 +339,66 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nh4b"]
 
+[sub_resource type="Animation" id="Animation_yjwgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/SkipButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qmc7a"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:fog_density")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/SkipButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdwc7"]
+_data = {
+&"RESET": SubResource("Animation_yjwgk"),
+&"start": SubResource("Animation_qmc7a")
+}
+
 [node name="SkipLore" type="Node3D" unique_id=927172150]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=54732357]
@@ -413,6 +473,10 @@ offset_bottom = 71.0
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxEmpty_7nh4b")
 text = "SKIP INTRO >>>"
+
+[node name="SceneTransition" type="AnimationPlayer" parent="." unique_id=1679753231]
+libraries/ = SubResource("AnimationLibrary_vdwc7")
+autoplay = &"start"
 
 [connection signal="animation_finished" from="CanvasLayer/Chiptalk01/chiptalkAnim" to="CanvasLayer/Chiptalk01" method="_on_chiptalk_anim_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/SkipButton" to="CanvasLayer/Chiptalk01" method="_on_skip_button_pressed"]
