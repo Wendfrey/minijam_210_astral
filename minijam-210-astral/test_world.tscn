@@ -11,19 +11,35 @@ script = ExtResource("1_1lwx6")
 
 [node name="Spacer" type="Node2D" parent="." unique_id=333636565]
 script = ExtResource("2_gy3sr")
-pieces = Array[NodePath]([NodePath("Element"), NodePath("Element2"), NodePath("Element3"), NodePath("Element4"), NodePath("Element5")])
 
 [node name="Element" parent="Spacer" unique_id=1745300402 instance=ExtResource("1_dxppu")]
+motion_mode = 1
 
 [node name="Element2" parent="Spacer" unique_id=1738437686 instance=ExtResource("1_dxppu")]
+motion_mode = 1
 
 [node name="Element3" parent="Spacer" unique_id=197843286 instance=ExtResource("1_dxppu")]
+motion_mode = 1
 
 [node name="Element4" parent="Spacer" unique_id=261421355 instance=ExtResource("1_dxppu")]
+motion_mode = 1
 tipo = 1
 
 [node name="Element5" parent="Spacer" unique_id=1425808738 instance=ExtResource("1_dxppu")]
+motion_mode = 1
 tipo = 1
+
+[node name="Element6" parent="Spacer" unique_id=1952852750 instance=ExtResource("1_dxppu")]
+motion_mode = 1
+tipo = 2
+
+[node name="Element7" parent="Spacer" unique_id=1882706615 instance=ExtResource("1_dxppu")]
+motion_mode = 1
+tipo = 2
+
+[node name="Element8" parent="Spacer" unique_id=1199113581 instance=ExtResource("1_dxppu")]
+motion_mode = 1
+tipo = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2004551152]
 

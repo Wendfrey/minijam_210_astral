@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cki01o01cheno" path="res://assets/img/Ficha_A.png" id="2_vnigt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
-size = Vector2(128, 130)
+size = Vector2(112, 234)
 
 [node name="Element" type="CharacterBody2D" unique_id=1745300402]
 input_pickable = true
