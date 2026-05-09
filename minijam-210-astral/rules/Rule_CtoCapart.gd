@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconC.png[/img] must be exactly 2 apart from [img width=32]res://assets/img/TinyIconC.png[/img]"
+	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconC.png[/img] must have another [img width=32]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var result:Array[Ficha] = []
@@ -10,17 +10,19 @@ func _check_rules_internal() -> Array[Ficha]:
 	
 	if indexesOfC.is_empty():
 		return []
+		
 	
-	var i = 0
-	while(i < indexesOfC.size()):
-		if i +1 < indexesOfC.size() and checkDifference(indexesOfC[i], indexesOfC[i+1]):
-			pass
-		elif i > 0 and checkDifference(indexesOfC[i], indexesOfC[i-1]):
-			pass
-		else:
-			result.append(arrayPieces[indexesOfC[i]])
-		i += 1
-	
+	for indexC in indexesOfC:
+		if (indexC < 2 or get_piece(indexC-3).tipo != Ficha.Tipo.C) and (indexC > arrayPieces.size() - 4 or get_piece(indexC+3).tipo != Ficha.Tipo.C):
+			result.append(get_piece(indexC))
+			continue
+		for i in range(-2, 3):
+			var indexCheck = i + indexC
+			if indexCheck < 0 or indexCheck >= arrayPieces.size():
+				continue
+			if i != 0 and get_piece(indexC + i).tipo == Ficha.Tipo.C:
+				result.append(get_piece(indexC))
+				break
 	return result
 	
 func checkDifference(indexA, indexB):

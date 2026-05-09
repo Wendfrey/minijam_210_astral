@@ -92,7 +92,7 @@ func append_error(error):
 	errores.append(error)
 	var newChild = RichTextLabel.new()
 	newChild.bbcode_enabled = true
-	newChild.text = error + "\nTEST\nTEST\nTEST"
+	newChild.text = error
 	newChild.size_flags_horizontal = Control.SIZE_FILL
 	newChild.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	newChild.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

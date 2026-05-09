@@ -2,12 +2,16 @@ extends Node2D
 
 const RuleBAfterA = preload("uid://ckhhavxstsbhj")
 const RuleCtoCapart = preload("uid://dmxxr36bud62w")
+const RuleTripleA = preload("uid://bcpog0lfmbchy")
+const RuleDfarfromC = preload("uid://bj67vpsl61ugc")
 
 @onready var spacer: Node2D = $Spacer
 @onready var label: Label = $CanvasLayer/Label
 var rules:Array[BaseRule] = [
 	RuleBAfterA.new(),
-	RuleCtoCapart.new()
+	RuleCtoCapart.new(),
+	RuleTripleA.new(),
+	RuleDfarfromC.new()
 ]
 
 var text:String :
