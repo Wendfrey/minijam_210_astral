@@ -15,4 +15,4 @@ func _on_options_screen_close() -> void:
 	v_box_container.show()
 
 func _on_btn_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Nivel.tscn")
+	get_tree().change_scene_to_file("res://Scenes/SkipLore.tscn")
