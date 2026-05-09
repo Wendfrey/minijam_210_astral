@@ -26,6 +26,32 @@ cellWidth = 64
 
 [node name="Element5" parent="Spacer" unique_id=1892025552 instance=ExtResource("1_dxppu")]
 
+[node name="Element6" parent="Spacer" unique_id=2022880388 instance=ExtResource("1_dxppu")]
+
+[node name="Element7" parent="Spacer" unique_id=473829569 instance=ExtResource("1_dxppu")]
+
+[node name="Element8" parent="Spacer" unique_id=1660367220 instance=ExtResource("1_dxppu")]
+
+[node name="Element9" parent="Spacer" unique_id=1343083313 instance=ExtResource("1_dxppu")]
+
+[node name="Element10" parent="Spacer" unique_id=1134237309 instance=ExtResource("1_dxppu")]
+
+[node name="Element11" parent="Spacer" unique_id=1941021480 instance=ExtResource("1_dxppu")]
+
+[node name="Element12" parent="Spacer" unique_id=1280176657 instance=ExtResource("1_dxppu")]
+
+[node name="Element13" parent="Spacer" unique_id=985016022 instance=ExtResource("1_dxppu")]
+
+[node name="Element14" parent="Spacer" unique_id=2013730963 instance=ExtResource("1_dxppu")]
+
+[node name="Element15" parent="Spacer" unique_id=1086241649 instance=ExtResource("1_dxppu")]
+
+[node name="Element16" parent="Spacer" unique_id=1737998969 instance=ExtResource("1_dxppu")]
+
+[node name="Element17" parent="Spacer" unique_id=857293988 instance=ExtResource("1_dxppu")]
+
+[node name="Element18" parent="Spacer" unique_id=1348401055 instance=ExtResource("1_dxppu")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2030427233]
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1636103918]

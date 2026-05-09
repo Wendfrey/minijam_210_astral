@@ -217,8 +217,63 @@ libraries/ = SubResource("AnimationLibrary_mr7q5")
 autoplay = &"idle"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=857243428]
-transform = Transform3D(-23.293716, 0, -86.93333, 0, -90, 0, 86.93333, 0, -23.293716, 2000, 0, 561.259)
+transform = Transform3D(-23.293716, 0, -86.93333, 0, -90, 0, 86.93333, 0, -23.293716, 2018.087, 0, 327.049)
 texture = ExtResource("5_mr7q5")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1146206280]
+transform = Transform3D(-23.357437, -0.9101657, -86.91145, 7.867618e-06, 89.99505, -0.9424605, -86.91623, 0.24460155, 23.356153, 1802.805, 60.635, -1289.125)
+texture = ExtResource("5_mr7q5")
+
+[node name="Screen" type="Node3D" parent="." unique_id=1256224791]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 6.5, 0.6, -0.9)
+script = ExtResource("1_cxw1l")
+
+[node name="Control" type="Control" parent="Screen" unique_id=1148574723]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Screen/Control" unique_id=1041322602]
+
+[node name="ItemList" type="ItemList" parent="Screen/Control/CanvasLayer" unique_id=108426466]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 57.0
+offset_right = -36.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Screen/Control/CanvasLayer/ItemList" unique_id=2031018883]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1078.0
+offset_bottom = 56.0
+bbcode_enabled = true
+text = "[color=BLACK][img width=32]res://assets/img/TinyIconB.png[/img] must be following [img width=32]res://assets/img/TinyIconA.png[/img]"
+
+[node name="SubViewport" type="SubViewport" parent="Screen" unique_id=841216985]
+physics_object_picking = true
+gui_embed_subwindows = true
+size = Vector2i(1280, 620)
+render_target_update_mode = 4
+
+[node name="Quad" type="MeshInstance3D" parent="Screen" unique_id=602470980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.045)
+mesh = SubResource("QuadMesh_neig4")
+surface_material_override/0 = SubResource("StandardMaterial3D_cxw1l")
+
+[node name="Area3D" type="Area3D" parent="Screen/Quad" unique_id=1903732416]
+collision_layer = 2
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Screen/Quad/Area3D" unique_id=83601855]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
+shape = SubResource("BoxShape3D_neig4")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
 
