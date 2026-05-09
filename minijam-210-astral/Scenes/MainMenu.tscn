@@ -447,33 +447,33 @@ environment = SubResource("Environment_8saeu")
 [node name="calendar" parent="WorldEnvironment" unique_id=273958900 instance=ExtResource("2_8saeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5009898, -0.9477291, 1.1428964)
 
-[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=1297334234]
+[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=486328102]
 light_color = Color(0.9869177, 0.9162137, 0.78111845, 1)
 light_energy = 3.0
 
-[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=494145402]
+[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=428191317]
 transform = Transform3D(-0.6124865, -0.17073025, 0.77182347, 2.0787115e-06, 0.97639686, 0.21598428, -0.79048103, 0.13228907, -0.59802955, 1.4803379, 3.3209963, -0.1957016)
 
-[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=882239910]
+[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=480412227]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0, 0)
 
-[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=826629921]
+[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=631290111]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -15.646902, 0.5645113, 3.0428314)
 
-[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=1771912988]
+[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=1227106410]
 light_color = Color(0.58800024, 0, 0.1181423, 1)
 light_energy = 6.0
 
-[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=211078288]
+[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=98808518]
 light_energy = 2.0
 
-[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="0" unique_id=1842840968]
+[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1593721681) index="0" unique_id=801472436]
 surface_material_override/0 = SubResource("StandardMaterial3D_df05h")
 
-[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="1" unique_id=1156726127]
+[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1593721681) index="1" unique_id=1466907253]
 surface_material_override/0 = SubResource("StandardMaterial3D_8saeu")
 
-[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="2" unique_id=847261203]
+[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1593721681) index="2" unique_id=1059869692]
 surface_material_override/0 = SubResource("StandardMaterial3D_ghw46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_03" index="0" unique_id=435945517]
@@ -481,14 +481,14 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_xim88")
 autoplay = &"ticking"
 
-[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="3" unique_id=917689655]
+[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1593721681) index="3" unique_id=385393811]
 surface_material_override/0 = SubResource("StandardMaterial3D_8um5k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_04" index="0" unique_id=607876093]
 libraries/ = SubResource("AnimationLibrary_if7li")
 autoplay = &"ticking"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="4" unique_id=402332250]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1593721681) index="4" unique_id=402332250]
 libraries/ = SubResource("AnimationLibrary_loo7a")
 autoplay = &"ticking"
 

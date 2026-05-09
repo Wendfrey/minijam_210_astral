@@ -3,6 +3,9 @@ extends Control
 @onready var options_screen: Control = $OptionsScreen
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var sceneTransition: AnimationPlayer = $SceneTransition
+@onready var option_button: Button = $VBoxContainer/BTN_Options
+@onready var play_button: Button = $VBoxContainer/BTN_Play
+@onready var exit_button: Button = $VBoxContainer/BTN_Exit
 
 
 
@@ -18,6 +21,9 @@ func _on_options_screen_close() -> void:
 	v_box_container.show()
 
 func _on_btn_play_pressed() -> void:
+	play_button.disabled = true
+	option_button.disabled = true
+	exit_button.disabled = true
 	sceneTransition.play("out")
 
 func _on_scene_transition_animation_finished(anim_name):
