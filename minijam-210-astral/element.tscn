@@ -19,6 +19,8 @@ border_blend = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
 size = Vector2(60, 120)
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vnigt"]
+
 [node name="Element" type="CharacterBody2D" unique_id=1745300402]
 input_pickable = true
 motion_mode = 1
@@ -51,6 +53,11 @@ texture = ExtResource("2_vnigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066180176]
 shape = SubResource("RectangleShape2D_vnigt")
+
+[node name="ASP_sounds" type="AudioStreamPlayer" parent="." unique_id=2144179778]
+stream = SubResource("AudioStreamPolyphonic_vnigt")
+max_polyphony = 32
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
