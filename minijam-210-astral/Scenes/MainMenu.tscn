@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4jxulb5t1log" path="res://Scenes/main_menu.gd" id="1_tt5f1"]
 [ext_resource type="PackedScene" uid="uid://5lloi2eib8ye" path="res://assets/models/calendar.fbx" id="2_8saeu"]
+[ext_resource type="PackedScene" uid="uid://d2qcytqjqpvj7" path="res://Scenes/OptionsScreen.tscn" id="2_ghw46"]
 [ext_resource type="Texture2D" uid="uid://k2ee2f2wisrt" path="res://assets/img/texture2.png" id="3_ghw46"]
 
 [sub_resource type="Environment" id="Environment_8saeu"]
@@ -280,6 +281,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt5f1")
 
+[node name="OptionsScreen" parent="." unique_id=1146029527 instance=ExtResource("2_ghw46")]
+layout_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2102872340]
 layout_mode = 1
 anchors_preset = -1
@@ -309,33 +313,33 @@ environment = SubResource("Environment_8saeu")
 [node name="calendar" parent="WorldEnvironment" unique_id=273958900 instance=ExtResource("2_8saeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5009898, -0.9477291, 1.1428964)
 
-[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=1297334234]
+[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=1116029164]
 light_color = Color(0.9869177, 0.9162137, 0.78111845, 1)
 light_energy = 3.0
 
-[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=494145402]
+[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=688782246]
 transform = Transform3D(-0.6124865, -0.17073025, 0.77182347, 2.0787115e-06, 0.97639686, 0.21598428, -0.79048103, 0.13228907, -0.59802955, 1.4803379, 3.3209963, -0.1957016)
 
-[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=882239910]
+[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=1007551500]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0, 0)
 
-[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=826629921]
+[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=1516308912]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -15.646902, 0.5645113, 3.0428314)
 
-[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=1771912988]
+[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=57999321]
 light_color = Color(0.58800024, 0, 0.1181423, 1)
 light_energy = 6.0
 
-[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=211078288]
+[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=562903627]
 light_energy = 2.0
 
-[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="0" unique_id=1842840968]
+[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1165612925) index="0" unique_id=1199424572]
 surface_material_override/0 = SubResource("StandardMaterial3D_df05h")
 
-[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="1" unique_id=1156726127]
+[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1165612925) index="1" unique_id=863100213]
 surface_material_override/0 = SubResource("StandardMaterial3D_8saeu")
 
-[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="2" unique_id=847261203]
+[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1165612925) index="2" unique_id=1412298809]
 surface_material_override/0 = SubResource("StandardMaterial3D_ghw46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_03" index="0" unique_id=435945517]
@@ -343,14 +347,14 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_xim88")
 autoplay = &"ticking"
 
-[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="3" unique_id=917689655]
+[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1165612925) index="3" unique_id=230821601]
 surface_material_override/0 = SubResource("StandardMaterial3D_8um5k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_04" index="0" unique_id=607876093]
 libraries/ = SubResource("AnimationLibrary_if7li")
 autoplay = &"ticking"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2043988676) index="4" unique_id=402332250]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1165612925) index="4" unique_id=402332250]
 libraries/ = SubResource("AnimationLibrary_loo7a")
 autoplay = &"ticking"
 
@@ -358,6 +362,7 @@ autoplay = &"ticking"
 libraries/ = SubResource("AnimationLibrary_df05h")
 autoplay = &"menu_iddle"
 
+[connection signal="close" from="OptionsScreen" to="." method="_on_options_screen_close"]
 [connection signal="pressed" from="VBoxContainer/BTN_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_Exit" to="." method="_on_btn_exit_pressed"]
 
