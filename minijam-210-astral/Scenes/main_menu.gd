@@ -6,6 +6,7 @@ extends Control
 @onready var option_button: Button = $VBoxContainer/BTN_Options
 @onready var play_button: Button = $VBoxContainer/BTN_Play
 @onready var exit_button: Button = $VBoxContainer/BTN_Exit
+@onready var btn_credits: Button = $VBoxContainer/BTN_Credits
 @onready var credits_container: PanelContainer = $CreditsContainer
 
 
@@ -31,6 +32,7 @@ func _on_options_screen_close() -> void:
 func _on_btn_play_pressed() -> void:
 	play_button.disabled = true
 	option_button.disabled = true
+	btn_credits.disabled = true
 	exit_button.disabled = true
 	sceneTransition.play("out")
 

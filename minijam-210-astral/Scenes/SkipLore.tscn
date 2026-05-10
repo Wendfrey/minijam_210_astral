@@ -524,7 +524,7 @@ near = 0.1
 far = 100.0
 
 [node name="Calendar" type="Node3D" parent="WorldEnvironment" unique_id=1971442499]
-transform = Transform3D(-61.2907, 38.909107, 68.7716, 0, -87.035576, 49.24237, 79.0155, 30.180992, 53.34471, -1.095, 1.829, -0.793)
+transform = Transform3D(-61.2907, 38.90911, 68.7716, 0, -87.03558, 49.24237, 79.0155, 30.180996, 53.34471, -1.095, 1.829, -0.793)
 
 [node name="Piece_01" type="MeshInstance3D" parent="WorldEnvironment/Calendar" unique_id=969402078]
 transform = Transform3D(1.4933243, 0, 0, 0, 1.4933243, 0, 0, 0, 1.4933243, 0, -1.1920929e-09, 0)
@@ -567,11 +567,12 @@ offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
-text = "[2012]"
+text = "Dec. 20th 2012"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 script = ExtResource("2_gi0rg")
-textLines = Array[String](["Ojo cuidao que el calendario Maya es chungo", "Pasan cosas malas y wa wa wa uyuyuy", "2012 es demasiado pronto, 5 minutitos mas", "Si sigues aquí es que no has skipeado aún", "Bueno tu sigue mirando y yo seguiré hablando", "Bla bla bla, toma otra linea", "Pero porqué sigues aún aqui!?", "Pos mira se acabó ya no hablo mas", "No enserio vete ya"])
+textLines = Array[String](["At the evening of the last day of the Maya calendar the Mayan gods approached you", "YOU have been chosen to appease them", "sigils suddenly appear in your computer", "and they order you to sort them", "each sigil with it's own desire", "Look at the stars and the stars will talk you.."])
 chiptalkAnim = NodePath("chiptalkAnim")
 sceneTransition = NodePath("../../SceneTransition")
 
