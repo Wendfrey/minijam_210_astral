@@ -18,6 +18,9 @@ border_blend = true
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vnigt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
+size = Vector2(58, 122)
+
 [node name="Element" type="Control" unique_id=323995503]
 layout_mode = 3
 anchors_preset = 0
@@ -56,6 +59,11 @@ texture = ExtResource("2_vnigt")
 stream = SubResource("AudioStreamPolyphonic_vnigt")
 max_polyphony = 32
 bus = &"SFX"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=115607550]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=929691813]
+shape = SubResource("RectangleShape2D_vnigt")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
