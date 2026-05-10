@@ -48,7 +48,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100283629]
-scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_vnigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066180176]
