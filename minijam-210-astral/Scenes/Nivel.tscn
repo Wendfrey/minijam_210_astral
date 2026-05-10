@@ -196,12 +196,9 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2q11"]
 
-<<<<<<< HEAD
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyk74"]
 bg_color = Color(0, 0, 0, 0.17254902)
 
-=======
->>>>>>> 1614e420ad8e27579861c5bb9420e42a6e881e17
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xpys"]
 bg_color = Color(0.11764706, 0.11764706, 0.15686275, 0.23529412)
 
