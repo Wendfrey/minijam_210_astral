@@ -15,9 +15,6 @@ const RuleGSameNeighbours = preload("uid://wse6ahxoyv7v")
 
 signal rule_check_result(result:bool)
 
-@export var spacerNP: NodePath
-@onready var spacer: Control = get_node(spacerNP)
-
 @onready var audio: AudioStreamPlayer = $"../ASP_sound_error"
 
 var rules:Array[BaseRule] = [
@@ -34,11 +31,9 @@ var rules:Array[BaseRule] = [
 	Rule13ThRepeat.new()
 ]
 
-func _ready() -> void:
-	print(checkRules())
+var currentSpacer
 
-func checkRules():
-	var pieces:Array[Ficha] = spacer.getPiecesArray()
+func checkRules(pieces):
 	var error_pieces:Array[Ficha]
 	
 	for piece in pieces:
@@ -56,4 +51,8 @@ func checkRules():
 	return error_pieces.size() == 0
 
 func _on_button_pressed() -> void:
-	rule_check_result.emit(checkRules())
+	rule_check_result.emit(checkRules(currentSpacer.getPiecesArray()))
+
+
+func _on_level_manager_spacer_changed(spacer: Control) -> void:
+	currentSpacer = spacer

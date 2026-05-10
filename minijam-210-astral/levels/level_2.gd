@@ -13,3 +13,6 @@ func level_steps(step:int) -> Array[Ficha.Tipo]:
 			)
 			spacer.pieces[6].nailed = true
 	return []
+
+func max_level():
+	return 0

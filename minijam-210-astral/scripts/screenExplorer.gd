@@ -14,7 +14,9 @@ func _on_logros_close_pressed():
 
 func _on_level_1_pressed():
 	PlayerProgess.checkDoneLogro(2,0)
-	ventanaJuego.visible = true
 
 func _on_logros_icon_pressed():
 	ventanaLogros.visible = true
+
+func _on_level_manager_level_completed(index: int) -> void:
+	ventanaStatus.show()

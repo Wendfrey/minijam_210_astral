@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://xixaae3vikkj" path="res://CheckRules.gd" id="1_1lwx6"]
 [ext_resource type="Script" uid="uid://dp8w1e7qlyasx" path="res://scripts/screenExplorer.gd" id="1_cnaw2"]
 [ext_resource type="Script" uid="uid://dvii7opwqnaf7" path="res://level_manager.gd" id="2_1lwx6"]
-[ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 [ext_resource type="AudioStream" uid="uid://dnhaox7rn2hjp" path="res://Sounds/maracas_double.wav" id="4_dsnr4"]
 [ext_resource type="Script" uid="uid://c26vcft18jus7" path="res://scripts/ventanaLogros.gd" id="4_uu1iw"]
 [ext_resource type="StyleBox" uid="uid://bpiqrn1ci0mo5" path="res://assets/prefab/logroDisabled.tres" id="5_4tg7h"]
@@ -268,7 +267,6 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
 [node name="JuegoVentana" type="Panel" parent="." unique_id=626347948]
-visible = false
 z_index = -1
 layout_mode = 0
 offset_left = -483.0
@@ -278,33 +276,29 @@ offset_bottom = 69.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
 
-[node name="Button" type="Button" parent="JuegoVentana" unique_id=1636103918]
-z_index = 3
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = 194.0
-offset_right = 82.0
-offset_bottom = 247.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "CHECK"
-
-[node name="Spacer" type="Control" parent="JuegoVentana" unique_id=333636565]
-z_index = 1
+[node name="SpacerContainer" type="Control" parent="JuegoVentana" unique_id=797935250]
 anchors_preset = 0
 offset_left = 483.0
 offset_top = 71.0
 offset_right = 483.0
 offset_bottom = 71.0
-script = ExtResource("2_gy3sr")
-swapMargin = Vector2(32, 86)
-cellWidth = 64
+
+[node name="Button" type="Button" parent="JuegoVentana" unique_id=1636103918]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 359.5
+offset_top = 13.0
+offset_right = 473.5
+offset_bottom = 59.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "CHECK"
 
 [node name="close" type="Button" parent="JuegoVentana" unique_id=601915492]
 layout_mode = 1
@@ -321,6 +315,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
 [node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 22.0
@@ -380,19 +375,30 @@ vertical_alignment = 1
 
 [node name="RulesChecker" type="Node" parent="." unique_id=1412206623]
 script = ExtResource("1_1lwx6")
-spacerNP = NodePath("../JuegoVentana/Spacer")
 
 [node name="LevelManager" type="Node" parent="." unique_id=818504072]
 script = ExtResource("2_1lwx6")
-spacer = NodePath("../JuegoVentana/Spacer")
 
 [node name="ASP_sound_error" type="AudioStreamPlayer" parent="." unique_id=1202096981]
 stream = ExtResource("4_dsnr4")
 bus = &"SFX"
 
 [connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level1" to="LevelManager" method="on_level_pressed" binds= [0]]
+[connection signal="pressed" from="GridContainer/Level2" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level2" to="LevelManager" method="on_level_pressed" binds= [1]]
+[connection signal="pressed" from="GridContainer/Level3" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level3" to="LevelManager" method="on_level_pressed" binds= [2]]
+[connection signal="pressed" from="GridContainer/Level4" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level4" to="LevelManager" method="on_level_pressed" binds= [3]]
+[connection signal="pressed" from="GridContainer/Level5" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level5" to="LevelManager" method="on_level_pressed" binds= [4]]
+[connection signal="pressed" from="GridContainer/Level6" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/Level6" to="LevelManager" method="on_level_pressed" binds= [5]]
 [connection signal="pressed" from="GridContainer/logrosIcon" to="." method="_on_logros_icon_pressed"]
 [connection signal="pressed" from="JuegoVentana/Button" to="RulesChecker" method="_on_button_pressed"]
 [connection signal="pressed" from="JuegoVentana/close" to="." method="_on_juego_close_pressed"]
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
+[connection signal="level_completed" from="LevelManager" to="." method="_on_level_manager_level_completed"]
+[connection signal="spacer_changed" from="LevelManager" to="RulesChecker" method="_on_level_manager_spacer_changed"]
