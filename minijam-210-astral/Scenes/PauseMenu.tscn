@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://coexvfowdidxm"]
+
+[ext_resource type="Script" uid="uid://ciew7sn4ht2qj" path="res://Scenes/master_sound.gd" id="1_lj4oq"]
+[ext_resource type="Script" uid="uid://chkg1ijsggv6t" path="res://Scenes/pause_menu.gd" id="1_qwhev"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=271188410]
+script = ExtResource("1_qwhev")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1821600674]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.21568628)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=325037863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1336761272]
+layout_mode = 2
+
+[node name="LBL_Vol_Master" type="Label" parent="MarginContainer/VBoxContainer" unique_id=366814081]
+layout_mode = 2
+text = "MASTER VOLUME"
+
+[node name="SLD_Vol_Master" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=589639540]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_lj4oq")
+bus_name = "Master"
+
+[node name="LBL_Vol_Music" type="Label" parent="MarginContainer/VBoxContainer" unique_id=146511107]
+layout_mode = 2
+text = "MUSIC VOLUME"
+
+[node name="SLD_Vol_Music" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1223653470]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_lj4oq")
+bus_name = "Music"
+
+[node name="LBL_Vol_SFX" type="Label" parent="MarginContainer/VBoxContainer" unique_id=52548410]
+layout_mode = 2
+text = "SOUND VOLUME"
+
+[node name="SLD_Vol_SFX" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1975235992]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_lj4oq")
+bus_name = "SFX"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer" unique_id=1442307489]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSeparator" unique_id=658763344]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BTN_MainMenu" type="Button" parent="MarginContainer/HSeparator/MarginContainer" unique_id=1631411773]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/HSeparator/MarginContainer/BTN_MainMenu" to="." method="_on_btn_main_menu_pressed"]

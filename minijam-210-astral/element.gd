@@ -1,4 +1,4 @@
-class_name Ficha extends CharacterBody2D
+class_name Ficha extends Control
 
 enum Tipo {
 	A, B, C, D, E, F, G
@@ -37,7 +37,7 @@ var anulled:bool = false:
 var errores:Array[String]
 
 @onready var audioplayer = $ASP_sounds
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: TextureRect = $Sprite2D
 @onready var v_box_container: VBoxContainer = $PanelContainer/VBoxContainer
 @onready var center_container: PanelContainer = $PanelContainer
 
@@ -67,7 +67,7 @@ func _on_mouse_exited() -> void:
 	center_container.hide()
 	focused = false
 
-func _unhandled_input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	var audio
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and focused and not nailed:

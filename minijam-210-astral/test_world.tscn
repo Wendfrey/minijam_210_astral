@@ -19,14 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://b4jdent5v26jt" path="res://assets/img/pcIcons/quest.png" id="17_blr6d"]
 [ext_resource type="Texture2D" uid="uid://d2vu8ntnxdq0m" path="res://assets/img/pcIcons/calendar.png" id="18_f2a6c"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cnaw2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kt6p6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_blr6d"]
-font = ExtResource("11_5457m")
-font_size = 14
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5457m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivea3"]
@@ -41,6 +33,14 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cnaw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kt6p6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_blr6d"]
+font = ExtResource("11_5457m")
+font_size = 14
+
 [node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego", "ventanaLogros")]
 layout_mode = 3
 anchors_preset = 0
@@ -48,126 +48,8 @@ script = ExtResource("1_cnaw2")
 ventanaJuego = NodePath("JuegoVentana")
 ventanaLogros = NodePath("LogrosVentana")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
-
-[node name="JuegoVentana" type="Panel" parent="." unique_id=626347948]
-visible = false
-z_index = -1
-layout_mode = 0
-offset_left = -483.0
-offset_top = -71.0
-offset_right = 486.0
-offset_bottom = 69.0
-mouse_filter = 2
-theme_override_styles/panel = ExtResource("5_lf0gk")
-
-[node name="Button" type="Button" parent="JuegoVentana" unique_id=1636103918]
-z_index = 3
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -114.0
-offset_top = -53.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "CHECK"
-
-[node name="Spacer" type="Node2D" parent="JuegoVentana" unique_id=333636565]
-z_index = 1
-position = Vector2(483, 71)
-script = ExtResource("2_gy3sr")
-swapMargin = Vector2(32, 86)
-cellWidth = 64
-
-[node name="close" type="Button" parent="JuegoVentana" unique_id=601915492]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 466.5
-offset_top = -89.0
-offset_right = 484.5
-offset_bottom = -73.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
-
-[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
-z_index = 1
-layout_mode = 0
-offset_left = 22.0
-offset_top = -229.0
-offset_right = 362.0
-offset_bottom = 243.0
-mouse_filter = 2
-theme_override_styles/panel = ExtResource("5_lf0gk")
-script = ExtResource("4_uu1iw")
-listado = NodePath("ScrollContainer/VBoxContainer")
-logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
-
-[node name="close" type="Button" parent="LogrosVentana" unique_id=1183670540]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 153.0
-offset_top = -254.0
-offset_right = 171.0
-offset_bottom = -238.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="LogrosVentana" unique_id=1184740290]
-layout_mode = 0
-offset_right = 340.0
-offset_bottom = 470.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LogrosVentana/ScrollContainer" unique_id=1560634388]
-custom_minimum_size = Vector2(0.025, 0)
-layout_mode = 2
-
-[node name="Logro" type="Panel" parent="LogrosVentana/ScrollContainer/VBoxContainer" unique_id=723755433]
-visible = false
-custom_minimum_size = Vector2(330, 50)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_4tg7h")
-
-[node name="Icon" type="Sprite2D" parent="LogrosVentana/ScrollContainer/VBoxContainer/Logro" unique_id=1788012811]
-position = Vector2(30, 23)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_blr6d")
-
-[node name="Text" type="Label" parent="LogrosVentana/ScrollContainer/VBoxContainer/Logro" unique_id=1494234852]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 3.0
-offset_right = 314.0
-offset_bottom = 46.0
-text = "Comprar tomates en la tienda
-Nananana nanana"
-label_settings = SubResource("LabelSettings_blr6d")
-vertical_alignment = 1
-
-[node name="RulesChecker" type="Node" parent="." unique_id=1412206623]
-script = ExtResource("1_1lwx6")
-spacerNP = NodePath("../JuegoVentana/Spacer")
-
-[node name="LevelManager" type="Node" parent="." unique_id=818504072]
-script = ExtResource("2_1lwx6")
-spacer = NodePath("../JuegoVentana/Spacer")
-
-[node name="ASP_sound_error" type="AudioStreamPlayer" parent="." unique_id=1202096981]
-stream = ExtResource("4_dsnr4")
-bus = &"SFX"
-
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1397467646]
+z_index = -2
 layout_mode = 0
 offset_left = -479.0
 offset_top = -222.0
@@ -383,9 +265,134 @@ text = "STATUS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
+
+[node name="JuegoVentana" type="Panel" parent="." unique_id=626347948]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -483.0
+offset_top = -71.0
+offset_right = 486.0
+offset_bottom = 69.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_lf0gk")
+
+[node name="Button" type="Button" parent="JuegoVentana" unique_id=1636103918]
+z_index = 3
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 194.0
+offset_right = 82.0
+offset_bottom = 247.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "CHECK"
+
+[node name="Spacer" type="Control" parent="JuegoVentana" unique_id=333636565]
+z_index = 1
+anchors_preset = 0
+offset_left = 483.0
+offset_top = 71.0
+offset_right = 483.0
+offset_bottom = 71.0
+script = ExtResource("2_gy3sr")
+swapMargin = Vector2(32, 86)
+cellWidth = 64
+
+[node name="close" type="Button" parent="JuegoVentana" unique_id=601915492]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 466.5
+offset_top = -89.0
+offset_right = 484.5
+offset_bottom = -73.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
+
+[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
+z_index = 1
+layout_mode = 0
+offset_left = 22.0
+offset_top = -229.0
+offset_right = 362.0
+offset_bottom = 243.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_lf0gk")
+script = ExtResource("4_uu1iw")
+listado = NodePath("ScrollContainer/VBoxContainer")
+logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
+
+[node name="close" type="Button" parent="LogrosVentana" unique_id=1183670540]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = -254.0
+offset_right = 171.0
+offset_bottom = -238.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LogrosVentana" unique_id=1184740290]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 470.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LogrosVentana/ScrollContainer" unique_id=1560634388]
+custom_minimum_size = Vector2(0.025, 0)
+layout_mode = 2
+
+[node name="Logro" type="Panel" parent="LogrosVentana/ScrollContainer/VBoxContainer" unique_id=723755433]
+visible = false
+custom_minimum_size = Vector2(330, 50)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_4tg7h")
+
+[node name="Icon" type="Sprite2D" parent="LogrosVentana/ScrollContainer/VBoxContainer/Logro" unique_id=1788012811]
+position = Vector2(30, 23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_blr6d")
+
+[node name="Text" type="Label" parent="LogrosVentana/ScrollContainer/VBoxContainer/Logro" unique_id=1494234852]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 3.0
+offset_right = 314.0
+offset_bottom = 46.0
+text = "Comprar tomates en la tienda
+Nananana nanana"
+label_settings = SubResource("LabelSettings_blr6d")
+vertical_alignment = 1
+
+[node name="RulesChecker" type="Node" parent="." unique_id=1412206623]
+script = ExtResource("1_1lwx6")
+spacerNP = NodePath("../JuegoVentana/Spacer")
+
+[node name="LevelManager" type="Node" parent="." unique_id=818504072]
+script = ExtResource("2_1lwx6")
+spacer = NodePath("../JuegoVentana/Spacer")
+
+[node name="ASP_sound_error" type="AudioStreamPlayer" parent="." unique_id=1202096981]
+stream = ExtResource("4_dsnr4")
+bus = &"SFX"
+
+[connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/logrosIcon" to="." method="_on_logros_icon_pressed"]
 [connection signal="pressed" from="JuegoVentana/Button" to="RulesChecker" method="_on_button_pressed"]
 [connection signal="pressed" from="JuegoVentana/close" to="." method="_on_juego_close_pressed"]
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
-[connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="GridContainer/logrosIcon" to="." method="_on_logros_icon_pressed"]

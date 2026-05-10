@@ -16,7 +16,7 @@ const RuleGSameNeighbours = preload("uid://wse6ahxoyv7v")
 signal rule_check_result(result:bool)
 
 @export var spacerNP: NodePath
-@onready var spacer: Node2D = get_node(spacerNP)
+@onready var spacer: Control = get_node(spacerNP)
 
 @onready var audio: AudioStreamPlayer = $"../ASP_sound_error"
 
