@@ -9,6 +9,7 @@ func _ready():
 	for l in logros:
 		var newPanel = template.duplicate()
 		(newPanel.get_child(1) as Label).text = l
+		newPanel.add_theme_stylebox_override("panel",load("res://assets/prefab/logroDisabled.tres"))
 		listado.add_child(newPanel)
 	getLogroPanel(1).visible = true;
 	listado.get_child(0).queue_free()
@@ -19,5 +20,6 @@ func getLogroPanel(num):
 
 func logroUpdated(num):
 	var elPanel = getLogroPanel(0)
-	elPanel.theme = load("res://assets/prefab/logroEnabled.tres")
+	elPanel.remove_theme_stylebox_override("panel")
+	elPanel.add_theme_stylebox_override("panel",load("res://assets/prefab/logroEnabled.tres"))
 	pass
