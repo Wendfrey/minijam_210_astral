@@ -430,6 +430,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
 [node name="StatusVentana" type="Panel" parent="." unique_id=1383264431]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -423.0

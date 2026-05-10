@@ -12,11 +12,9 @@ func level_steps(step:int) -> Array[Ficha.Tipo]:
 		3:
 			return arrayFichaTipo([Ficha.Tipo.G, Ficha.Tipo.D])
 		4:
-			return arrayFichaTipo([Ficha.Tipo.C, Ficha.Tipo.C, Ficha.Tipo.B])
-		5:
-			return arrayFichaTipo([Ficha.Tipo.E])
+			return arrayFichaTipo([Ficha.Tipo.C, Ficha.Tipo.C, Ficha.Tipo.B, Ficha.Tipo.E])
 		_:
 			return []
 
 func max_level():
-	return 5
+	return 4

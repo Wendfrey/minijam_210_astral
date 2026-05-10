@@ -14,13 +14,15 @@ const Level2 = preload("uid://cliskxier8edx")
 const Level3 = preload("uid://binbx6vgi8hn3")
 const Level4 = preload("uid://doguigma4krv0")
 const Level5 = preload("uid://du5ubj4deinig")
+const Level6 = preload("uid://by2om62gsy1or")
 
 @onready var levels_array:Array[BaseLevel] = [
 	Level1.new(),
 	Level2.new(),
 	Level3.new(),
 	Level4.new(),
-	Level5.new()
+	Level5.new(),
+	Level6.new()
 ]
 
 var currentLevel:int = 0
