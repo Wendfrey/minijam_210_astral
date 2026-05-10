@@ -55,7 +55,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_42nsl"]
 resource_name = "ticking"
-length = 3.0
+length = 10.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,10 +63,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3.5, 7, 10.5),
+"transitions": PackedFloat32Array(3, 3, 3, 3),
 "update": 0,
-"values": [0.0]
+"values": [0.0, -2.0943951023931953, -4.1887902047863905, -6.283185307179586]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8oxbk"]
@@ -430,7 +430,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
 [node name="StatusVentana" type="Panel" parent="." unique_id=1383264431]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -423.0
@@ -456,29 +455,24 @@ offset_bottom = -238.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
-
 [node name="Calendar" type="Sprite2D" parent="StatusVentana" unique_id=1028424339]
 position = Vector2(152, 141)
 texture = ExtResource("14_f2a6c")
 
-
 [node name="Circle1" type="Node2D" parent="StatusVentana/Calendar" unique_id=299702064]
 scale = Vector2(0.375, 0.375)
 
-
 [node name="Level1" type="Sprite2D" parent="StatusVentana/Calendar/Circle1" unique_id=1265848224]
-position = Vector2(23.546768, -127.66681)
+position = Vector2(23.546768, -130.3335)
 texture = ExtResource("15_07e4k")
 
-
 [node name="Level2" type="Sprite2D" parent="StatusVentana/Calendar/Circle1" unique_id=1348401836]
-position = Vector2(105.54675, 93.33319)
+position = Vector2(105.54675, 90.666565)
 rotation = 2.0943952
 texture = ExtResource("15_07e4k")
 
-
 [node name="Level3" type="Sprite2D" parent="StatusVentana/Calendar/Circle1" unique_id=1417024438]
-position = Vector2(-128.453, 55.333252)
+position = Vector2(-128.453, 52.666565)
 rotation = -2.094395
 texture = ExtResource("15_07e4k")
 
@@ -510,7 +504,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_4r1q4")
 autoplay = &"spinning"
 
-[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
+[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617]
 z_index = 1
 layout_mode = 0
 offset_left = 22.0
