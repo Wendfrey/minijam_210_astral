@@ -10,6 +10,8 @@ func _check_rules_internal() -> Array[Ficha]:
 		if not isBAfterA(index_ficha):
 			error_fichas.append(arrayPieces[index_ficha])
 		
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,4)
 	return error_fichas
 	
 func isBAfterA(bIndex:int) -> bool:

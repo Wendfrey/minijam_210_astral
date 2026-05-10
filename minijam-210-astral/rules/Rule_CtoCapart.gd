@@ -25,6 +25,10 @@ func _check_rules_internal() -> Array[Ficha]:
 			if i != 0 and get_piece(indexC + i).tipo == Ficha.Tipo.C:
 				result.append(get_piece(indexC))
 				break
+	
+	if result.size() > 0:
+		PlayerProgess.checkDoneLogro(8,5)
+	
 	return result
 	
 func checkDifference(indexA, indexB):

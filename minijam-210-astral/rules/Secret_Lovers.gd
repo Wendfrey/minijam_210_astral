@@ -33,6 +33,9 @@ func _check_rules_internal() -> Array[Ficha]:
 			
 	for i in range(bIndex, bArray.size()):
 		get_piece(bArray[i]).anulled = false
+	
+	if(secret_lovers):
+		PlayerProgess.checkDoneLogro(7,0)
 
 	return secret_lovers
 

@@ -15,4 +15,6 @@ func _check_rules_internal() -> Array[Ficha]:
 		error_fichas.append(thirteentPiece)
 		error_fichas.append(lastPiece)
 	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,3)
 	return error_fichas
