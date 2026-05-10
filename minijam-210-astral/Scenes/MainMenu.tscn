@@ -3,8 +3,25 @@
 [ext_resource type="Script" uid="uid://d4jxulb5t1log" path="res://Scenes/main_menu.gd" id="1_tt5f1"]
 [ext_resource type="PackedScene" uid="uid://5lloi2eib8ye" path="res://assets/models/calendar.fbx" id="2_8saeu"]
 [ext_resource type="PackedScene" uid="uid://d2qcytqjqpvj7" path="res://Scenes/OptionsScreen.tscn" id="2_ghw46"]
+[ext_resource type="Script" uid="uid://b6k4kx1cost22" path="res://Scenes/credits_label_load.gd" id="3_8um5k"]
 [ext_resource type="Texture2D" uid="uid://k2ee2f2wisrt" path="res://assets/img/texture2.png" id="3_ghw46"]
+[ext_resource type="FontFile" uid="uid://cf2ah2bsw2yn2" path="res://Font/OpenSans-VariableFont_wdth,wght.ttf" id="3_xim88"]
 [ext_resource type="AudioStream" uid="uid://4skr6byscnmd" path="res://Music/main_menu_bgm.wav" id="5_df05h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xim88"]
+content_margin_left = 0.0
+content_margin_top = 33.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.827451)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_xim88"]
+font = ExtResource("3_xim88")
 
 [sub_resource type="Environment" id="Environment_8saeu"]
 ambient_light_energy = 0.0
@@ -432,15 +449,50 @@ offset_bottom = -12.0
 
 [node name="BTN_Play" type="Button" parent="VBoxContainer" unique_id=863594332]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
 [node name="BTN_Options" type="Button" parent="VBoxContainer" unique_id=80513302]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "OPTIONS"
+
+[node name="BTN_Credits" type="Button" parent="VBoxContainer" unique_id=1120099721]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
 
 [node name="BTN_Exit" type="Button" parent="VBoxContainer" unique_id=529719205]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "EXIT"
+
+[node name="CreditsContainer" type="PanelContainer" parent="." unique_id=1814043687]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xim88")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer" unique_id=591016927]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=97116780]
+layout_mode = 2
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_xim88")
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_8um5k")
+
+[node name="CloseCreditsButton" type="Button" parent="CreditsContainer/VBoxContainer" unique_id=366427616]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "RETURN"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1694777405]
 environment = SubResource("Environment_8saeu")
@@ -448,33 +500,33 @@ environment = SubResource("Environment_8saeu")
 [node name="calendar" parent="WorldEnvironment" unique_id=273958900 instance=ExtResource("2_8saeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5009898, -0.9477291, 1.1428964)
 
-[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=1435706299]
+[node name="Light" parent="WorldEnvironment/calendar" index="0" unique_id=1491235742]
 light_color = Color(0.9869177, 0.9162137, 0.78111845, 1)
 light_energy = 3.0
 
-[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=2119704441]
+[node name="Camera" parent="WorldEnvironment/calendar" index="1" unique_id=230683564]
 transform = Transform3D(-0.6124865, -0.17073025, 0.77182347, 2.0787115e-06, 0.97639686, 0.21598428, -0.79048103, 0.13228907, -0.59802955, 1.4803379, 3.3209963, -0.1957016)
 
-[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=330962942]
+[node name="Floor" parent="WorldEnvironment/calendar" index="2" unique_id=1513547306]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0, 0)
 
-[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=1890068058]
+[node name="Platform" parent="WorldEnvironment/calendar" index="3" unique_id=1737388521]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -15.646902, 0.5645113, 3.0428314)
 
-[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=1960515118]
+[node name="Light_001" parent="WorldEnvironment/calendar" index="4" unique_id=1435446093]
 light_color = Color(0.58800024, 0, 0.1181423, 1)
 light_energy = 6.0
 
-[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=1237377259]
+[node name="Light_002" parent="WorldEnvironment/calendar" index="5" unique_id=1725314851]
 light_energy = 2.0
 
-[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2055797306) index="0" unique_id=224355351]
+[node name="Piece_01" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1556151388) index="0" unique_id=1438072223]
 surface_material_override/0 = SubResource("StandardMaterial3D_df05h")
 
-[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2055797306) index="1" unique_id=2114269635]
+[node name="Piece_02" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1556151388) index="1" unique_id=41555682]
 surface_material_override/0 = SubResource("StandardMaterial3D_8saeu")
 
-[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2055797306) index="2" unique_id=940811467]
+[node name="Piece_03" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1556151388) index="2" unique_id=995014869]
 surface_material_override/0 = SubResource("StandardMaterial3D_ghw46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_03" index="0" unique_id=435945517]
@@ -482,14 +534,14 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_xim88")
 autoplay = &"ticking"
 
-[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2055797306) index="3" unique_id=2077699336]
+[node name="Piece_04" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1556151388) index="3" unique_id=1616810072]
 surface_material_override/0 = SubResource("StandardMaterial3D_8um5k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar/Piece_04" index="0" unique_id=607876093]
 libraries/ = SubResource("AnimationLibrary_if7li")
 autoplay = &"ticking"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 2055797306) index="4" unique_id=402332250]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment/calendar/Calendar" parent_id_path=PackedInt32Array(273958900, 1556151388) index="4" unique_id=402332250]
 libraries/ = SubResource("AnimationLibrary_loo7a")
 autoplay = &"ticking"
 
@@ -508,7 +560,9 @@ bus = &"Music"
 [connection signal="close" from="OptionsScreen" to="." method="_on_options_screen_close"]
 [connection signal="pressed" from="VBoxContainer/BTN_Play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_Options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/BTN_Credits" to="." method="_on_btn_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="CreditsContainer/VBoxContainer/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
 [connection signal="animation_finished" from="SceneTransition" to="." method="_on_scene_transition_animation_finished"]
 
 [editable path="WorldEnvironment/calendar"]
