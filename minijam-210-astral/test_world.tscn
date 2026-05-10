@@ -9,10 +9,33 @@
 [ext_resource type="Script" uid="uid://c26vcft18jus7" path="res://scripts/ventanaLogros.gd" id="4_uu1iw"]
 [ext_resource type="StyleBox" uid="uid://bpiqrn1ci0mo5" path="res://assets/prefab/logroDisabled.tres" id="5_4tg7h"]
 [ext_resource type="StyleBox" uid="uid://beorh0uuf8ap2" path="res://assets/prefab/Ventana.tres" id="5_lf0gk"]
+[ext_resource type="Texture2D" uid="uid://bbvvelnsui5nr" path="res://assets/img/pcIcons/one.png" id="10_ud3vi"]
+[ext_resource type="FontFile" uid="uid://cf2ah2bsw2yn2" path="res://Font/OpenSans-VariableFont_wdth,wght.ttf" id="11_5457m"]
+[ext_resource type="Texture2D" uid="uid://cibjmv1ofc37s" path="res://assets/img/pcIcons/two.png" id="12_ivea3"]
+[ext_resource type="Texture2D" uid="uid://bmibwmgmvg0n5" path="res://assets/img/pcIcons/three.png" id="13_jvck6"]
+[ext_resource type="Texture2D" uid="uid://00stn1cgeept" path="res://assets/img/pcIcons/four.png" id="14_kfu6g"]
+[ext_resource type="Texture2D" uid="uid://delf51f0nm63s" path="res://assets/img/pcIcons/five.png" id="15_6mf5r"]
+[ext_resource type="Texture2D" uid="uid://slqlr2o10in3" path="res://assets/img/pcIcons/six.png" id="16_blr6d"]
+[ext_resource type="Texture2D" uid="uid://b4jdent5v26jt" path="res://assets/img/pcIcons/quest.png" id="17_blr6d"]
+[ext_resource type="Texture2D" uid="uid://d2vu8ntnxdq0m" path="res://assets/img/pcIcons/calendar.png" id="18_f2a6c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cnaw2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kt6p6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5457m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivea3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvck6"]
+bg_color = Color(1, 1, 1, 0.19607843)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5457m"]
+bg_color = Color(0.29411766, 0.17254902, 0.4627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego", "ventanaLogros")]
 layout_mode = 3
@@ -24,6 +47,7 @@ ventanaLogros = NodePath("LogrosVentana")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
 [node name="JuegoVentana" type="Panel" parent="." unique_id=626347948]
+visible = false
 z_index = -1
 layout_mode = 0
 offset_left = -483.0
@@ -137,90 +161,225 @@ spacer = NodePath("../JuegoVentana/Spacer")
 stream = ExtResource("4_dsnr4")
 bus = &"SFX"
 
-[node name="Level1" type="Button" parent="." unique_id=479343418]
-z_index = -2
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1397467646]
 layout_mode = 0
-offset_left = -468.0
-offset_top = -218.0
-offset_right = -402.0
-offset_bottom = -158.0
-text = "1"
+offset_left = -479.0
+offset_top = -222.0
+offset_right = 56.0
+offset_bottom = 6.0
+columns = 6
 
-[node name="Level2" type="Button" parent="." unique_id=182743872]
+[node name="Level1" type="Button" parent="GridContainer" unique_id=1020927165]
 z_index = -2
-layout_mode = 0
-offset_left = -383.0
-offset_top = -218.0
-offset_right = -317.0
-offset_bottom = -158.0
-text = "2"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
 
-[node name="Level3" type="Button" parent="." unique_id=605259979]
-z_index = -2
-layout_mode = 0
-offset_left = -293.0
-offset_top = -218.0
-offset_right = -227.0
-offset_bottom = -158.0
-text = "3"
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level1" unique_id=2130583886]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_ud3vi")
 
-[node name="Level4" type="Button" parent="." unique_id=1764570006]
-z_index = -2
+[node name="Label" type="Label" parent="GridContainer/Level1" unique_id=615570788]
 layout_mode = 0
-offset_left = -205.0
-offset_top = -219.0
-offset_right = -139.0
-offset_bottom = -159.0
-text = "4"
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "ALOM"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Level5" type="Button" parent="." unique_id=967885779]
+[node name="Level2" type="Button" parent="GridContainer" unique_id=1735881038]
 z_index = -2
-layout_mode = 0
-offset_left = -113.0
-offset_top = -219.0
-offset_right = -47.0
-offset_bottom = -159.0
-text = "5"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
 
-[node name="Level6" type="Button" parent="." unique_id=1666077598]
-z_index = -2
-layout_mode = 0
-offset_left = -19.0
-offset_top = -220.0
-offset_right = 47.0
-offset_bottom = -160.0
-text = "6"
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level2" unique_id=1338345356]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_ivea3")
 
-[node name="LogosIcon" type="Button" parent="." unique_id=740900932]
-z_index = -2
+[node name="Label" type="Label" parent="GridContainer/Level2" unique_id=1491030413]
 layout_mode = 0
-offset_left = -468.0
-offset_top = -131.0
-offset_right = -402.0
-offset_bottom = -71.0
-text = "1"
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "BOLON"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StatusIcon" type="Button" parent="." unique_id=1021764294]
+[node name="Level3" type="Button" parent="GridContainer" unique_id=1445289388]
 z_index = -2
-layout_mode = 0
-offset_left = -383.0
-offset_top = -131.0
-offset_right = -317.0
-offset_bottom = -71.0
-text = "2"
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
 
-[node name="CreditsIcon" type="Button" parent="." unique_id=461871487]
-z_index = -2
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level3" unique_id=805579523]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_jvck6")
+
+[node name="Label" type="Label" parent="GridContainer/Level3" unique_id=1464998637]
 layout_mode = 0
-offset_left = -293.0
-offset_top = -131.0
-offset_right = -227.0
-offset_bottom = -71.0
-text = "3"
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "CANEK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level4" type="Button" parent="GridContainer" unique_id=1099758036]
+z_index = -2
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level4" unique_id=1461523626]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_kfu6g")
+
+[node name="Label" type="Label" parent="GridContainer/Level4" unique_id=1156903890]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "DAYAMI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level5" type="Button" parent="GridContainer" unique_id=1544904367]
+z_index = -2
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level5" unique_id=497505549]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_6mf5r")
+
+[node name="Label" type="Label" parent="GridContainer/Level5" unique_id=330726211]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "ETZEME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level6" type="Button" parent="GridContainer" unique_id=60457974]
+z_index = -2
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/Level6" unique_id=969410530]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_blr6d")
+
+[node name="Label" type="Label" parent="GridContainer/Level6" unique_id=1075021227]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "IZTAE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="logrosIcon" type="Button" parent="GridContainer" unique_id=538487749]
+z_index = -2
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/logrosIcon" unique_id=945123223]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_blr6d")
+
+[node name="Label" type="Label" parent="GridContainer/logrosIcon" unique_id=1889913326]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "QUEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="statusIcon" type="Button" parent="GridContainer" unique_id=55806208]
+z_index = -2
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5457m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivea3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jvck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer/statusIcon" unique_id=449479740]
+position = Vector2(40, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_f2a6c")
+
+[node name="Label" type="Label" parent="GridContainer/statusIcon" unique_id=2137170778]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 69.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_5457m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5457m")
+text = "STATUS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="JuegoVentana/Button" to="RulesChecker" method="_on_button_pressed"]
 [connection signal="pressed" from="JuegoVentana/close" to="." method="_on_juego_close_pressed"]
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
-[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="LogosIcon" to="." method="_on_logos_icon_pressed"]
+[connection signal="pressed" from="GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="GridContainer/logrosIcon" to="." method="_on_logros_icon_pressed"]

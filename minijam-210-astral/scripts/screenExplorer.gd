@@ -15,5 +15,5 @@ func _on_logros_close_pressed():
 func _on_level_1_pressed():
 	ventanaJuego.visible = true
 
-func _on_logos_icon_pressed():
+func _on_logros_icon_pressed():
 	ventanaLogros.visible = true
