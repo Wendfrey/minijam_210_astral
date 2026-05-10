@@ -438,8 +438,6 @@ offset_right = -120.0
 offset_bottom = 288.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
-script = ExtResource("4_uu1iw")
-logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
 
 [node name="close" type="Button" parent="StatusVentana" unique_id=1889893680]
 layout_mode = 1
@@ -584,8 +582,10 @@ bus = &"SFX"
 [connection signal="pressed" from="GridContainer/Level6" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="GridContainer/Level6" to="LevelManager" method="on_level_pressed" binds= [5]]
 [connection signal="pressed" from="GridContainer/logrosIcon" to="." method="_on_logros_icon_pressed"]
+[connection signal="pressed" from="GridContainer/statusIcon" to="." method="_on_status_icon_pressed"]
 [connection signal="pressed" from="JuegoVentana/Button" to="RulesChecker" method="_on_button_pressed"]
 [connection signal="pressed" from="JuegoVentana/close" to="." method="_on_juego_close_pressed"]
+[connection signal="pressed" from="StatusVentana/close" to="." method="_on_status_close_pressed"]
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
 [connection signal="level_completed" from="LevelManager" to="." method="_on_level_manager_level_completed"]
