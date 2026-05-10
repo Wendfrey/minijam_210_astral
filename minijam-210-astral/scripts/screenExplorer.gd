@@ -1,0 +1,15 @@
+extends Control
+
+@export var ventanaJuego:Panel;
+@export var ventanaLogros:Panel;
+@export var ventanaStatus:Panel;
+@export var ventanaCredits:Panel;
+
+
+func _on_juego_close_pressed():
+	ventanaJuego.visible = false
+
+
+
+func _on_level_1_pressed():
+	ventanaJuego.visible = true
