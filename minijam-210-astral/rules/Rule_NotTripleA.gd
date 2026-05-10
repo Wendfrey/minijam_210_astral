@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK]Triple [img width=32]res://assets/img/TinyIconA.png[/img] is not allowed"
+	rule_name = "[color=BLACK]Triple [img width=32 color=BLACK]res://assets/img/TinyIconA.png[/img] is not allowed"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []

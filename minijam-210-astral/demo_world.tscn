@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bodae2yp18i0a" path="res://assets/img/TinyIconD.png" id="6_nrp8e"]
 [ext_resource type="Texture2D" uid="uid://oeqa68e1eld2" path="res://assets/img/TinyIconE.png" id="7_sysdr"]
 [ext_resource type="Texture2D" uid="uid://c7wpu8nxuyac5" path="res://assets/img/TinyIconF.png" id="8_jlp7h"]
+[ext_resource type="Texture2D" uid="uid://cmch6vo2vhccm" path="res://assets/img/TinyIconG.png" id="9_vgbly"]
 
 [node name="DemoWorld" type="Control" unique_id=669845208]
 layout_mode = 3
@@ -47,6 +48,10 @@ icon = ExtResource("7_sysdr")
 layout_mode = 2
 icon = ExtResource("8_jlp7h")
 
+[node name="Button7" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1348206043]
+layout_mode = 2
+icon = ExtResource("9_vgbly")
+
 [node name="BorrarButton" type="CheckButton" parent="CanvasLayer/HBoxContainer" unique_id=919386839]
 layout_mode = 2
 text = "Borrar"
@@ -57,4 +62,4 @@ text = "Borrar"
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button3" to="." method="_create_item" binds= [3]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button4" to="." method="_create_item" binds= [4]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button5" to="." method="_create_item" binds= [5]]
-[connection signal="toggled" from="CanvasLayer/HBoxContainer/BorrarButton" to="." method="_on_borrar_button_toggled"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button7" to="." method="_create_item" binds= [6]]
