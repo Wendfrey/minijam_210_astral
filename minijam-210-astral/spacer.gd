@@ -153,7 +153,7 @@ func createInsertAnimation(inserted):
 		tween.tween_property(child, "global_position", nPosition, time)\
 		.set_trans(Tween.TRANS_CUBIC)
 
-func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
+func remove_pieces(arrayTipo:Array[Ficha.Tipo], with_animation = true):
 	
 	var nailedEl = pieces.filter(func (el:Ficha): return el.nailed)
 	var nailedIndexList = nailedEl.map(func(el:Ficha): return pieces.find(el))
@@ -170,11 +170,14 @@ func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
 		
 	var tweenBig = create_tween()
 	for node in nodesToRemove:
-		var tween = create_tween()
-		tween.tween_property(node, "global_position", Vector2(0, -500), 0.6).as_relative().set_trans(Tween.TRANS_CUBIC)
-		tween.finished.connect(node.queue_free)
-		tweenBig.parallel().tween_subtween(tween)
-	tweenBig.parallel().tween_callback(reset_values.bind(true, 0)).set_delay(0.2)
+		if not with_animation:
+			node.queue_free()
+		else:
+			var tween = create_tween()
+			tween.tween_property(node, "global_position", Vector2(0, -500), 0.6).as_relative().set_trans(Tween.TRANS_CUBIC)
+			tween.finished.connect(node.queue_free)
+			tweenBig.parallel().tween_subtween(tween)
+	tweenBig.parallel().tween_callback(reset_values.bind(with_animation, 0)).set_delay(0.2)
 	
 	secretLovers.check_rules(pieces.duplicate())
 

@@ -26,3 +26,6 @@ func checkDoneLogro(numLogro, numPart):
 	logros[numLogro].parts[numPart] = true
 	if logros[numLogro].isDone():
 		logroUpdate.emit(numLogro)
+
+func is_logro_completed(numLogro):
+	return logros[numLogro].isDone()
