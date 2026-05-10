@@ -197,9 +197,6 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr7q5"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyk74"]
-bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xpys"]
 bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
 
@@ -990,7 +987,6 @@ offset_right = -20.0
 offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hyk74")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=2031018883]
 layout_mode = 1

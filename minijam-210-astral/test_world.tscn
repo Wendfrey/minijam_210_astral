@@ -14,11 +14,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kt6p6"]
 
-[node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego")]
+[node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego", "ventanaLogros")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cnaw2")
 ventanaJuego = NodePath("JuegoVentana")
+ventanaLogros = NodePath("LogrosVentana")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
