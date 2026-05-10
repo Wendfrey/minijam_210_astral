@@ -1,5 +1,6 @@
 class_name Logro
 
+
 var parts:Array[bool]
 
 func _init(partsNum):

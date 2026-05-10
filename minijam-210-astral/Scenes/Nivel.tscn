@@ -1090,6 +1090,7 @@ shape = SubResource("BoxShape3D_neig4")
 [node name="ASP_level_bgm" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=332574165]
 stream = ExtResource("7_8xpys")
 autoplay = true
+bus = &"Music"
 
 [node name="SceneTransition" type="AnimationPlayer" parent="WorldEnvironment" unique_id=77127670]
 root_node = NodePath("../..")

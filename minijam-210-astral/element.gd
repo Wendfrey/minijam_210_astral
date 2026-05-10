@@ -97,7 +97,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func vibrate():
 	if current_anim:
-		current_anim.stop()
+		current_anim.kill()
+		position = current_pos
 	current_pos = position
 	current_anim = get_tree().create_tween()
 	current_anim.bind_node(self)
@@ -106,6 +107,7 @@ func vibrate():
 	current_anim.tween_property(self, "position", Vector2(2, -4), 0.05).as_relative()
 	current_anim.tween_property(self, "position", Vector2(-2, 2), 0.05).as_relative()
 	current_anim.tween_property(self, "position", current_pos, 0.05)
+	current_anim.finished.connect(func (): current_anim = null)
 
 func clear_errors():
 	errores.clear()

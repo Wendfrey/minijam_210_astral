@@ -9,7 +9,11 @@ extends Control
 func _on_juego_close_pressed():
 	ventanaJuego.visible = false
 
-
+func _on_logros_close_pressed():
+	ventanaLogros.visible = false
 
 func _on_level_1_pressed():
 	ventanaJuego.visible = true
+
+func _on_logos_icon_pressed():
+	ventanaLogros.visible = true
