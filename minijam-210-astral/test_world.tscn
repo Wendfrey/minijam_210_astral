@@ -567,6 +567,7 @@ label_settings = SubResource("LabelSettings_blr6d")
 vertical_alignment = 1
 
 [node name="WinConPanel" type="Panel" parent="." unique_id=1112553398]
+visible = false
 z_index = 33
 layout_mode = 1
 offset_left = -576.0
