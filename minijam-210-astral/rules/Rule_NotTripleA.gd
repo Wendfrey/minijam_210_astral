@@ -13,5 +13,8 @@ func _check_rules_internal() -> Array[Ficha]:
 					var piece = arrayPieces[index_ficha + i]
 					if not error_fichas.has(piece):
 						error_fichas.append(piece)
-		
+
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,10)
+	
 	return error_fichas

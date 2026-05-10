@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK]The sigil on the 3rd space cannot be chained in any space"
+	rule_name = "[color=BLACK]The sigil of 3rd space can't be next to itself"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []
@@ -19,4 +19,7 @@ func _check_rules_internal() -> Array[Ficha]:
 				error_fichas.append(get_piece(symbolChainArray[symbolIndex]))
 			error_fichas.append(get_piece(symbolChainArray[symbolIndex+1]))
 	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,0)
+		
 	return error_fichas

@@ -24,7 +24,10 @@ func _check_rules_internal() -> Array[Ficha]:
 		index_ficha += 1
 		
 	registerWrongPairings(count, index_ficha - 1, error_fichas, eArray)
-
+	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,11)
+	
 	return error_fichas
 	
 func registerWrongPairings(count, current_index,error_list, listGroup):

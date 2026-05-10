@@ -11,4 +11,7 @@ func _check_rules_internal() -> Array[Ficha]:
 		if not listC.any(func (elementC): return abs(elementD - elementC) <= 2):
 			error_fichas.append(arrayPieces[elementD])
 	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,8)
+	
 	return error_fichas

@@ -17,7 +17,10 @@ func _check_rules_internal() -> Array[Ficha]:
 			error_fichas.append(get_piece(gValue))
 		elif get_piece(gValue-1).tipo != get_piece(gValue+1).tipo:
 			error_fichas.append(get_piece(gValue))
-
+	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,9)
+	
 	return error_fichas
 	
 func registerWrongPairings(count, current_index,error_list, listGroup):

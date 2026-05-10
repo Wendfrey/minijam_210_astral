@@ -9,6 +9,9 @@ func _check_rules_internal() -> Array[Ficha]:
 	for index_ficha in get_index_of_type(Ficha.Tipo.E):
 		if (index_ficha+1)%3 != 0:
 			error_fichas.append(arrayPieces[index_ficha])
-		
+	
+	if error_fichas.size() > 0:
+		PlayerProgess.checkDoneLogro(8,7)
+	
 	return error_fichas
 	
