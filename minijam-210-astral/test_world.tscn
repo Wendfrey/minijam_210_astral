@@ -4,12 +4,21 @@
 [ext_resource type="Script" uid="uid://dvii7opwqnaf7" path="res://level_manager.gd" id="2_1lwx6"]
 [ext_resource type="Script" uid="uid://c8jcc5y7w1h2k" path="res://spacer.gd" id="2_gy3sr"]
 [ext_resource type="AudioStream" uid="uid://dnhaox7rn2hjp" path="res://Sounds/maracas_double.wav" id="4_dsnr4"]
+[ext_resource type="StyleBox" uid="uid://beorh0uuf8ap2" path="res://assets/prefab/Ventana.tres" id="5_lf0gk"]
 
 [node name="TestWorld" type="Control" unique_id=1608082381]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
+
+[node name="Panel" type="Panel" parent="." unique_id=626347948]
+layout_mode = 0
+offset_left = -546.0
+offset_top = -71.0
+offset_right = 521.0
+offset_bottom = 69.0
+theme_override_styles/panel = ExtResource("5_lf0gk")
 
 [node name="Spacer" type="Node2D" parent="." unique_id=333636565]
 script = ExtResource("2_gy3sr")

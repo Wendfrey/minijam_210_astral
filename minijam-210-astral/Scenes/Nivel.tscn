@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp4el8r0ad4ik" path="res://Scenes/interact.gd" id="1_cxw1l"]
 [ext_resource type="PackedScene" uid="uid://csjyu5taxo1po" path="res://test_world.tscn" id="1_neig4"]
+[ext_resource type="Texture2D" uid="uid://ddrie1w0cupkp" path="res://assets/img/mayados.png" id="3_i2q11"]
 [ext_resource type="PackedScene" uid="uid://cxqlpip4dl8pm" path="res://assets/models/level.fbx" id="3_pvqg1"]
 [ext_resource type="Script" uid="uid://d2jihk5atxub7" path="res://scripts/LevelCameraControls.gd" id="4_c7umo"]
 [ext_resource type="Texture2D" uid="uid://duhyj44dwll5s" path="res://assets/img/stars.png" id="5_mr7q5"]
@@ -115,7 +116,7 @@ tracks/2/path = NodePath("../../ToWindow/SubViewport/Control/CanvasLayer/Button:
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 2.5333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
@@ -516,10 +517,34 @@ tracks/22/keys = {
 "update": 1,
 "values": [null]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport/MayaDos:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport/MayaDos:z_index")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3000]
+}
 
 [sub_resource type="Animation" id="Animation_8xpys"]
 resource_name = "start"
-length = 11.0
+length = 11.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -796,6 +821,30 @@ tracks/22/keys = {
 "update": 1,
 "values": [null]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport/MayaDos:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(8.874459, 9.02451, 9.260305, 9.4103565, 10.9, 11.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.74509805, 0.39215687, 0.74509805, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport/MayaDos:z_index")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(11.4, 11.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3000, -2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2q11"]
 _data = {
@@ -837,6 +886,12 @@ physics_object_picking = true
 gui_embed_subwindows = true
 size = Vector2i(1280, 620)
 render_target_update_mode = 4
+
+[node name="MayaDos" type="Sprite2D" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport" unique_id=176295666]
+modulate = Color(0, 0, 0, 1)
+z_index = 3000
+scale = Vector2(1.3, 1)
+texture = ExtResource("3_i2q11")
 
 [node name="TestWorld" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
 mouse_filter = 1
@@ -930,9 +985,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 44.0
-offset_top = 16.0
+offset_top = 3.0
 offset_right = -20.0
-offset_bottom = -113.0
+offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hyk74")
@@ -943,8 +998,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 41.0
+offset_top = -12.0
 offset_right = -20.0
-offset_bottom = -5.0
+offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
@@ -960,7 +1016,8 @@ The symbol of 10th position must be the same as 1st position
 Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
 The symbol of 13th position can't be the same as last position
 [img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
-[img width=45]res://assets/img/TinyIconG.png[/img] must come in triplets"
+[img width=45]res://assets/img/TinyIconG.png[/img] must come in triplets
+[img width=45]res://assets/img/TinyIconB.png[/img] has a secret lover "
 
 [node name="BackButton" type="Button" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
 layout_mode = 1
@@ -968,9 +1025,9 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 438.0
-offset_top = 579.0
+offset_top = 573.0
 offset_right = -449.0
-offset_bottom = -20.0
+offset_bottom = -8.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8xpys")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i2q11")
