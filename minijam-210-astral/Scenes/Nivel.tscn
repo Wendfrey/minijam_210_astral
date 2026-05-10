@@ -8,11 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://drq3qfdlnw0b4" path="res://assets/img/singlestar.png" id="6_hyk74"]
 [ext_resource type="AudioStream" uid="uid://dwhqyrqp6vyp2" path="res://Music/level_bgm.wav" id="7_8xpys"]
 
+[sub_resource type="Environment" id="Environment_8xpys"]
+background_energy_multiplier = 0.0
+ambient_light_energy = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i2q11"]
+
+[sub_resource type="Compositor" id="Compositor_er4ec"]
+
 [sub_resource type="QuadMesh" id="QuadMesh_neig4"]
 size = Vector2(1.4, 0.89)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_neig4"]
-viewport_path = NodePath("level/Monitor/MonitorScreen/Screen/SubViewport")
+viewport_path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxw1l"]
 resource_local_to_scene = true
@@ -203,7 +211,7 @@ bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
 bg_color = Color(0.3137255, 0.3137255, 0.3529412, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mr7q5"]
-viewport_path = NodePath("Guide/SubViewport")
+viewport_path = NodePath("WorldEnvironment/Guide/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk74"]
 resource_local_to_scene = true
@@ -217,7 +225,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("level/Camera:position")
+tracks/0/path = NodePath("WorldEnvironment/level/Camera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -229,7 +237,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("level/Camera:rotation")
+tracks/1/path = NodePath("WorldEnvironment/level/Camera:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -241,7 +249,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SkyBg/star_01:modulate")
+tracks/2/path = NodePath("WorldEnvironment/SkyBg/star_01:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -253,7 +261,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SkyBg/star_01:scale")
+tracks/3/path = NodePath("WorldEnvironment/SkyBg/star_01:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -265,7 +273,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SkyBg/star_02:scale")
+tracks/4/path = NodePath("WorldEnvironment/SkyBg/star_02:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -277,7 +285,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("SkyBg/star_03:scale")
+tracks/5/path = NodePath("WorldEnvironment/SkyBg/star_03:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -289,7 +297,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("SkyBg/star_02:modulate")
+tracks/6/path = NodePath("WorldEnvironment/SkyBg/star_02:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -301,7 +309,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("SkyBg/star_03:modulate")
+tracks/7/path = NodePath("WorldEnvironment/SkyBg/star_03:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -313,7 +321,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("SkyBg/nightSky:modulate")
+tracks/8/path = NodePath("WorldEnvironment/SkyBg/nightSky:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -325,7 +333,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("level/Monitor:position")
+tracks/9/path = NodePath("WorldEnvironment/level/Monitor:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -337,7 +345,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("level/Monitor:rotation")
+tracks/10/path = NodePath("WorldEnvironment/level/Monitor:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -349,7 +357,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Guide/Quad:surface_material_override/0:albedo_color")
+tracks/11/path = NodePath("WorldEnvironment/Guide/Quad:surface_material_override/0:albedo_color")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -361,7 +369,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("SkyBg/star_01:rotation")
+tracks/12/path = NodePath("WorldEnvironment/SkyBg/star_01:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -373,7 +381,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("level/Light:light_energy")
+tracks/13/path = NodePath("WorldEnvironment/level/Light:light_energy")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -385,7 +393,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("level/Light_002:light_energy")
+tracks/14/path = NodePath("WorldEnvironment/level/Light_002:light_energy")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -397,7 +405,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("level/Light_001:light_energy")
+tracks/15/path = NodePath("WorldEnvironment/level/Light_001:light_energy")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -409,7 +417,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("level/Monitor/MonitorScreen:rotation")
+tracks/16/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen:rotation")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -421,7 +429,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("level/Monitor/MonitorScreen:position")
+tracks/17/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -433,7 +441,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("CanvasLayer/Button:visible")
+tracks/18/path = NodePath("WorldEnvironment/CanvasLayer/Button:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -445,7 +453,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("SkyBg/star_01:visible")
+tracks/19/path = NodePath("WorldEnvironment/SkyBg/star_01:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -457,7 +465,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("SkyBg/star_02:visible")
+tracks/20/path = NodePath("WorldEnvironment/SkyBg/star_02:visible")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -469,7 +477,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("SkyBg/star_03:visible")
+tracks/21/path = NodePath("WorldEnvironment/SkyBg/star_03:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -485,7 +493,7 @@ length = 11.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("level/Camera:position")
+tracks/0/path = NodePath("WorldEnvironment/level/Camera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -497,7 +505,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("level/Camera:rotation")
+tracks/1/path = NodePath("WorldEnvironment/level/Camera:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -509,7 +517,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SkyBg/star_01:modulate")
+tracks/2/path = NodePath("WorldEnvironment/SkyBg/star_01:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -521,7 +529,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SkyBg/star_01:scale")
+tracks/3/path = NodePath("WorldEnvironment/SkyBg/star_01:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -533,7 +541,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SkyBg/star_02:scale")
+tracks/4/path = NodePath("WorldEnvironment/SkyBg/star_02:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -545,7 +553,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("SkyBg/star_03:scale")
+tracks/5/path = NodePath("WorldEnvironment/SkyBg/star_03:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -557,7 +565,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("SkyBg/star_02:modulate")
+tracks/6/path = NodePath("WorldEnvironment/SkyBg/star_02:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -569,7 +577,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("SkyBg/star_03:modulate")
+tracks/7/path = NodePath("WorldEnvironment/SkyBg/star_03:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -581,7 +589,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("SkyBg/nightSky:modulate")
+tracks/8/path = NodePath("WorldEnvironment/SkyBg/nightSky:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -593,7 +601,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("level/Monitor:position")
+tracks/9/path = NodePath("WorldEnvironment/level/Monitor:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -605,7 +613,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("level/Monitor:rotation")
+tracks/10/path = NodePath("WorldEnvironment/level/Monitor:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -617,7 +625,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Guide/Quad:surface_material_override/0:albedo_color")
+tracks/11/path = NodePath("WorldEnvironment/Guide/Quad:surface_material_override/0:albedo_color")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -629,7 +637,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("SkyBg/star_01:rotation")
+tracks/12/path = NodePath("WorldEnvironment/SkyBg/star_01:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -641,7 +649,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("level/Light:light_energy")
+tracks/13/path = NodePath("WorldEnvironment/level/Light:light_energy")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -653,7 +661,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("level/Light_002:light_energy")
+tracks/14/path = NodePath("WorldEnvironment/level/Light_002:light_energy")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -665,7 +673,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("level/Light_001:light_energy")
+tracks/15/path = NodePath("WorldEnvironment/level/Light_001:light_energy")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -677,7 +685,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("level/Monitor/MonitorScreen:rotation")
+tracks/16/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen:rotation")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -689,7 +697,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("level/Monitor/MonitorScreen:position")
+tracks/17/path = NodePath("WorldEnvironment/level/Monitor/MonitorScreen:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -701,7 +709,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("CanvasLayer/Button:visible")
+tracks/18/path = NodePath("WorldEnvironment/CanvasLayer/Button:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -713,7 +721,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("SkyBg/star_01:visible")
+tracks/19/path = NodePath("WorldEnvironment/SkyBg/star_01:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -725,7 +733,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("SkyBg/star_02:visible")
+tracks/20/path = NodePath("WorldEnvironment/SkyBg/star_02:visible")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -737,7 +745,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("SkyBg/star_03:visible")
+tracks/21/path = NodePath("WorldEnvironment/SkyBg/star_03:visible")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -756,60 +764,91 @@ _data = {
 [node name="Nivel" type="Node3D" unique_id=402974667]
 process_mode = 3
 
-[node name="level" parent="." unique_id=1305496534 instance=ExtResource("3_pvqg1")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1766955369]
+environment = SubResource("Environment_8xpys")
+camera_attributes = SubResource("CameraAttributesPractical_i2q11")
+compositor = SubResource("Compositor_er4ec")
 
-[node name="Light" parent="level" index="0" unique_id=1730370863]
+[node name="level" parent="WorldEnvironment" unique_id=1305496534 instance=ExtResource("3_pvqg1")]
+
+[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1730370863]
 light_energy = 0.0
 
-[node name="Camera" parent="level" index="1" unique_id=1549106887]
+[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1549106887]
 transform = Transform3D(-0.240228, 0, -0.9707165, 0, 1, 0, 0.9707165, 0, -0.240228, 3.9360003, 0.605, -1.51)
 far = 4000.0
 
-[node name="Monitor" parent="level" index="5" unique_id=254613494]
+[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=254613494]
 transform = Transform3D(92.1949, 38.731136, 1.6929915e-06, 0, -4.371139e-06, 99.99999, 38.731136, -92.1949, -4.029967e-06, -0.4186713, 0, 0.27361727)
 metadata/_edit_group_ = true
 
-[node name="MonitorScreen" parent="level/Monitor" index="0" unique_id=492388446]
+[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=492388446]
 transform = Transform3D(1.1014222, -0.22911622, -2.930425e-08, 0.22911622, 1.1014222, 7.049959e-09, 2.72543e-08, -1.2870275e-08, 1.125, 0.0015037457, 4.656613e-10, 0.007069087)
 metadata/_edit_group_ = true
 
-[node name="Screen" type="Node3D" parent="level/Monitor/MonitorScreen" index="0" unique_id=1009633693]
+[node name="Screen" type="Node3D" parent="WorldEnvironment/level/Monitor/MonitorScreen" index="0" unique_id=1009633693]
 transform = Transform3D(0, -4.3711396e-10, -0.010000002, -0.010000002, -4.371139e-10, 0, -4.371139e-10, 0.010000001, -4.371139e-10, -0.004, 0, 0)
 script = ExtResource("1_cxw1l")
 
-[node name="SubViewport" type="SubViewport" parent="level/Monitor/MonitorScreen/Screen" unique_id=790904964]
+[node name="SubViewport" type="SubViewport" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen" unique_id=790904964]
 physics_object_picking = true
 gui_embed_subwindows = true
 size = Vector2i(1280, 620)
 render_target_update_mode = 4
 
-[node name="TestWorld" parent="level/Monitor/MonitorScreen/Screen/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
+[node name="TestWorld" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/SubViewport" unique_id=140087252 instance=ExtResource("1_neig4")]
 mouse_filter = 1
 
-[node name="Quad" type="MeshInstance3D" parent="level/Monitor/MonitorScreen/Screen" unique_id=1153445317]
+[node name="Quad" type="MeshInstance3D" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen" unique_id=1153445317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.045)
 mesh = SubResource("QuadMesh_neig4")
 surface_material_override/0 = SubResource("StandardMaterial3D_cxw1l")
 
-[node name="Area3D" type="Area3D" parent="level/Monitor/MonitorScreen/Screen/Quad" unique_id=33247490]
+[node name="Area3D" type="Area3D" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/Quad" unique_id=33247490]
 collision_layer = 2
 input_capture_on_drag = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Monitor/MonitorScreen/Screen/Quad/Area3D" unique_id=460029618]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/Quad/Area3D" unique_id=460029618]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
 
-[node name="Light_001" parent="level" index="9" unique_id=726229084]
+[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=726229084]
 light_energy = 0.0
 
-[node name="Light_002" parent="level" index="11" unique_id=2073180975]
+[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=2073180975]
 light_energy = 0.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
+[node name="SkyBg" type="Node3D" parent="WorldEnvironment" unique_id=303202552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2346.2727, 0, 0)
+
+[node name="nightSky" type="Sprite3D" parent="WorldEnvironment/SkyBg" unique_id=857243428]
+transform = Transform3D(-23.293716, 0, -86.93333, 0, -90, 0, 86.93333, 0, -23.293716, -328.18567, 0, 327.049)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("5_mr7q5")
+
+[node name="nigtSky2" type="Sprite3D" parent="WorldEnvironment/SkyBg" unique_id=1146206280]
+transform = Transform3D(-23.357437, -0.9101657, -86.91145, 7.867618e-06, 89.99505, -0.9424605, -86.91623, 0.24460155, 23.356153, -543.46765, 60.635, -1289.125)
+texture = ExtResource("5_mr7q5")
+
+[node name="star_01" type="Sprite3D" parent="WorldEnvironment/SkyBg" unique_id=1380092110]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, -484.25415, 11.25, 735.6379)
+texture = ExtResource("6_hyk74")
+
+[node name="star_02" type="Sprite3D" parent="WorldEnvironment/SkyBg" unique_id=913350499]
+transform = Transform3D(5.1763816, 0, 19.318516, 0, 20, 0, -19.318516, 0, 5.1763816, -357.65283, -228.59999, 263.1552)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("6_hyk74")
+
+[node name="star_03" type="Sprite3D" parent="WorldEnvironment/SkyBg" unique_id=710909235]
+transform = Transform3D(5.1763816, 0, 19.318516, 0, 20, 0, -19.318516, 0, 5.1763816, -508.71252, 300.15, 826.91785)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("6_hyk74")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment" unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
 script = ExtResource("4_c7umo")
 CameraAnimation = NodePath("../CameraAnimation")
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=71538219]
+[node name="Button" type="Button" parent="WorldEnvironment/CanvasLayer" unique_id=71538219]
 visible = false
 anchors_preset = -1
 anchor_left = 0.037326388
@@ -822,48 +861,22 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pvqg1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pvqg1")
 metadata/_edit_use_anchors_ = true
 
-[node name="CameraAnimation" type="AnimationPlayer" parent="." unique_id=740294400]
+[node name="CameraAnimation" type="AnimationPlayer" parent="WorldEnvironment" unique_id=740294400]
 root_node = NodePath("../level/Camera")
 libraries/ = SubResource("AnimationLibrary_mr7q5")
 
-[node name="SkyBg" type="Node3D" parent="." unique_id=303202552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2346.2727, 0, 0)
-
-[node name="nightSky" type="Sprite3D" parent="SkyBg" unique_id=857243428]
-transform = Transform3D(-23.293716, 0, -86.93333, 0, -90, 0, 86.93333, 0, -23.293716, -328.18567, 0, 327.049)
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("5_mr7q5")
-
-[node name="nigtSky2" type="Sprite3D" parent="SkyBg" unique_id=1146206280]
-transform = Transform3D(-23.357437, -0.9101657, -86.91145, 7.867618e-06, 89.99505, -0.9424605, -86.91623, 0.24460155, 23.356153, -543.46765, 60.635, -1289.125)
-texture = ExtResource("5_mr7q5")
-
-[node name="star_01" type="Sprite3D" parent="SkyBg" unique_id=1380092110]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, -484.25415, 11.25, 735.6379)
-texture = ExtResource("6_hyk74")
-
-[node name="star_02" type="Sprite3D" parent="SkyBg" unique_id=913350499]
-transform = Transform3D(5.1763816, 0, 19.318516, 0, 20, 0, -19.318516, 0, 5.1763816, -357.65283, -228.59999, 263.1552)
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("6_hyk74")
-
-[node name="star_03" type="Sprite3D" parent="SkyBg" unique_id=710909235]
-transform = Transform3D(5.1763816, 0, 19.318516, 0, 20, 0, -19.318516, 0, 5.1763816, -508.71252, 300.15, 826.91785)
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("6_hyk74")
-
-[node name="Guide" type="Node3D" parent="." unique_id=1256224791]
+[node name="Guide" type="Node3D" parent="WorldEnvironment" unique_id=1256224791]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 6.5, 0.6, -0.9)
 script = ExtResource("1_cxw1l")
 
-[node name="SubViewport" type="SubViewport" parent="Guide" unique_id=841216985]
+[node name="SubViewport" type="SubViewport" parent="WorldEnvironment/Guide" unique_id=841216985]
 transparent_bg = true
 physics_object_picking = true
 gui_embed_subwindows = true
 size = Vector2i(1280, 620)
 render_target_update_mode = 4
 
-[node name="Control" type="Control" parent="Guide/SubViewport" unique_id=1148574723]
+[node name="Control" type="Control" parent="WorldEnvironment/Guide/SubViewport" unique_id=1148574723]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -872,9 +885,9 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Guide/SubViewport/Control" unique_id=1041322602]
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment/Guide/SubViewport/Control" unique_id=1041322602]
 
-[node name="blackBg" type="Panel" parent="Guide/SubViewport/Control/CanvasLayer" unique_id=2101064657]
+[node name="blackBg" type="Panel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer" unique_id=2101064657]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -886,7 +899,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mr7q5")
 
-[node name="Panel" type="Panel" parent="Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=1936220604]
+[node name="Panel" type="Panel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=1936220604]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -899,15 +912,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hyk74")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=2031018883]
+[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=2031018883]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 41.0
-offset_top = -18.0
 offset_right = -20.0
-offset_bottom = -23.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
@@ -915,17 +927,17 @@ text = "[center][font_size=32
 ]
 [img width=45]res://assets/img/TinyIconB.png[/img] must be following [img width=45]res://assets/img/TinyIconA.png[/img]
 [img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
-[img width=45]res://assets/img/TinyIconD.png[/img] can't be closer  than 3 spaces from [img width=45]res://assets/img/TinyIconC.png[/img]
-[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 3 spaces separated from [img width=45]res://assets/img/TinyIconC.png[/img]
-Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
-[img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
-[img width=45]res://assets/img/TinyIconG.png[/img] must come in triplets
 The symbol of 3rd position can't be next to itself
+[img width=45]res://assets/img/TinyIconD.png[/img] can't be closer  than 3 spaces from [img width=45]res://assets/img/TinyIconC.png[/img]
 The symbol of 9th position can't be the same as 1st position
+[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 3 spaces separated from [img width=45]res://assets/img/TinyIconC.png[/img]
 The symbol of 10th position must be the same as 1st position
-The symbol of 13th position can't be the same as last position"
+Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
+The symbol of 13th position can't be the same as last position
+[img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
+[img width=45]res://assets/img/TinyIconG.png[/img] must come in triplets"
 
-[node name="BackButton" type="Button" parent="Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
+[node name="BackButton" type="Button" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -939,28 +951,29 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_8xpys")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i2q11")
 text = "Go Back"
 
-[node name="Quad" type="MeshInstance3D" parent="Guide" unique_id=602470980]
+[node name="Quad" type="MeshInstance3D" parent="WorldEnvironment/Guide" unique_id=602470980]
 transform = Transform3D(1.0000008, 0, 0, 0, 1, 0, 0, 0, 1.0000008, 0, 0, 0)
 mesh = SubResource("QuadMesh_neig4")
 surface_material_override/0 = SubResource("StandardMaterial3D_hyk74")
 
-[node name="Area3D" type="Area3D" parent="Guide/Quad" unique_id=1903732416]
+[node name="Area3D" type="Area3D" parent="WorldEnvironment/Guide/Quad" unique_id=1903732416]
 collision_layer = 2
 input_capture_on_drag = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Guide/Quad/Area3D" unique_id=83601855]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Guide/Quad/Area3D" unique_id=83601855]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
 
-[node name="ASP_level_bgm" type="AudioStreamPlayer" parent="." unique_id=332574165]
+[node name="ASP_level_bgm" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=332574165]
 stream = ExtResource("7_8xpys")
 autoplay = true
 
-[node name="SceneTransition" type="AnimationPlayer" parent="." unique_id=77127670]
+[node name="SceneTransition" type="AnimationPlayer" parent="WorldEnvironment" unique_id=77127670]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_i2q11")
 autoplay = &"start"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
-[connection signal="pressed" from="Guide/SubViewport/Control/CanvasLayer/blackBg/BackButton" to="CanvasLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="WorldEnvironment/CanvasLayer/Button" to="WorldEnvironment/CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg/BackButton" to="WorldEnvironment/CanvasLayer" method="_on_back_button_pressed"]
 
-[editable path="level"]
+[editable path="WorldEnvironment/level"]
