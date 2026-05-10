@@ -12,8 +12,10 @@
 [ext_resource type="FontFile" uid="uid://cf2ah2bsw2yn2" path="res://Font/OpenSans-VariableFont_wdth,wght.ttf" id="11_5457m"]
 [ext_resource type="Texture2D" uid="uid://cibjmv1ofc37s" path="res://assets/img/pcIcons/two.png" id="12_ivea3"]
 [ext_resource type="Texture2D" uid="uid://bmibwmgmvg0n5" path="res://assets/img/pcIcons/three.png" id="13_jvck6"]
+[ext_resource type="Texture2D" uid="uid://rcty8r5u1h8f" path="res://assets/img/pcIcons/statusCenter.png" id="14_f2a6c"]
 [ext_resource type="Texture2D" uid="uid://00stn1cgeept" path="res://assets/img/pcIcons/four.png" id="14_kfu6g"]
 [ext_resource type="Texture2D" uid="uid://delf51f0nm63s" path="res://assets/img/pcIcons/five.png" id="15_6mf5r"]
+[ext_resource type="Texture2D" uid="uid://cl67ho0deqlp1" path="res://assets/img/pcIcons/calendarSide.png" id="15_07e4k"]
 [ext_resource type="Texture2D" uid="uid://slqlr2o10in3" path="res://assets/img/pcIcons/six.png" id="16_blr6d"]
 [ext_resource type="Texture2D" uid="uid://b4jdent5v26jt" path="res://assets/img/pcIcons/quest.png" id="17_blr6d"]
 [ext_resource type="Texture2D" uid="uid://d2vu8ntnxdq0m" path="res://assets/img/pcIcons/calendar.png" id="18_f2a6c"]
@@ -313,6 +315,54 @@ offset_right = 484.5
 offset_bottom = -73.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
+
+[node name="StatusVentana" type="Panel" parent="." unique_id=1383264431 node_paths=PackedStringArray("listado")]
+z_index = 1
+layout_mode = 0
+offset_left = -447.0
+offset_top = -97.0
+offset_right = -80.0
+offset_bottom = 288.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("5_lf0gk")
+script = ExtResource("4_uu1iw")
+listado = NodePath("")
+logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
+
+[node name="close" type="Button" parent="StatusVentana" unique_id=1889893680]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = -254.0
+offset_right = 171.0
+offset_bottom = -238.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
+
+[node name="Sprite2D" type="Sprite2D" parent="StatusVentana" unique_id=1028424339]
+position = Vector2(178, 189)
+texture = ExtResource("14_f2a6c")
+
+[node name="Circle1" type="Node2D" parent="StatusVentana/Sprite2D" unique_id=299702064]
+scale = Vector2(0.375, 0.375)
+
+[node name="Sprite2D2" type="Sprite2D" parent="StatusVentana/Sprite2D/Circle1" unique_id=1265848224]
+position = Vector2(28.880081, -117)
+texture = ExtResource("15_07e4k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StatusVentana/Sprite2D/Circle1" unique_id=1348401836]
+position = Vector2(110.880005, 103.99994)
+rotation = 2.0943952
+texture = ExtResource("15_07e4k")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StatusVentana/Sprite2D/Circle1" unique_id=1417024438]
+position = Vector2(-123.11975, 65.99994)
+rotation = -2.094395
+texture = ExtResource("15_07e4k")
 
 [node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
 visible = false
