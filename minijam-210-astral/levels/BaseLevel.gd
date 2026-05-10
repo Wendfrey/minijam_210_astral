@@ -24,7 +24,8 @@ func empty_spacer():
 	spacer.remove_pieces(
 		arrayFichaTipo(
 			spacer.pieces.map(func (el): return el.tipo)
-		)
+		),
+		false
 	)
 	
 func arrayFichaTipo(array:Array):

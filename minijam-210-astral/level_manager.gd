@@ -60,8 +60,12 @@ func empty_spacer():
 
 func on_level_pressed(index:int):
 	if index < levels_array.size():
-		if levels_array[index].is_complete():
+		if levels_array[index].is_complete() and not PlayerProgess.is_logro_completed(12):
 			return
+		if levels_array[index].is_complete() and PlayerProgess.is_logro_completed(12):
+			levels_array[index].current_level = -1
+			levels_array[index].empty_spacer()
+			levels_array[index].next_level()
 		currentLevel = index
 		juego_ventana.show()
 		for c in spacer_container.get_children():
