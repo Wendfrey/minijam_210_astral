@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cf26g60vlp1i6" path="res://assets/img/pcIcons/logroDisabled.png" id="6_blr6d"]
 [ext_resource type="Texture2D" uid="uid://bbvvelnsui5nr" path="res://assets/img/pcIcons/one.png" id="10_ud3vi"]
 [ext_resource type="FontFile" uid="uid://cf2ah2bsw2yn2" path="res://Font/OpenSans-VariableFont_wdth,wght.ttf" id="11_5457m"]
+[ext_resource type="Script" uid="uid://v6ucqf16tcsf" path="res://scripts/statusCheck.gd" id="12_07e4k"]
 [ext_resource type="Texture2D" uid="uid://cibjmv1ofc37s" path="res://assets/img/pcIcons/two.png" id="12_ivea3"]
 [ext_resource type="Texture2D" uid="uid://bmibwmgmvg0n5" path="res://assets/img/pcIcons/three.png" id="13_jvck6"]
 [ext_resource type="Texture2D" uid="uid://rcty8r5u1h8f" path="res://assets/img/pcIcons/statusCenter.png" id="14_f2a6c"]
@@ -56,6 +57,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_42nsl"]
 resource_name = "ticking"
 length = 10.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -131,6 +133,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_07e4k"]
 resource_name = "spinning"
 length = 16.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -429,15 +432,17 @@ offset_bottom = -73.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
-[node name="StatusVentana" type="Panel" parent="." unique_id=1383264431]
+[node name="StatusVentana" type="Panel" parent="." unique_id=1383264431 node_paths=PackedStringArray("indicators")]
 z_index = 1
 layout_mode = 0
-offset_left = -423.0
-offset_top = -5.0
-offset_right = -120.0
-offset_bottom = 288.0
+offset_left = -379.0
+offset_top = -67.0
+offset_right = -76.0
+offset_bottom = 226.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
+script = ExtResource("12_07e4k")
+indicators = [NodePath("Calendar/Circle1/Level1"), NodePath("Calendar/Circle1/Level2"), NodePath("Calendar/Circle1/Level3"), NodePath("Calendar/Circle2/Level4"), NodePath("Calendar/Circle2/Level5"), NodePath("Calendar/Circle2/Level6"), NodePath("Calendar")]
 
 [node name="close" type="Button" parent="StatusVentana" unique_id=1889893680]
 layout_mode = 1
@@ -476,6 +481,7 @@ texture = ExtResource("15_07e4k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StatusVentana/Calendar/Circle1" unique_id=894308208]
 libraries/ = SubResource("AnimationLibrary_8oxbk")
+autoplay = &"ticking"
 
 [node name="Circle2" type="Node2D" parent="StatusVentana/Calendar" unique_id=1121135223]
 scale = Vector2(0.595, 0.595)
@@ -496,6 +502,7 @@ texture = ExtResource("15_07e4k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StatusVentana/Calendar/Circle2" unique_id=1143610236]
 libraries/ = SubResource("AnimationLibrary_8wsjh")
+autoplay = &"ticking"
 
 [node name="Spinning" type="AnimationPlayer" parent="StatusVentana/Calendar" unique_id=1239167163]
 root_node = NodePath("../..")

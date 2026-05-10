@@ -13,7 +13,7 @@ func _on_logros_close_pressed():
 	ventanaLogros.visible = false
 
 func _on_status_close_pressed():
-	ventanaLogros.visible = false
+	ventanaStatus.visible = false
 	
 func _on_level_1_pressed():
 	PlayerProgess.checkDoneLogro(2,0)
