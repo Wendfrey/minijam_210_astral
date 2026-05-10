@@ -27,6 +27,5 @@ func get_index_of_type(filtro: Ficha.Tipo) -> Array[int]:
 func get_piece(index) -> Ficha:
 	return arrayPieces[index]
 
-##Aqui se obtendria que error ha dado si es que ha dado alguno
-func get_error():
-	pass
+func pieces_length() -> int:
+	return arrayPieces.size()
