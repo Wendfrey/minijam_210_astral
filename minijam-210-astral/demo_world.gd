@@ -1,11 +1,9 @@
 extends Control
 
-
 @onready var spacer = $TestWorld/Spacer
 
 func _ready() -> void:
 	$TestWorld/LevelManager.queue_free()
-
 
 func _create_item(tipo):
 	if $CanvasLayer/HBoxContainer/BorrarButton.button_pressed:
@@ -19,7 +17,3 @@ func _create_item(tipo):
 		)
 	else:
 		spacer.add_piece(tipo)
-
-
-func _on_borrar_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.

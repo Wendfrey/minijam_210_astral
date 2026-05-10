@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK][img width=32]res://assets/img/TinyIconC.png[/img] must have another [img width=32]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer"
+	rule_name = "[color=BLACK][img width=32 color=BLACK]res://assets/img/TinyIconC.png[/img] must have another [img width=32 color=BLACK]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var result:Array[Ficha] = []

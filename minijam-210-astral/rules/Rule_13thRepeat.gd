@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK]The 13st and the last space must have different sigils"
+	rule_name = "[color=BLACK]The 13th and the last space must have different sigils"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []
