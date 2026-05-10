@@ -196,9 +196,6 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2q11"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyk74"]
-bg_color = Color(0, 0, 0, 0.17254902)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xpys"]
 bg_color = Color(0.11764706, 0.11764706, 0.15686275, 0.23529412)
 
@@ -861,18 +858,18 @@ compositor = SubResource("Compositor_er4ec")
 
 [node name="level" parent="WorldEnvironment" unique_id=1305496534 instance=ExtResource("3_pvqg1")]
 
-[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1279031697]
+[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1730370863]
 light_energy = 0.0
 
-[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1547835739]
+[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1549106887]
 transform = Transform3D(-0.240228, 0, -0.9707165, 0, 1, 0, 0.9707165, 0, -0.240228, 3.9360003, 0.605, -1.51)
 far = 4000.0
 
-[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=1110668285]
+[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=254613494]
 transform = Transform3D(92.1949, 38.731136, 1.6929915e-06, 0, -4.371139e-06, 99.99999, 38.731136, -92.1949, -4.029967e-06, -0.4186713, 0, 0.27361727)
 metadata/_edit_group_ = true
 
-[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=1914968694]
+[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=492388446]
 transform = Transform3D(1.1014222, -0.22911622, -2.930425e-08, 0.22911622, 1.1014222, 7.049959e-09, 2.72543e-08, -1.2870275e-08, 1.125, 0.0015037457, 4.656613e-10, 0.007069087)
 metadata/_edit_group_ = true
 
@@ -908,10 +905,10 @@ input_capture_on_drag = true
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_8xpys")
 
-[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=1771492397]
+[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=726229084]
 light_energy = 0.0
 
-[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=896660432]
+[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=2073180975]
 light_energy = 0.0
 
 [node name="SkyBg" type="Node3D" parent="WorldEnvironment" unique_id=303202552]

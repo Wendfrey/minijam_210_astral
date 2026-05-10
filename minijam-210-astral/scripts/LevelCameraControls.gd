@@ -11,6 +11,7 @@ func _on_button_pressed():
 	back_button.disabled = false
 	first_window.visible = true
 	PlayerProgess.checkDoneLogro(0,0)
+	PlayerProgess.checkDoneLogro(9,randi_range(0,4))
 	
 	
 func _on_back_button_pressed():
