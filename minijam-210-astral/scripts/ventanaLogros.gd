@@ -1,8 +1,8 @@
 extends Panel
 
-@export var listado: VBoxContainer
 @export var logros: Array[String]
 @export var pistas: Array[String]
+@onready var listado: VBoxContainer = $"../LogrosVentana/ScrollContainer/VBoxContainer"
 
 func _ready():
 	var template= getLogroPanel(0);

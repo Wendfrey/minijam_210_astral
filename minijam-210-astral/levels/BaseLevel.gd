@@ -2,9 +2,7 @@ class_name BaseLevel extends RefCounted
 const SPACER = preload("uid://c8jcc5y7w1h2k")
 
 var spacer: SPACER
-
-func _init(pSpacer: SPACER) -> void:
-	spacer = pSpacer
+var current_level = -1
 
 func level_steps(step:int) -> Array[Ficha.Tipo]:
 	match (step):
@@ -15,6 +13,12 @@ func level_steps(step:int) -> Array[Ficha.Tipo]:
 		2:
 			pass
 	return []
+
+func next_level():
+	current_level += 1
+	if is_complete():
+		return
+	spacer.add_pieces(level_steps(current_level))
 
 func empty_spacer():
 	spacer.remove_pieces(
@@ -30,3 +34,9 @@ func arrayFichaTipo(array:Array):
 		"",
 		Ficha.Tipo
 	)
+
+func max_level():
+	return 3
+
+func is_complete():
+	return current_level > max_level()

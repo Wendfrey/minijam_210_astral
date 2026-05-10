@@ -9,8 +9,8 @@ var array_positions:Array[Vector2]
 var pickedNode: Node
 var nodePositionIndex:int
 
-@export var swapMargin:Vector2 = Vector2(64,172)
-@export var cellWidth: int = 128
+@export var swapMargin:Vector2 = Vector2(32,86)
+@export var cellWidth: int = 64
 
 var secretLovers:BaseRule = SecretLovers.new()
 
