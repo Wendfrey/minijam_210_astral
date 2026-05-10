@@ -598,6 +598,4 @@ bus = &"SFX"
 [connection signal="pressed" from="StatusVentana/close" to="." method="_on_status_close_pressed"]
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
-[connection signal="level_completed" from="LevelManager" to="." method="_on_level_manager_level_completed"]
-[connection signal="level_completed" from="LevelManager" to="StatusVentana" method="_on_level_manager_level_completed"]
 [connection signal="spacer_changed" from="LevelManager" to="RulesChecker" method="_on_level_manager_spacer_changed"]
