@@ -2,9 +2,8 @@ extends CanvasLayer;
 
 
 @export var CameraAnimation: AnimationPlayer
-@onready var back_button: Button = $"../Screen/Control/CanvasLayer/blackBg/BackButton"
-@onready var first_window: CanvasLayer = $"../Screen/Control/CanvasLayer"
-
+@onready var back_button: Button = $"../Guide/SubViewport/Control/CanvasLayer/blackBg/BackButton"
+@onready var first_window: CanvasLayer = $"../Guide/SubViewport/Control/CanvasLayer"
 
 func _on_button_pressed():
 	CameraAnimation.play("ToWindow")
