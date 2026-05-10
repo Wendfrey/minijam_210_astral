@@ -47,11 +47,10 @@ func _piece_dropped(node:Node2D):
 	tween.tween_property(node, "global_position", array_positions[nodePositionIndex], calculate_time(node.global_position, array_positions[nodePositionIndex]))\
 	.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(node, "top_level", false, 0)
-	tween.finished.connect(func (): if dropped_tween["node"] == node: dropped_tween = {})
+	tween.finished.connect(func (): if dropped_tween["node"] == node: dropped_tween = {} )
 	pickedNode = null
 	dropped_tween["tween"] = tween
 	dropped_tween["node"] = node
-	
 	secretLovers.check_rules(pieces.duplicate())
 
 var previousTweens:Dictionary = {}
