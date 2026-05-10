@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5lloi2eib8ye" path="res://assets/models/calendar.fbx" id="2_8saeu"]
 [ext_resource type="PackedScene" uid="uid://d2qcytqjqpvj7" path="res://Scenes/OptionsScreen.tscn" id="2_ghw46"]
 [ext_resource type="Texture2D" uid="uid://k2ee2f2wisrt" path="res://assets/img/texture2.png" id="3_ghw46"]
+[ext_resource type="AudioStream" uid="uid://4skr6byscnmd" path="res://Music/main_menu_bgm.wav" id="5_df05h"]
 
 [sub_resource type="Environment" id="Environment_8saeu"]
 ambient_light_energy = 0.0
@@ -498,6 +499,10 @@ autoplay = &"menu_iddle"
 
 [node name="SceneTransition" type="AnimationPlayer" parent="." unique_id=681605068]
 libraries/ = SubResource("AnimationLibrary_fh7cp")
+
+[node name="ASP_menu_bgm" type="AudioStreamPlayer" parent="." unique_id=384338023]
+stream = ExtResource("5_df05h")
+autoplay = true
 
 [connection signal="close" from="OptionsScreen" to="." method="_on_options_screen_close"]
 [connection signal="pressed" from="VBoxContainer/BTN_Play" to="." method="_on_btn_play_pressed"]
