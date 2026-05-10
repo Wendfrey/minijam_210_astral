@@ -17,4 +17,4 @@ func level_steps(step:int) -> Array[Ficha.Tipo]:
 			return []
 
 func max_level():
-	return 5
+	return 4
