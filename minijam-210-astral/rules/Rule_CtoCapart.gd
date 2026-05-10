@@ -10,8 +10,10 @@ func _check_rules_internal() -> Array[Ficha]:
 	
 	if indexesOfC.is_empty():
 		return []
+	elif indexesOfC.size() == 1:
+		result.append(get_piece(indexesOfC[0]))
+		return result
 		
-	
 	for indexC in indexesOfC:
 		if (indexC < 2 or get_piece(indexC-3).tipo != Ficha.Tipo.C) and (indexC > arrayPieces.size() - 4 or get_piece(indexC+3).tipo != Ficha.Tipo.C):
 			result.append(get_piece(indexC))

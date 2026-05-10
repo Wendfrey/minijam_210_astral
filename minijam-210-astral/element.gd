@@ -10,6 +10,11 @@ signal moved
 
 var focused = false
 var picked = false
+var nailed = false:
+	set(value):
+		nailed = value
+		z_index = -1 if nailed else 0
+		set_modulation() 
 var showTooltip = true:
 	set(value):
 		showTooltip = value
@@ -25,12 +30,8 @@ var current_pos:Vector2
 @export var tipo:Tipo = Tipo.A
 var anulled:bool = false:
 	set(value):
-		if errores.is_empty():
-			if value:
-				set_modulation(Color.BLUE)
-			else:
-				set_modulation(Color.WHITE)
 		anulled = value
+		set_modulation()
 var errores:Array[String]
 
 @onready var audioplayer = $ASP_sounds
@@ -67,7 +68,7 @@ func _on_mouse_exited() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	var audio
 	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and focused:
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and focused and not nailed:
 			picked = true
 			offset = global_position - get_global_mouse_position()
 			top_level = true
@@ -85,6 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if not audioplayer.playing:
 				audioplayer.play()
 			send_dropped.emit()
+		if OS.is_debug_build() and event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.double_click and focused:
+			nailed = not nailed
 	if event is InputEventMouseMotion and picked:
 		global_position = get_global_mouse_position() + offset
 		get_viewport().set_input_as_handled()
@@ -104,10 +107,7 @@ func vibrate():
 
 func clear_errors():
 	errores.clear()
-	if anulled:
-		set_modulation(Color.BLUE)
-	else:
-		set_modulation(Color.WHITE)
+	set_modulation()
 	for i in v_box_container.get_children():
 		v_box_container.remove_child(i)
 	
@@ -124,7 +124,7 @@ func append_error(error):
 	v_box_container.add_child(
 		newChild
 	)
-	$Sprite2D.modulate = Color.WHITE.lerp(Color.RED, 0.5)
+	set_modulation()
 	
 
 func show_tooltip():
@@ -140,5 +140,13 @@ func sound_move():
 	if !audioplayer.playing:
 		audioplayer.play()
 		
-func set_modulation(color:Color):
-	sprite_2d.modulate = Color.WHITE.lerp(color, 0.5)
+func set_modulation():
+	var color = Color.GRAY if nailed else Color.WHITE
+	if not errores.is_empty():
+		if nailed:
+			color = Color.DIM_GRAY
+		else:
+			color = color.lerp(Color.RED, 0.3)
+	elif anulled:
+		color = color.lerp(Color.BLUE, 0.5)
+	sprite_2d.modulate = color

@@ -62,12 +62,22 @@ func _on_element_item_rect_changed():
 			closest_index = i
 			break
 	
-	if closest_index == -1 or closest_index == nodePositionIndex:
+	if closest_index == -1 or closest_index == nodePositionIndex or pieces[closest_index].nailed:
 		return
 	var start = closest_index if closest_index < nodePositionIndex else nodePositionIndex
 	var finish = nodePositionIndex if closest_index < nodePositionIndex else closest_index
+	
+	var nailedEl = pieces.filter(func (el:Ficha): return el.nailed)
+	var nailedIndexList = nailedEl.map(func(el:Ficha): return pieces.find(el))
+	
 	pieces.erase(pickedNode)
 	pieces.insert(closest_index, pickedNode)
+	for i in range(nailedEl.size()):
+		if closest_index > nailedIndexList[i] and nailedIndexList[i] < nodePositionIndex:
+			continue
+		pieces.erase(nailedEl[i])
+		pieces.insert(nailedIndexList[i], nailedEl[i])
+	
 	for i in range(start, finish+1):
 		var node = pieces[i]
 		var nPath = get_path_to(node)
@@ -87,7 +97,7 @@ func _on_element_item_rect_changed():
 	nodePositionIndex = closest_index
 	
 func calculate_time(position1, position2) -> float:
-	return position1.distance_to(position2) / 384.0
+	return min(position1.distance_to(position2) / 1500.0, 0.3) + 0.2
 
 func getPiecesArray() -> Array[Ficha]:
 	#return pieces.map(func(element): return get_node(element))
@@ -145,12 +155,20 @@ func createInsertAnimation(inserted):
 		.set_trans(Tween.TRANS_CUBIC)
 
 func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
+	
+	var nailedEl = pieces.filter(func (el:Ficha): return el.nailed)
+	var nailedIndexList = nailedEl.map(func(el:Ficha): return pieces.find(el))
+	
 	var nodesToRemove:Array[Ficha] = []
 	for tipo in arrayTipo:
 		var result = pieces.find_custom(func (piece:Ficha): return piece.tipo == tipo)
 		if result > -1:
 			nodesToRemove.append(pieces.pop_at(result))
 	
+	for i in range(nailedEl.size()):
+		pieces.erase(nailedEl[i])
+		pieces.insert(nailedIndexList[i], nailedEl[i])
+		
 	var tweenBig = create_tween()
 	for node in nodesToRemove:
 		var tween = create_tween()
@@ -160,3 +178,23 @@ func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
 	tweenBig.parallel().tween_callback(reset_values.bind(true, 0)).set_delay(0.2)
 	
 	secretLovers.check_rules(pieces.duplicate())
+
+func remove_entity_piece(piece):
+	var nailedEl = pieces.filter(func (el:Ficha): return el.nailed)
+	var nailedIndexList = nailedEl.map(func(el:Ficha): return pieces.find(el))
+	
+	var indexRemove = pieces.find(piece)
+		
+	for i in get_children():
+		i.showTooltip = true
+	pieces.erase(piece)
+	piece.queue_free()
+	
+	for i in range(nailedEl.size()):
+		if indexRemove > nailedIndexList[i]:
+			continue
+		pieces.erase(nailedEl[i])
+		
+		pieces.insert(min(nailedIndexList[i], pieces.size()), nailedEl[i])
+	
+	reset_values(true, 0)

@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c7wpu8nxuyac5" path="res://assets/img/TinyIconF.png" id="8_jlp7h"]
 [ext_resource type="Texture2D" uid="uid://cmch6vo2vhccm" path="res://assets/img/TinyIconG.png" id="9_vgbly"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgbly"]
+size = Vector2(834, 35)
+
 [node name="DemoWorld" type="Control" unique_id=669845208]
 layout_mode = 3
 anchors_preset = 0
@@ -56,6 +59,26 @@ icon = ExtResource("9_vgbly")
 layout_mode = 2
 text = "Borrar"
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1867818710]
+position = Vector2(0, 255)
+
+[node name="PanelContainer" type="PanelContainer" parent="Area2D" unique_id=984061619]
+offset_left = -417.0
+offset_top = -37.0
+offset_right = 420.0
+offset_bottom = 58.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Area2D/PanelContainer" unique_id=84432515]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Drag Here to Remove"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1251444469]
+shape = SubResource("RectangleShape2D_vgbly")
+
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button" to="." method="_create_item" binds= [0]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button6" to="." method="_create_item" binds= [1]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button2" to="." method="_create_item" binds= [2]]
@@ -63,3 +86,4 @@ text = "Borrar"
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button4" to="." method="_create_item" binds= [4]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button5" to="." method="_create_item" binds= [5]]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Button7" to="." method="_create_item" binds= [6]]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

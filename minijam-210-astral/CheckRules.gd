@@ -46,7 +46,7 @@ func checkRules():
 	
 	for rule in rules:
 		var listPiecesError = rule.check_rules(pieces)
-		error_pieces.append_array(rule.check_rules(pieces))
+		error_pieces.append_array(listPiecesError)
 		if listPiecesError.size() > 0:
 			audio.play()
 			for error_piece in listPiecesError:
