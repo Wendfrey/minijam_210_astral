@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const ELEMENT = preload("uid://cte0ymnxkobwq")
 const SecretLovers = preload("uid://w7gf6cgu38n2")
@@ -6,7 +6,7 @@ const SecretLovers = preload("uid://w7gf6cgu38n2")
 var pieces:Array[Ficha]
 
 var array_positions:Array[Vector2]
-var pickedNode: Node2D
+var pickedNode: Node
 var nodePositionIndex:int
 
 @export var swapMargin:Vector2 = Vector2(64,172)
@@ -18,7 +18,7 @@ func _ready() -> void:
 	pieces = Array(
 		get_children().duplicate(),
 		TYPE_OBJECT,
-		"CharacterBody2D",
+		"Control",
 		Ficha
 	)
 	var center = (pieces.size() - 1) * cellWidth / 2.0
@@ -29,7 +29,7 @@ func _ready() -> void:
 		node.send_picked.connect(_piece_picked.bind(node))
 		node.send_dropped.connect(_piece_dropped.bind(node))
 
-func _piece_picked(node:Node2D):
+func _piece_picked(node:Node):
 	for i in get_children():
 		i.showTooltip = false
 	if dropped_tween.get("node", null) == node:
@@ -39,7 +39,7 @@ func _piece_picked(node:Node2D):
 	pickedNode = node
 	
 var dropped_tween:Dictionary = {}
-func _piece_dropped(node:Node2D):
+func _piece_dropped(node:Node):
 	for i in get_children():
 		i.showTooltip = true
 	node.moved.disconnect(_on_element_item_rect_changed)

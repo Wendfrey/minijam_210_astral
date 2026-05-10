@@ -16,19 +16,16 @@ border_width_bottom = 2
 border_color = Color(0.97320026, 0.55973494, 0.50225455, 1)
 border_blend = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnigt"]
-size = Vector2(60, 120)
-
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_vnigt"]
 
-[node name="Element" type="CharacterBody2D" unique_id=1745300402]
-input_pickable = true
-motion_mode = 1
+[node name="Element" type="Control" unique_id=323995503]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_vnigt")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1847564945]
 visible = false
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -47,11 +44,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100283629]
+[node name="Sprite2D" type="TextureRect" parent="." unique_id=1664815900]
+layout_mode = 0
+offset_left = -31.5
+offset_top = -63.0
+offset_right = 31.5
+offset_bottom = 63.0
 texture = ExtResource("2_vnigt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066180176]
-shape = SubResource("RectangleShape2D_vnigt")
 
 [node name="ASP_sounds" type="AudioStreamPlayer" parent="." unique_id=2144179778]
 stream = SubResource("AudioStreamPolyphonic_vnigt")
