@@ -27,13 +27,8 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_neig4")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_neig4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xpys"]
 size = Vector3(1.4, 0.9, 0.02)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pvqg1"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvqg1"]
-bg_color = Color(1, 1, 1, 0.11764706)
 
 [sub_resource type="Animation" id="Animation_pvqg1"]
 length = 0.001
@@ -64,7 +59,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/path = NodePath("../../ToWindow/SubViewport/Control/CanvasLayer/Button:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -116,7 +111,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/path = NodePath("../../ToWindow/SubViewport/Control/CanvasLayer/Button:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -169,7 +164,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer/Button:visible")
+tracks/2/path = NodePath("../../ToWindow/SubViewport/Control/CanvasLayer/Button:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -219,6 +214,29 @@ blend_mode = 1
 albedo_color = Color(0, 0, 0, 1)
 albedo_texture = SubResource("ViewportTexture_mr7q5")
 metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2q11"]
+size = Vector3(1, 1, 0.02)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er4ec"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvqg1"]
+bg_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8xpys"]
+size = Vector2(2, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8xpys"]
+viewport_path = NodePath("WorldEnvironment/ToWindow/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2q11"]
+resource_local_to_scene = true
+blend_mode = 1
+albedo_texture = SubResource("ViewportTexture_8xpys")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_neig4"]
+size = Vector3(2, 2, 0.02)
 
 [sub_resource type="Animation" id="Animation_hyk74"]
 length = 0.001
@@ -441,7 +459,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("WorldEnvironment/CanvasLayer/Button:visible")
+tracks/18/path = NodePath("WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer/Button:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -485,6 +503,18 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("WorldEnvironment/ToWindow/Quad:mesh:material")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
 }
 
 [sub_resource type="Animation" id="Animation_8xpys"]
@@ -709,7 +739,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("WorldEnvironment/CanvasLayer/Button:visible")
+tracks/18/path = NodePath("WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer/Button:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -753,6 +783,18 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("WorldEnvironment/ToWindow/Quad:mesh:material")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2q11"]
@@ -810,7 +852,7 @@ input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/level/Monitor/MonitorScreen/Screen/Quad/Area3D" unique_id=460029618]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
-shape = SubResource("BoxShape3D_neig4")
+shape = SubResource("BoxShape3D_8xpys")
 
 [node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=726229084]
 light_energy = 0.0
@@ -843,23 +885,6 @@ texture = ExtResource("6_hyk74")
 transform = Transform3D(5.1763816, 0, 19.318516, 0, 20, 0, -19.318516, 0, 5.1763816, -508.71252, 300.15, 826.91785)
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("6_hyk74")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment" unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
-script = ExtResource("4_c7umo")
-CameraAnimation = NodePath("../CameraAnimation")
-
-[node name="Button" type="Button" parent="WorldEnvironment/CanvasLayer" unique_id=71538219]
-visible = false
-anchors_preset = -1
-anchor_left = 0.037326388
-anchor_top = 0.19753087
-anchor_right = 0.24913195
-anchor_bottom = 0.64660496
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_pvqg1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pvqg1")
-metadata/_edit_use_anchors_ = true
 
 [node name="CameraAnimation" type="AnimationPlayer" parent="WorldEnvironment" unique_id=740294400]
 root_node = NodePath("../level/Camera")
@@ -962,6 +987,55 @@ input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Guide/Quad/Area3D" unique_id=83601855]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
+shape = SubResource("BoxShape3D_i2q11")
+
+[node name="ToWindow" type="Node3D" parent="WorldEnvironment" unique_id=1879616484]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.6, 1.012, -1.668)
+script = ExtResource("1_cxw1l")
+
+[node name="SubViewport" type="SubViewport" parent="WorldEnvironment/ToWindow" unique_id=2028414261]
+transparent_bg = true
+physics_object_picking = true
+gui_embed_subwindows = true
+size = Vector2i(1280, 620)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="WorldEnvironment/ToWindow/SubViewport" unique_id=1851170505]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment/ToWindow/SubViewport/Control" unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
+script = ExtResource("4_c7umo")
+CameraAnimation = NodePath("../../../../CameraAnimation")
+
+[node name="Button" type="Button" parent="WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer" unique_id=71538219]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 315.0
+offset_top = 125.0
+offset_right = -340.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_er4ec")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pvqg1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quad" type="MeshInstance3D" parent="WorldEnvironment/ToWindow" unique_id=2103996413]
+transform = Transform3D(1.0000007, 0, 0, 0, 1, 0, 0, 0, 1.0000007, 0, -0.19157457, 0)
+mesh = SubResource("QuadMesh_8xpys")
+surface_material_override/0 = SubResource("StandardMaterial3D_i2q11")
+
+[node name="Area3D" type="Area3D" parent="WorldEnvironment/ToWindow/Quad" unique_id=2012137820]
+collision_layer = 2
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/ToWindow/Quad/Area3D" unique_id=263360106]
+transform = Transform3D(1, 0, 2.9801974e-08, 0, 1, 0, -2.9801974e-08, 0, 1, 0.0069824457, 0.007861376, 0.0018463135)
 shape = SubResource("BoxShape3D_neig4")
 
 [node name="ASP_level_bgm" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=332574165]
@@ -973,7 +1047,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_i2q11")
 autoplay = &"start"
 
-[connection signal="pressed" from="WorldEnvironment/CanvasLayer/Button" to="WorldEnvironment/CanvasLayer" method="_on_button_pressed"]
-[connection signal="pressed" from="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg/BackButton" to="WorldEnvironment/CanvasLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg/BackButton" to="WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer" method="_on_back_button_pressed"]
+[connection signal="pressed" from="WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer/Button" to="WorldEnvironment/ToWindow/SubViewport/Control/CanvasLayer" method="_on_button_pressed"]
 
 [editable path="WorldEnvironment/level"]
