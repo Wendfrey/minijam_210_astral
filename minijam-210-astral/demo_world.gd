@@ -1,6 +1,6 @@
 extends Control
 
-@onready var spacer = $TestWorld/Spacer
+@onready var spacer = $TestWorld/JuevoVentana/Spacer
 
 func _ready() -> void:
 	$TestWorld/LevelManager.queue_free()

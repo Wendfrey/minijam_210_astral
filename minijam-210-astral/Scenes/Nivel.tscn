@@ -79,7 +79,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mr7q5"]
@@ -128,10 +128,10 @@ tracks/3/path = NodePath("../../Guide/Quad:surface_material_override/0:albedo_co
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.2, 2.5),
+"times": PackedFloat32Array(2.2, 2.4666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_c7umo"]
@@ -184,7 +184,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+"values": [Color(0.84947944, 0.84947944, 0.84947944, 0), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mr7q5"]
@@ -194,27 +194,26 @@ _data = {
 &"idle": SubResource("Animation_c7umo")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr7q5"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2q11"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyk74"]
-bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
+bg_color = Color(0, 0, 0, 0.17254902)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xpys"]
-bg_color = Color(0.11764706, 0.11764706, 0.15686275, 1)
+bg_color = Color(0.11764706, 0.11764706, 0.15686275, 0.23529412)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2q11"]
-bg_color = Color(0.3137255, 0.3137255, 0.3529412, 1)
+bg_color = Color(0.3137255, 0.3137255, 0.3529412, 0.23529412)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mr7q5"]
 viewport_path = NodePath("WorldEnvironment/Guide/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk74"]
 resource_local_to_scene = true
-blend_mode = 1
-albedo_color = Color(0, 0, 0, 1)
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
 albedo_texture = SubResource("ViewportTexture_mr7q5")
-metallic_specular = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2q11"]
 size = Vector3(1, 1, 0.02)
@@ -383,7 +382,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -687,7 +686,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -862,18 +861,18 @@ compositor = SubResource("Compositor_er4ec")
 
 [node name="level" parent="WorldEnvironment" unique_id=1305496534 instance=ExtResource("3_pvqg1")]
 
-[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1730370863]
+[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1279031697]
 light_energy = 0.0
 
-[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1549106887]
+[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1547835739]
 transform = Transform3D(-0.240228, 0, -0.9707165, 0, 1, 0, 0.9707165, 0, -0.240228, 3.9360003, 0.605, -1.51)
 far = 4000.0
 
-[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=254613494]
+[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=1110668285]
 transform = Transform3D(92.1949, 38.731136, 1.6929915e-06, 0, -4.371139e-06, 99.99999, 38.731136, -92.1949, -4.029967e-06, -0.4186713, 0, 0.27361727)
 metadata/_edit_group_ = true
 
-[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=492388446]
+[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=1914968694]
 transform = Transform3D(1.1014222, -0.22911622, -2.930425e-08, 0.22911622, 1.1014222, 7.049959e-09, 2.72543e-08, -1.2870275e-08, 1.125, 0.0015037457, 4.656613e-10, 0.007069087)
 metadata/_edit_group_ = true
 
@@ -909,10 +908,10 @@ input_capture_on_drag = true
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_8xpys")
 
-[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=726229084]
+[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=1771492397]
 light_energy = 0.0
 
-[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=2073180975]
+[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=896660432]
 light_energy = 0.0
 
 [node name="SkyBg" type="Node3D" parent="WorldEnvironment" unique_id=303202552]
@@ -977,9 +976,9 @@ offset_right = 3.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mr7q5")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i2q11")
 
-[node name="Panel" type="Panel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=1936220604]
+[node name="Panel" type="PanelContainer" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=1406360611]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -992,32 +991,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hyk74")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=2031018883]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 41.0
-offset_top = -12.0
-offset_right = -20.0
-offset_bottom = -67.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg/Panel" unique_id=2031018883]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 20
 bbcode_enabled = true
 text = "[center][font_size=32
 ]
-[img width=45]res://assets/img/TinyIconB.png[/img] must be following [img width=45]res://assets/img/TinyIconA.png[/img]
+[img width=45]res://assets/img/TinyIconB.png[/img] must be after [img width=45]res://assets/img/TinyIconA.png[/img]
 [img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
-The symbol of 3rd position can't be next to itself
-[img width=45]res://assets/img/TinyIconD.png[/img] can't be closer  than 3 spaces from [img width=45]res://assets/img/TinyIconC.png[/img]
-The symbol of 9th position can't be the same as 1st position
-[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 3 spaces separated from [img width=45]res://assets/img/TinyIconC.png[/img]
-The symbol of 10th position must be the same as 1st position
+The symbol of 3rd space can't be next to itself
+[img width=45]res://assets/img/TinyIconD.png[/img] can't be closer  than 1 spaces from [img width=45]res://assets/img/TinyIconC.png[/img]
+The symbol of 9th space can't be the same as 1st space
+[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 1 space separated from [img width=45]res://assets/img/TinyIconC.png[/img]
+The symbol of 10th space must be the same as 1st space
 Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
 The symbol of 13th position can't be the same as last position
 [img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
-[img width=45]res://assets/img/TinyIconG.png[/img] must come in triplets
-[img width=45]res://assets/img/TinyIconB.png[/img] has a secret lover "
+[img width=45]res://assets/img/TinyIconG.png[/img] must have the same neighbours
+A secret couple has been spotted"
 
 [node name="BackButton" type="Button" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
 layout_mode = 1

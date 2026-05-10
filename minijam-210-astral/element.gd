@@ -8,6 +8,8 @@ signal send_picked
 signal send_dropped
 signal moved
 
+const tooltip_hor_margin = 480
+
 var focused = false
 var picked = false
 var nailed = false:
@@ -115,6 +117,7 @@ func append_error(error):
 	errores.append(error)
 	var newChild = RichTextLabel.new()
 	newChild.bbcode_enabled = true
+	newChild.theme = preload("uid://c5w85c14jb564")
 	newChild.text = error
 	newChild.size_flags_horizontal = Control.SIZE_FILL
 	newChild.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -130,6 +133,7 @@ func append_error(error):
 func show_tooltip():
 	if not errores.is_empty():
 		center_container.position.x = -center_container.size.x / 2
+		center_container.global_position.x = clamp(center_container.global_position.x, -tooltip_hor_margin, tooltip_hor_margin - center_container.size.x)
 		center_container.position.y = -82 - center_container.size.y
 		center_container.show()
 		

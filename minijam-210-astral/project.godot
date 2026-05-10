@@ -23,6 +23,10 @@ buses/default_bus_layout="uid://c7ef4st4krpli"
 
 PlayerProgess="*uid://pv1pei04mcqp"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Minijam210Astral"

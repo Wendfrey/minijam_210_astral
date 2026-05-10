@@ -14,7 +14,7 @@ func _on_button_pressed():
 	
 func _on_back_button_pressed():
 	back_button.disabled = true
-	first_window.visible = false
+	first_window.visible = true
 	CameraAnimation.play_backwards("ToWindow")
 	await CameraAnimation.animation_finished
 	CameraAnimation.play("idle")
