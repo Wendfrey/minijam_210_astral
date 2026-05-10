@@ -993,14 +993,13 @@ layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = 20
 bbcode_enabled = true
-text = "[center][font_size=32
-]
+text = "[center][font_size=32]
 [img width=45]res://assets/img/TinyIconB.png[/img] must be after [img width=45]res://assets/img/TinyIconA.png[/img]
 [img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
 The sigil of 3rd space can't be next to itself
 [img width=45]res://assets/img/TinyIconD.png[/img] can't be next to [img width=45]res://assets/img/TinyIconC.png[/img]
 The sigil of 9th space can't be the same as 1st space
-[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 1 space separated from [img width=45]res://assets/img/TinyIconC.png[/img]
+[img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 1 space away from [img width=45]res://assets/img/TinyIconC.png[/img]
 The sigil of 10th space must be the same as 1st space
 Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
 The sigil of 13th position can't be the same as last position
