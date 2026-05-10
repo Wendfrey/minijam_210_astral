@@ -13,14 +13,17 @@ anchors_preset = 0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
 [node name="Panel" type="Panel" parent="." unique_id=626347948]
+z_index = -1
 layout_mode = 0
 offset_left = -546.0
 offset_top = -71.0
 offset_right = 521.0
 offset_bottom = 69.0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
 
-[node name="Spacer" type="Node2D" parent="." unique_id=333636565]
+[node name="Spacer" type="Node2D" parent="Panel" unique_id=333636565]
+position = Vector2(546, 71)
 script = ExtResource("2_gy3sr")
 swapMargin = Vector2(32, 86)
 cellWidth = 64
@@ -42,11 +45,11 @@ text = "CHECK"
 
 [node name="RulesChecker" type="Node" parent="." unique_id=1412206623]
 script = ExtResource("1_1lwx6")
-spacerNP = NodePath("../Spacer")
+spacerNP = NodePath("../Panel/Spacer")
 
 [node name="LevelManager" type="Node" parent="." unique_id=818504072]
 script = ExtResource("2_1lwx6")
-spacer = NodePath("../Spacer")
+spacer = NodePath("../Panel/Spacer")
 
 [node name="ASP_sound_error" type="AudioStreamPlayer" parent="." unique_id=1202096981]
 stream = ExtResource("4_dsnr4")
