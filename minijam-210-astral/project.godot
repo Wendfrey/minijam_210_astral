@@ -23,6 +23,10 @@ buses/default_bus_layout="uid://c7ef4st4krpli"
 
 project/assembly_name="Minijam210Astral"
 
+[gui]
+
+theme/custom_font="uid://b3ka58gfstp07"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxqlpip4dl8pm" path="res://assets/models/level.fbx" id="3_pvqg1"]
 [ext_resource type="Script" uid="uid://d2jihk5atxub7" path="res://scripts/LevelCameraControls.gd" id="4_c7umo"]
 [ext_resource type="Texture2D" uid="uid://duhyj44dwll5s" path="res://assets/img/stars.png" id="5_mr7q5"]
+[ext_resource type="AudioStream" uid="uid://dwhqyrqp6vyp2" path="res://Music/level_bgm.wav" id="6_hyk74"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_neig4"]
 size = Vector2(1.4, 0.89)
@@ -215,18 +216,18 @@ process_mode = 3
 
 [node name="level" parent="." unique_id=1305496534 instance=ExtResource("3_pvqg1")]
 
-[node name="Light" parent="level" index="0" unique_id=1730370863]
+[node name="Light" parent="level" index="0" unique_id=1010224724]
 light_energy = 1.0
 
-[node name="Camera" parent="level" index="1" unique_id=1549106887]
+[node name="Camera" parent="level" index="1" unique_id=1918645290]
 transform = Transform3D(-1.6292068e-07, -4.3711385e-08, -1, -3.552714e-15, 1, -4.3711385e-08, 1, -3.5687747e-15, -1.6292068e-07, -3.9988952, 0.6294259, 0.029661193)
 far = 4000.0
 
-[node name="Monitor" parent="level" index="5" unique_id=254613494]
+[node name="Monitor" parent="level" index="5" unique_id=78813984]
 transform = Transform3D(92.1949, 38.731136, -4.4703484e-06, 1.4901162e-06, 1.192093e-05, 99.99999, 38.731136, -92.1949, 1.1920929e-05, -0.4186713, 0, 0.27361727)
 metadata/_edit_group_ = true
 
-[node name="MonitorScreen" parent="level/Monitor" index="0" unique_id=492388446]
+[node name="MonitorScreen" parent="level/Monitor" index="0" unique_id=683611111]
 transform = Transform3D(1.1014221, -0.2291162, -2.9304246e-08, 0.2291162, 1.1014221, 7.049941e-09, 2.72543e-08, -1.2870274e-08, 1.125, 0.0015037457, 4.656613e-10, 0.007069087)
 metadata/_edit_group_ = true
 
@@ -256,10 +257,10 @@ input_capture_on_drag = true
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
 
-[node name="Light_001" parent="level" index="9" unique_id=726229084]
+[node name="Light_001" parent="level" index="9" unique_id=2136409123]
 light_energy = 1.0
 
-[node name="Light_002" parent="level" index="11" unique_id=2073180975]
+[node name="Light_002" parent="level" index="11" unique_id=995957259]
 light_energy = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477955772 node_paths=PackedStringArray("CameraAnimation")]
@@ -390,6 +391,10 @@ input_capture_on_drag = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Screen/Quad/Area3D" unique_id=83601855]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_neig4")
+
+[node name="ASP_level_bgm" type="AudioStreamPlayer" parent="." unique_id=332574165]
+stream = ExtResource("6_hyk74")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
 [connection signal="pressed" from="Screen/Control/CanvasLayer/blackBg/BackButton" to="CanvasLayer" method="_on_back_button_pressed"]
