@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://duhyj44dwll5s" path="res://assets/img/stars.png" id="5_mr7q5"]
 [ext_resource type="Texture2D" uid="uid://drq3qfdlnw0b4" path="res://assets/img/singlestar.png" id="6_hyk74"]
 [ext_resource type="AudioStream" uid="uid://dwhqyrqp6vyp2" path="res://Music/level_bgm.wav" id="7_8xpys"]
-[ext_resource type="PackedScene" uid="uid://coexvfowdidxm" path="res://Scenes/PauseMenu.tscn" id="9_er4ec"]
+[ext_resource type="PackedScene" path="res://Scenes/PauseMenu.tscn" id="9_er4ec"]
 
 [sub_resource type="Environment" id="Environment_8xpys"]
 background_energy_multiplier = 0.0
@@ -859,18 +859,18 @@ compositor = SubResource("Compositor_er4ec")
 
 [node name="level" parent="WorldEnvironment" unique_id=1305496534 instance=ExtResource("3_pvqg1")]
 
-[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1730370863]
+[node name="Light" parent="WorldEnvironment/level" index="0" unique_id=1279031697]
 light_energy = 0.0
 
-[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1549106887]
+[node name="Camera" parent="WorldEnvironment/level" index="1" unique_id=1547835739]
 transform = Transform3D(-0.240228, 0, -0.9707165, 0, 1, 0, 0.9707165, 0, -0.240228, 3.9360003, 0.605, -1.51)
 far = 4000.0
 
-[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=254613494]
+[node name="Monitor" parent="WorldEnvironment/level" index="5" unique_id=1110668285]
 transform = Transform3D(92.1949, 38.731136, 1.6929915e-06, 0, -4.371139e-06, 99.99999, 38.731136, -92.1949, -4.029967e-06, -0.4186713, 0, 0.27361727)
 metadata/_edit_group_ = true
 
-[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=492388446]
+[node name="MonitorScreen" parent="WorldEnvironment/level/Monitor" index="0" unique_id=1914968694]
 transform = Transform3D(1.1014222, -0.22911622, -2.930425e-08, 0.22911622, 1.1014222, 7.049959e-09, 2.72543e-08, -1.2870275e-08, 1.125, 0.0015037457, 4.656613e-10, 0.007069087)
 metadata/_edit_group_ = true
 
@@ -906,10 +906,10 @@ input_capture_on_drag = true
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -5.2910764e-08, 0, 0.0018463049)
 shape = SubResource("BoxShape3D_8xpys")
 
-[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=726229084]
+[node name="Light_001" parent="WorldEnvironment/level" index="9" unique_id=1771492397]
 light_energy = 0.0
 
-[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=2073180975]
+[node name="Light_002" parent="WorldEnvironment/level" index="11" unique_id=896660432]
 light_energy = 0.0
 
 [node name="SkyBg" type="Node3D" parent="WorldEnvironment" unique_id=303202552]
@@ -997,16 +997,15 @@ text = "[center][font_size=32
 ]
 [img width=45]res://assets/img/TinyIconB.png[/img] must be after [img width=45]res://assets/img/TinyIconA.png[/img]
 [img width=45]res://assets/img/TinyIconC.png[/img] must have another [img width=45]res://assets/img/TinyIconC.png[/img] 2 spaces away but never closer
-The symbol of 3rd space can't be next to itself
-[img width=45]res://assets/img/TinyIconD.png[/img] can't be closer  than 1 spaces from [img width=45]res://assets/img/TinyIconC.png[/img]
-The symbol of 9th space can't be the same as 1st space
+The sigil of 3rd space can't be next to itself
+[img width=45]res://assets/img/TinyIconD.png[/img] can't be next to [img width=45]res://assets/img/TinyIconC.png[/img]
+The sigil of 9th space can't be the same as 1st space
 [img width=45]res://assets/img/TinyIconF.png[/img] can't be more than 1 space separated from [img width=45]res://assets/img/TinyIconC.png[/img]
-The symbol of 10th space must be the same as 1st space
+The sigil of 10th space must be the same as 1st space
 Triple [img width=45]res://assets/img/TinyIconA.png[/img] is not allowed
-The symbol of 13th position can't be the same as last position
+The sigil of 13th position can't be the same as last position
 [img width=45]res://assets/img/TinyIconE.png[/img] position must be multiple of 3
-[img width=45]res://assets/img/TinyIconG.png[/img] must have the same neighbours
-A secret couple has been spotted"
+[img width=45]res://assets/img/TinyIconG.png[/img] must have the same neighbours"
 
 [node name="BackButton" type="Button" parent="WorldEnvironment/Guide/SubViewport/Control/CanvasLayer/blackBg" unique_id=722056834]
 layout_mode = 1
