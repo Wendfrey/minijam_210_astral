@@ -27,4 +27,6 @@ func _on_status_icon_pressed():
 	ventanaStatus.visible = true
 	
 func _on_level_manager_level_completed(index: int) -> void:
+	PlayerProgess.checkDoneLogro(4, 0)
+	PlayerProgess.checkDoneLogro(12, index)
 	ventanaStatus.show()

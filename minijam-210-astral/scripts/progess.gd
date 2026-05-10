@@ -9,7 +9,7 @@ func _ready():
 	logros.append(Logro.new(1)) #Abrir la ventana Status
 	logros.append(Logro.new(1)) #Abrir un nivel
 	logros.append(Logro.new(1)) #Completar 3 pasos en un nivel
-	logros.append(Logro.new(1)) #Completar los 6 pasos de un nivel
+	logros.append(Logro.new(1)) #Completar un nivel
 	logros.append(Logro.new(6)) #Completar 2 pasos en los 6 niveles
 	logros.append(Logro.new(7)) #Descubrir todos los sigils
 	logros.append(Logro.new(1)) #Que se active el efecto del Secret lover
