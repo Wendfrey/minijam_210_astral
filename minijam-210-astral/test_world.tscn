@@ -42,12 +42,13 @@ corner_radius_bottom_left = 5
 font = ExtResource("11_5457m")
 font_size = 14
 
-[node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego", "ventanaLogros")]
+[node name="TestWorld" type="Control" unique_id=1608082381 node_paths=PackedStringArray("ventanaJuego", "ventanaLogros", "ventanaStatus")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cnaw2")
 ventanaJuego = NodePath("JuegoVentana")
 ventanaLogros = NodePath("LogrosVentana")
+ventanaStatus = NodePath("StatusVentana")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1397467646]
 z_index = -2
@@ -316,7 +317,8 @@ offset_bottom = -73.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
-[node name="StatusVentana" type="Panel" parent="." unique_id=1383264431 node_paths=PackedStringArray("listado")]
+[node name="StatusVentana" type="Panel" parent="." unique_id=1383264431]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -447.0
@@ -326,7 +328,6 @@ offset_bottom = 288.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
 script = ExtResource("4_uu1iw")
-listado = NodePath("")
 logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
 
 [node name="close" type="Button" parent="StatusVentana" unique_id=1889893680]
@@ -364,7 +365,7 @@ position = Vector2(-123.11975, 65.99994)
 rotation = -2.094395
 texture = ExtResource("15_07e4k")
 
-[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
+[node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617]
 visible = false
 z_index = 1
 layout_mode = 0
@@ -375,7 +376,6 @@ offset_bottom = 243.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
 script = ExtResource("4_uu1iw")
-listado = NodePath("ScrollContainer/VBoxContainer")
 logros = Array[String](["Look at the stars", "Check the status window", "Open a level", "Play the game", "Complete a level", "Try all levels", "Discover all sigils", "So you're the Secret lover!", "Curiosity Killed the Cat", "Today is a legs day", "Are you sure?", "Wait for hope", "Change our destiny"])
 
 [node name="close" type="Button" parent="LogrosVentana" unique_id=1183670540]

@@ -11,19 +11,20 @@ const Spacer = preload("uid://c8jcc5y7w1h2k")
 
 const Level1 = preload("uid://cowrxku5le6ed")
 const Level2 = preload("uid://cliskxier8edx")
-
-enum Level {
-	LVL1, LVL2, LVL3
-}
+const Level3 = preload("uid://binbx6vgi8hn3")
+const Level4 = preload("uid://doguigma4krv0")
+const Level5 = preload("uid://du5ubj4deinig")
 
 @onready var levels_array:Array[BaseLevel] = [
 	Level1.new(),
-	Level2.new()
+	Level2.new(),
+	Level3.new(),
+	Level4.new(),
+	Level5.new()
 ]
 
-@export var currentLevel:Level = Level.LVL1
+var currentLevel:int = 0
 
-var currentLevelScript:int = 0
 
 func _ready() -> void:
 	for lvl in levels_array:
@@ -59,6 +60,7 @@ func on_level_pressed(index:int):
 	if index < levels_array.size():
 		if levels_array[index].is_complete():
 			return
+		currentLevel = index
 		juego_ventana.show()
 		for c in spacer_container.get_children():
 			c.hide()
