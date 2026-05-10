@@ -442,8 +442,6 @@ offset_right = -76.0
 offset_bottom = 226.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_lf0gk")
-
-
 script = ExtResource("12_07e4k")
 indicators = [NodePath("Calendar/Circle1/Level1"), NodePath("Calendar/Circle1/Level2"), NodePath("Calendar/Circle1/Level3"), NodePath("Calendar/Circle2/Level4"), NodePath("Calendar/Circle2/Level5"), NodePath("Calendar/Circle2/Level6"), NodePath("Calendar")]
 
@@ -599,4 +597,5 @@ bus = &"SFX"
 [connection signal="pressed" from="LogrosVentana/close" to="." method="_on_logros_close_pressed"]
 [connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]
 [connection signal="level_completed" from="LevelManager" to="." method="_on_level_manager_level_completed"]
+[connection signal="level_completed" from="LevelManager" to="StatusVentana" method="_on_level_manager_level_completed"]
 [connection signal="spacer_changed" from="LevelManager" to="RulesChecker" method="_on_level_manager_spacer_changed"]
