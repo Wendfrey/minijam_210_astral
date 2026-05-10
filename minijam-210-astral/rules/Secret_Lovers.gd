@@ -3,7 +3,7 @@ extends BaseRule
 const NUMBER_GROUP = 2
 
 func _init() -> void:
-	rule_name = "[color=BLACK][img width=32 color=BLACK]res://assets/img/TinyIconG.png[/img] must come in pairs"
+	rule_name = "Love is in the air!"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var secret_lovers:Array[Ficha] = []

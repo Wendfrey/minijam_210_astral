@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK]The 13th and the last space must have different sigils"
+	rule_name = "[color=BLACK]The sigil of 13th position can't be the same as last position"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []
@@ -13,7 +13,6 @@ func _check_rules_internal() -> Array[Ficha]:
 	var lastPiece = get_piece(-1)
 	if thirteentPiece.tipo == lastPiece.tipo:
 		error_fichas.append(thirteentPiece)
-		error_fichas.append(lastPiece)
 	
 	if error_fichas.size() > 0:
 		PlayerProgess.checkDoneLogro(8,3)

@@ -1,7 +1,7 @@
 extends BaseRule
 
 func _init() -> void:
-	rule_name = "[color=BLACK]The sigil on the 3rd space cannot be chained in any space"
+	rule_name = "[color=BLACK]The sigil of 3rd space can't be next to itself"
 
 func _check_rules_internal() -> Array[Ficha]:
 	var error_fichas:Array[Ficha] = []
