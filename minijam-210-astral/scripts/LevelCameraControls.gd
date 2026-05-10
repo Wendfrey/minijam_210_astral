@@ -10,6 +10,7 @@ func _on_button_pressed():
 	await CameraAnimation.animation_finished
 	back_button.disabled = false
 	first_window.visible = true
+	PlayerProgess.checkDoneLogro(0,0)
 	
 	
 func _on_back_button_pressed():
