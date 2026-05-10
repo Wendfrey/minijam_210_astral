@@ -4,6 +4,7 @@ extends Control
 
 func _ready() -> void:
 	$TestWorld/LevelManager.queue_free()
+	$TestWorld/RulesChecker.rule_check_result.connect(func (result): print(result))
 
 func _create_item(tipo):
 	if $CanvasLayer/HBoxContainer/BorrarButton.button_pressed:

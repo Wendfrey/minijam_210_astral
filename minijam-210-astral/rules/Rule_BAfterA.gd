@@ -13,4 +13,4 @@ func _check_rules_internal() -> Array[Ficha]:
 	return error_fichas
 	
 func isBAfterA(bIndex:int) -> bool:
-	return bIndex > 0 and arrayPieces[bIndex - 1].tipo == Ficha.Tipo.A
+	return bIndex > 0 and arrayPieces[bIndex - 1].tipo == Ficha.Tipo.A or get_piece(bIndex).anulled

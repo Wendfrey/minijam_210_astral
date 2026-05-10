@@ -23,6 +23,14 @@ var current_anim:Tween = null
 var current_pos:Vector2
 
 @export var tipo:Tipo = Tipo.A
+var anulled:bool = false:
+	set(value):
+		if errores.is_empty():
+			if value:
+				set_modulation(Color.BLUE)
+			else:
+				set_modulation(Color.WHITE)
+		anulled = value
 var errores:Array[String]
 
 @onready var audioplayer = $ASP_sounds
@@ -96,7 +104,10 @@ func vibrate():
 
 func clear_errors():
 	errores.clear()
-	$Sprite2D.modulate = Color.WHITE
+	if anulled:
+		set_modulation(Color.BLUE)
+	else:
+		set_modulation(Color.WHITE)
 	for i in v_box_container.get_children():
 		v_box_container.remove_child(i)
 	
@@ -128,3 +139,6 @@ func sound_move():
 	audioplayer.stream = audio
 	if !audioplayer.playing:
 		audioplayer.play()
+		
+func set_modulation(color:Color):
+	sprite_2d.modulate = Color.WHITE.lerp(color, 0.5)

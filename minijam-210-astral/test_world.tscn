@@ -53,4 +53,4 @@ stream = ExtResource("4_dsnr4")
 bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="RulesChecker" method="_on_button_pressed"]
-[connection signal="no_mistakes" from="RulesChecker" to="LevelManager" method="_on_rules_checker_no_mistakes"]
+[connection signal="rule_check_result" from="RulesChecker" to="LevelManager" method="_on_rules_checker_result"]

@@ -8,7 +8,7 @@ func _check_rules_internal() -> Array[Ficha]:
 	var listF = get_index_of_type(Ficha.Tipo.F)
 	var listC = get_index_of_type(Ficha.Tipo.C)
 	for elementD in listF:
-		if not listC.any(func (elementC): return abs(elementD - elementC) <= 4):
+		if not listC.any(func (elementC): return abs(elementD - elementC) <= 2):
 			error_fichas.append(arrayPieces[elementD])
 	
 	return error_fichas

@@ -11,8 +11,9 @@ const Rule10ThRepeat = preload("uid://g8lm54v0j0m3")
 const RuleEmultiple3 = preload("uid://bwrj0iw4ifeci")
 const RuleTripleG = preload("uid://ba736gjybk8da")
 const Rule13ThRepeat = preload("uid://dpn0msbk8a3h")
+const RuleGSameNeighbours = preload("uid://wse6ahxoyv7v")
 
-signal no_mistakes
+signal rule_check_result(result:bool)
 
 @export var spacerNP: NodePath
 @onready var spacer: Node2D = get_node(spacerNP)
@@ -29,7 +30,7 @@ var rules:Array[BaseRule] = [
 	Rule9ThNoRepeat.new(),
 	Rule10ThRepeat.new(),
 	RuleEmultiple3.new(),
-	RuleTripleG.new(),
+	RuleGSameNeighbours.new(),
 	Rule13ThRepeat.new()
 ]
 
@@ -55,5 +56,4 @@ func checkRules():
 	return error_pieces.size() == 0
 
 func _on_button_pressed() -> void:
-	if checkRules():
-		no_mistakes.emit()
+	rule_check_result.emit(checkRules())

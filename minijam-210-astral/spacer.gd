@@ -1,6 +1,7 @@
 extends Node2D
 
 const ELEMENT = preload("uid://cte0ymnxkobwq")
+const SecretLovers = preload("uid://w7gf6cgu38n2")
 
 var pieces:Array[Ficha]
 
@@ -10,6 +11,8 @@ var nodePositionIndex:int
 
 @export var swapMargin:Vector2 = Vector2(64,172)
 @export var cellWidth: int = 128
+
+var secretLovers:BaseRule = SecretLovers.new()
 
 func _ready() -> void:
 	pieces = Array(
@@ -49,6 +52,8 @@ func _piece_dropped(node:Node2D):
 	dropped_tween["tween"] = tween
 	dropped_tween["node"] = node
 	
+	secretLovers.check_rules(pieces.duplicate())
+
 var previousTweens:Dictionary = {}
 func _on_element_item_rect_changed():
 	var closest_index = -1
@@ -101,6 +106,7 @@ func add_pieces(tipoArray:Array[Ficha.Tipo], withAnimation=true):
 		add_child(nficha)
 		
 	reset_values(withAnimation, tipoArray.size())
+	secretLovers.check_rules(pieces.duplicate())
 
 func add_piece(tipo: Ficha.Tipo, withAnimation=true):
 	var nficha:Ficha = ELEMENT.instantiate()
@@ -113,6 +119,7 @@ func add_piece(tipo: Ficha.Tipo, withAnimation=true):
 	add_child(nficha)
 	
 	reset_values.call_deferred(withAnimation)
+	secretLovers.check_rules(pieces.duplicate())
 		
 func reset_values(withAnimation=true, inserted = 1):
 	var center = (pieces.size() - 1) * cellWidth / 2.0
@@ -137,12 +144,6 @@ func createInsertAnimation(inserted):
 		tween.tween_property(child, "global_position", nPosition, time)\
 		.set_trans(Tween.TRANS_CUBIC)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == KEY_P and event.is_released():
-			remove_pieces([Ficha.Tipo.A,Ficha.Tipo.A])
-
-
 func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
 	var nodesToRemove:Array[Ficha] = []
 	for tipo in arrayTipo:
@@ -157,3 +158,5 @@ func remove_pieces(arrayTipo:Array[Ficha.Tipo]):
 		tween.finished.connect(node.queue_free)
 		tweenBig.parallel().tween_subtween(tween)
 	tweenBig.parallel().tween_callback(reset_values.bind(true, 0)).set_delay(0.2)
+	
+	secretLovers.check_rules(pieces.duplicate())
