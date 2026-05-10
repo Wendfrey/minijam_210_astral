@@ -24,6 +24,5 @@ func _create_item(tipo):
 	else:
 		spacer.add_piece(tipo)
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	spacer.remove_entity_piece(body.owner)
