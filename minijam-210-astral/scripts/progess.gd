@@ -14,7 +14,7 @@ func _ready():
 	logros.append(Logro.new(7)) #Descubrir todos los sigils
 	logros.append(Logro.new(1)) #Que se active el efecto del Secret lover
 	logros.append(Logro.new(11)) #Haber hecho check con todas las reglas rotas
-	logros.append(Logro.new(5)) #Ir muchas veces a la ventana
+	logros.append(Logro.new(3)) #Ir muchas veces a la ventana
 	logros.append(Logro.new(3)) #Abrir muchas veces Status
 	logros.append(Logro.new(1)) #esperar un rato mirando las estrellas
 	logros.append(Logro.new(6)) #Completar los 6 niveles

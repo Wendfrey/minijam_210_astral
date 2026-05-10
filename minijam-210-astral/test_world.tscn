@@ -511,7 +511,6 @@ libraries/ = SubResource("AnimationLibrary_4r1q4")
 autoplay = &"spinning"
 
 [node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 22.0
