@@ -70,7 +70,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
 [node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617 node_paths=PackedStringArray("listado")]
-z_index = -1
+z_index = 1
 layout_mode = 0
 offset_left = 22.0
 offset_top = -229.0
