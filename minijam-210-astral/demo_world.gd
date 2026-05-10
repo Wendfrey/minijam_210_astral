@@ -1,9 +1,14 @@
 extends Control
 
-@onready var spacer = $TestWorld/JuegoVentana/Spacer
+var spacer
 
 func _ready() -> void:
-	$TestWorld/LevelManager.queue_free()
+	$TestWorld/LevelManager.spacer_changed.connect(
+	func(nSpacer):
+		spacer=nSpacer
+	)
+	for i in $TestWorld/LogrosVentana/ScrollContainer/VBoxContainer.get_children():
+		i.show()
 	$TestWorld/RulesChecker.rule_check_result.connect(func (result): print(result))
 
 func _create_item(tipo):

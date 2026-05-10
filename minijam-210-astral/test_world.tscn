@@ -385,6 +385,7 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=947224256]
 
 [node name="JuegoVentana" type="Panel" parent="." unique_id=626347948]
+visible = false
 z_index = -1
 layout_mode = 0
 offset_left = -483.0
@@ -433,6 +434,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cnaw2")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_kt6p6")
 
 [node name="StatusVentana" type="Panel" parent="." unique_id=1383264431 node_paths=PackedStringArray("indicators")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -379.0
@@ -510,6 +512,7 @@ libraries/ = SubResource("AnimationLibrary_4r1q4")
 autoplay = &"spinning"
 
 [node name="LogrosVentana" type="Panel" parent="." unique_id=1040422617]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 22.0
